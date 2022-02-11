@@ -1,0 +1,99 @@
+ion-content{
+    --background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
+    url("/assets/satyabrata-sm-u_kMWN-BWyU-unsplash.jpeg") no-repeat center center / cover;
+
+}
+
+.Login-section{
+    height: 100vh;
+    width: 100%;
+    max-width: 500px;
+    background: transparent;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    border-top-right-radius: 46px;
+    border-top-left-radius:46px;
+
+
+}
+    .heading{
+        margin-top: 20px;
+        h1{
+            font-size: 2rem;
+            font-weight: bolder;
+            color: aliceblue;
+        }
+        p{
+            margin-top:20px ;
+            font-size: 1rem;
+            color: #fff;
+        }
+
+    }
+    .Login-form{
+        .form-input{
+            position: relative;
+            margin-bottom: 10px;
+            ion-item::part(native) {
+                padding-left: 0;
+            background-color: transparent;
+            border-bottom: solid white 1px;
+            }
+
+            ion-icon{
+                position: absolute;
+                top: 37px;
+                z-index: 2;
+                font-size: 1.2rem;
+                left: 5px;
+                
+            }
+
+            ion-label{
+                position: absolute;
+                margin-left: 35px;
+                font-weight: bolder;
+                font-size: 0.8rem;
+                top: 3px;
+            }
+
+            ion-input{
+                font-size: 0.9rem;
+                --padding-start:36px;
+                --padding-top:36px;
+                color: white;
+
+            }
+        }
+        
+        
+    }
+    
+    .action-buttons{
+        text-align: center;
+        .login-button{
+        --border-color: white;
+        width: 100%;
+        font-weight: bold;
+        background-color: transparent;
+    }
+}
+    p{
+        margin-top: 15px;
+        font-size: 1rem;
+        color: #ffff;
+    }
+    .log{
+        border-color: solid #ffff;
+        background-color: transparent;
+       
+        font-weight: bold;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    
+
