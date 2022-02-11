@@ -11,11 +11,11 @@ router.put('/client/:id',controller.updateClient);
 
 router.post('/client/login',controller.clientLogin)
 
-// router.get('doctor/',controller.getDoctors);
-// router.post("doctor/",controller.addDoctor);
-// router.get('doctor/:id', controller.getDoctorById);
-// router.delete('doctor/:id',controller.removeDoctorById);
-// router.put('doctor/:id',controller.updateDoctor);
+router.get('doctor/',controller.getDoctors);
+router.post("doctor/",controller.addDoctor);
+router.get('doctor/:id', controller.getDoctorById);
+router.delete('doctor/:id',controller.removeDoctor);
+router.put('doctor/:id',controller.updateDoctor);
 
 
 

@@ -9,7 +9,7 @@ const getClientPasswordByEmail="SELECT * FROM PUBLIC.USER WHERE email=$1";
 
 
 
-const addDOCTOR = "INSERT INTO DOCTOR (dr_name, occupation, experience, company, cell_no, email, password) VALUES ($1,$2,$3,$4,$5,$6,$7)";
+const addDoctor = "INSERT INTO DOCTOR (dr_name, occupation, experience, company, cell_no, email, password) VALUES ($1,$2,$3,$4,$5,$6,$7)";
 const getDoctors = "SELECT id, dr_name, occupation, experience, company, cell_no, email, password where is_active='true' FROM DOCTOR ORDER BY id ASC";
 const getDoctorById = "SELECT * FROM DOCTOR WHERE id =$1"
 const checkDoctorEmailExists = "SELECT * FROM DOCTOR WHERE email= $1"
@@ -32,7 +32,7 @@ module.exports = {
     getClientPasswordByEmail,
     
     
-    addDOCTOR ,
+    addDoctor ,
     getDoctors,
     getDoctorById,
     checkDoctorEmailExists,
