@@ -133,6 +133,15 @@ const clientLogin =async (req,res) =>{
     })    
 }
 
+const activateClient = async (req, res)=>{
+    const id = parseInt(req.params.id);
+    const {is_active } = req.body;
+    pool.query(queries.activateClient,[is_active,id],(error,results) =>{
+        if (error) throw error;
+        res.status(200).send("User updated successfully")
+    });
+}
+
 
 // ------------------------------------doctor----------------------------------------------
 const getDoctors = (req, res) => {
@@ -228,7 +237,7 @@ const updateDoctor = async (req,res) =>{
             }else{
             
     
-            pool.query(queries.updateClient,[cell_no, passwordHash,id],(error,results) =>{
+            pool.query(queries.updateDoctor,[cell_no, passwordHash,id],(error,results) =>{
                 if (error) throw error;
                 res.status(200).send("User updated successfully")
             });
@@ -248,7 +257,7 @@ const doctorLogin =async (req,res) =>{
             res.status(404).send("email does not exist in the database");
         }else{
 
-        pool.query(queries.getClientPasswordByEmail,[email],(error,results)=>{
+        pool.query(queries.getDoctorPasswordByEmail,[email],(error,results)=>{
             const queryPassword= bcrypt.compareSync(password, results.rows[0].password);
             if(!queryPassword){
                 res.send("Invalid password");
@@ -260,7 +269,17 @@ const doctorLogin =async (req,res) =>{
             //console.log(results)
         });  
     }
-    })    
+    }) 
+}
+
+
+const activateDoctor = async (req, res)=>{
+    const id = parseInt(req.params.id);
+    const {is_active } = req.body;
+    pool.query(queries.activateDoctor,[is_active,id],(error,results) =>{
+        if (error) throw error;
+        res.status(200).send("Status updated successfully")
+    });
 }
 
 module.exports ={
@@ -270,6 +289,7 @@ module.exports ={
     removeClient,
     updateClient,
     clientLogin,
+    activateClient,
     
     getDoctors,
     getDoctorById,
@@ -277,6 +297,8 @@ module.exports ={
     removeDoctor,
     updateDoctor,
     doctorLogin,
+    activateDoctor,
+    
 
     
 };
