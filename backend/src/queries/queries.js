@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-const addClient = "INSERT INTO USER (firstname, lastname, cell_no, email,password) VALUES ($1,$2,$3,$4,$5)";
-const getClients = "SELECT * FROM public.USER ORDER BY id ASC";
-const getClientById = "SELECT * FROM USER WHERE id =$1";
-const checkClientEmailExists = "SELECT * FROM USER WHERE email= $1";
-const removeClient ="DELETE FROM USER WHERE id=$1";
-const updateClient ="UPDATE USER SET cell_no=$1, password=$2 WHERE ID = $3";
-const clientLogin = "SELECT id, firstname, lastname, cell_no, email FROM USER WHERE password=$1 AND email=$2";
-const getClientPasswordByEmail="SELECT * FROM USER WHERE email=$1";
-=======
 const addClient = "INSERT INTO PUBLIC.USER (firstname, lastname, cell_no, email,password) VALUES ($1,$2,$3,$4,$5)";
 const getClients = "SELECT * FROM PUBLIC.USER where is_active='true' ORDER BY id ASC";
 const getClientById = "SELECT * FROM PUBLIC.USER WHERE id =$1";
@@ -17,7 +7,7 @@ const updateClient ="UPDATE PUBLIC.USER SET cell_no=$1, password=$2 WHERE ID = $
 const clientLogin = "SELECT id, firstname, lastname, cell_no, email FROM PUBLIC.USER WHERE password=$1 AND email=$2";
 const getClientPasswordByEmail="SELECT * FROM PUBLIC.USER WHERE email=$1";
 const activateClient="UPDATE PUBLIC.USER SET is_active=$1 WHERE id=$2 "
->>>>>>> 01d9a7cff0daedd963ef58217a97ecc67dab6446
+
 
 
 
