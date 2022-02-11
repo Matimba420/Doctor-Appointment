@@ -1,5 +1,5 @@
 const addClient = "INSERT INTO USER (firstname, lastname, cell_no, email,password) VALUES ($1,$2,$3,$4,$5)";
-const getClients = "SELECT * FROM USER ORDER BY id ASC";
+const getClients = "SELECT * FROM public.USER ORDER BY id ASC";
 const getClientById = "SELECT * FROM USER WHERE id =$1";
 const checkClientEmailExists = "SELECT * FROM USER WHERE email= $1";
 const removeClient ="DELETE FROM USER WHERE id=$1";
