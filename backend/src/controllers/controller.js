@@ -282,6 +282,48 @@ const activateDoctor = async (req, res)=>{
     });
 }
 
+// ------------------------------------pets----------------------------------------------
+
+const getPets = (req, res) => {
+    pool.query(queries.getPets,(error, results) => {
+        if(this.error){
+            console.log("error:"+error);
+            res.status(404).send(error);
+            throw error;
+        }
+        res.status(200).json(results.rows)
+    });
+};
+
+const getPetById = (req, res)=>{
+    const id =parseInt(req.params.id);
+
+
+    pool.query(queries.getPetById,[id],(error, results)=>{
+        if(!results) return res.status(400).send("invalid input")
+        if(!results.rows.length){ 
+            res.status(404).send('pet not found')
+            //throw error
+        }else{
+            res.status(200).json(results.rows);
+        }
+    } );
+}
+
+const getPetAndDocInfo=(req,res)=>{
+
+    const {pet_name} = req.body
+    pool.query(queries.getPetAndDocInfo,[pet_name],(error,results)=>{
+        if(!results.rows){
+            res.send("Not found");
+        }else{
+            res.status(200).json(results.rows);
+        }
+        
+        //console.log(results)
+    });  
+} 
+
 module.exports ={
     getClients,
     geClientById,
@@ -299,7 +341,9 @@ module.exports ={
     doctorLogin,
     activateDoctor,
     
-
+    getPets,
+    getPetById,
+    getPetAndDocInfo,
     
 };
 
