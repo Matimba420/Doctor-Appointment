@@ -149,4 +149,13 @@ INSERT INTO public.pets(
 	(12, 'Sheep', 600, 'Livestock Veterinarian'),
 	(13, 'Pig', 750, 'Livestock Veterinarian'),
 	(14, 'Goat', 500, 'Livestock Veterinarian'),
-	(15, 'Horse', 3000, 'Livestock Veterinarian');*/
+	(15, 'Horse', 3000, 'Livestock Veterinarian');
+    
+    
+ ===============Query===============   
+    
+    select dr_name, cell_no,email, occupation,fee, experience, pet_name
+from pets, doctor
+where department=occupation
+and is_active='true'
+and pets.id=(select pets.id where pet_name = 'Lizard');*/
