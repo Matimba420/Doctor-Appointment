@@ -3,7 +3,7 @@ const pool = require('../../db');
 const queries = require('../queries/queries')
 const Pool = require('pg').Pool;
 
-const getClients = async (req, res) => {
+const getClients = (req, res) => {
     pool.query(queries.getClients,(error, results) => {
         if(this.error){
             console.log("error:"+error);
@@ -40,16 +40,17 @@ const addClient = async (req,res) => {
         const passwordHash = await bcrypt.hash(password, salt);
 
         //check if email exists
-        pool.query(queries.checkEmailExists, [email], (error, results) => {
+        pool.query(queries.checkClientEmailExists, [email], (error, results) => {
             
             if (results.rows.length){
                 res.send("email already exists");
                 
             }else{
-                pool.query(queries.addUser, 
+                pool.query(queries.addClient, 
                     [firstname,lastname, cell_no,email, passwordHash],
                     (error,results)=>{
                     if(error){ 
+                        console.log('bad response ')
                         throw error;
                     }else{
                         res.status(201).send("User created successfully");

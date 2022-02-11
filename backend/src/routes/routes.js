@@ -1,16 +1,15 @@
 const {Router} = require('express');
-const { express } = require('express/lib/response');
 const controller = require('../controllers/controller')
 
 const router = Router();
 
-router.get('client/',controller.getClients);
-router.post('client/',controller.addClient);
-router.get('client/:id',controller.geClientById);
-router.delete('client/:id',controller.removeClient);
-router.put('client/:id',controller.updateClient);
+router.get('/client/',controller.getClients);
+router.post('/client/',controller.addClient);
+router.get('/client/:id',controller.geClientById);
+router.delete('/client/:id',controller.removeClient);
+router.put('/client/:id',controller.updateClient);
 
-router.post('client/login',controller.clientLogin)
+router.post('/client/login',controller.clientLogin)
 
 // router.get('doctor/',controller.getDoctors);
 // router.post("doctor/",controller.addDoctor);
