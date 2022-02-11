@@ -24,7 +24,7 @@ app.get('/', (req,res)=>{
     res.send("Doctor appointment backend application is up.");
 });
 
-app.use("/api/v1/",userRouter);
+app.use("/api/",userRouter);
 
 
 
