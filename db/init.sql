@@ -102,7 +102,7 @@ CREATE TABLE public.appointment
     appoint_date date NOT NULL,
     user_id integer NOT NULL,
     time_slot character varying(20) NOT NULL,
-    is_available character varying(5)
+    is_available boolean DEFAULT true 
 
 );
 
@@ -127,20 +127,35 @@ ADD FOREIGN KEY (pet_id)
 REFERENCES public.pets (id)
 ON DELETE CASCADE;
 
+ALTER TABLE public.user
+ADD is_active boolean DEFAULT true;
+
+ALTER TABLE public.doctor
+ADD is_active boolean DEFAULT true;
+
 INSERT INTO public.pets(
 	id, pet_name, fee, department)
-	VALUES (1, 'Cat', 750, 'Companion Vet'),
-	(2, 'Dog', 100, 'Companion Vet'),
-    (3, 'Rabit', 500, 'Companion Vet'),
-	(4, 'Farret', 450, 'Companion Vet'),
-    (5, 'Frog', 150, 'Exotic Vet'),
-	(6, 'Snake', 2500, 'Exotic Vet'),
-	(7, 'Lizard', 150, 'Exotic Vet'),
-	(8, 'Bird', 250, 'Exotic Vet'),
-	(9, 'Cameleon', 200, 'Exotic Vet'),
-	(10, 'Crocodile', 2500, 'Exotic Vet'),
-    (11, 'Cattle', 2750, 'Livestock Vet'),
-	(12, 'Sheep', 600, 'Livestock Vet'),
-	(13, 'Pig', 750, 'Livestock Vet'),
-	(14, 'Goat', 500, 'Livestock Vet'),
-	(15, 'Horse', 3000, 'Livestock Vet');;*/
+	VALUES (1, 'Cat', 750, 'Companion Veterinarian),
+	(2, 'Dog', 100, 'Companion Veterinarian'),
+    (3, 'Rabit', 500, 'Companion Veterinarian'),
+	(4, 'Farret', 450, 'Companion Veterinarian'),
+    (5, 'Frog', 150, 'Exotic Veterinarian'),
+	(6, 'Snake', 2500, 'Exotic Veterinarian'),
+	(7, 'Lizard', 150, 'Exotic Veterinarian'),
+	(8, 'Bird', 250, 'Exotic Veterinarian'),
+	(9, 'Cameleon', 200, 'Exotic Veterinarian'),
+	(10, 'Crocodile', 2500, 'Exotic Veterinarian'),
+    (11, 'Cattle', 2750, 'Livestock Veterinarian'),
+	(12, 'Sheep', 600, 'Livestock Veterinarian'),
+	(13, 'Pig', 750, 'Livestock Veterinarian'),
+	(14, 'Goat', 500, 'Livestock Veterinarian'),
+	(15, 'Horse', 3000, 'Livestock Veterinarian');
+    
+    
+ ===============Query===============   
+    
+    select dr_name, cell_no,email, occupation,fee, experience, pet_name
+from pets, doctor
+where department=occupation
+and is_active='true'
+and pets.id=(select pets.id where pet_name = 'Lizard');*/
