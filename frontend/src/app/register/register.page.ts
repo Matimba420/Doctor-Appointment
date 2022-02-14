@@ -39,6 +39,7 @@ export class RegisterPage implements OnInit {
         this.router.navigate(['/profile'])
       },
       error: (e) => console.error(e)
+      
     });
 
   }
