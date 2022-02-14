@@ -40,15 +40,24 @@ export class RegisterPage implements OnInit {
         this.router.navigate(['/profile'])
       },
       
-       error: (e) => console.error(e)
+      error: (e) => console.error(
+        Swal.fire(
+      
+          'Invalid email or password!',
+          '',
+          'warning'
+        )
+      )
+       
       
     });
-    Swal.fire(
+    // Swal.fire(
       
-      'Invalid email or password!',
-      '',
-      'warning'
-    )
+    //   'Invalid email or password!',
+    //   '',
+    //   'warning'
+    // )
+    
 
   }
 
