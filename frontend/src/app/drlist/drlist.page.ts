@@ -8,6 +8,7 @@ import { DoctorService } from '../api/doctor.service';
 })
 export class DrlistPage implements OnInit {
   
+  drlist:any={};
 
   constructor(private service: DoctorService) { }
 
@@ -16,7 +17,10 @@ export class DrlistPage implements OnInit {
   }
 
   getDoctor(){
-    console.log(this.service.getDoctors());
+    this.service.getDoctors().subscribe(res=>{
+      this.drlist = res;
+      console.log(this.drlist)
+    })
   }
 
 }

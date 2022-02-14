@@ -1,26 +1,33 @@
-<ion-card>
+<ion-card *ngFor="let list of drlist">
   <!-- <ion-card-header>
     Doctors List
   </ion-card-header> -->
+  
 
-  <ion-list>
+  <ion-list classs="ion-margin">
     <button ion-item>
       <!-- <ion-icon name="cart" item-start></ion-icon> -->
       <ion-item>
         <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          <img src="{{list.picture}}">
         </ion-avatar>
-        <ion-label>Dr. Walter</ion-label>
+        <ion-label>{{list.dr_name}}</ion-label>
       </ion-item >
       <ion-card-content>
-        Skin specialist 7 years experience
+        {{list.occupation}}
       </ion-card-content>
       <ion-card-content>
-        Dhaka Medical college
+        {{list.experience}}  years working experience
+      </ion-card-content>
+      <!-- <ion-card-content>
+        {{list.company}}
       </ion-card-content>
       <ion-card-content>
-        Price Fee: R1500
+        {{list.cell_no}}
       </ion-card-content>
+      <ion-card-content>
+        {{list.email}}
+      </ion-card-content> -->
     </button>
 
   </ion-list>

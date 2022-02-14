@@ -1,5 +1,14 @@
 ion-card{
-    margin: auto;
+    margin: 2rem;
+  
+    ion-list{
+        width:100%;
+        // margin: auto;
+        button{
+            width: 45vh;
+        }
+    }
+    
 }
 
 ion-card-content{
@@ -7,7 +16,11 @@ ion-card-content{
 }
 
 img{
-    width: 37px;
-    height: 37px;
+    width: 50px;
+    height: 50px;
 
+}
+
+:root {
+	--ion-background-color: #ffffff;
 }
