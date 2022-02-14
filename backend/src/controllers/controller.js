@@ -324,6 +324,44 @@ const getPetAndDocInfo=(req,res)=>{
     });  
 } 
 
+const getAppointments=(req,res)=>{
+    pool.query(queries.getAppointments,(error,results)=>{
+        if(!results.rows){
+            res.send("Not found");
+        }else{
+            res.status(200).json(results.rows);
+        }
+    })
+}
+
+
+const getAvailAppointByDrId= async (req,res)=>{
+    const dr_id = parseInt(req.params.dr_id);
+    pool.query(queries.getAvailableAppointments,[dr_id],(error,results)=>{
+        if(!results.rows){
+            res.send("Not found");
+        }else{
+            res.status(200).json(results.rows);
+        }
+    })
+}
+
+const makeAppointment= async (req, res)=>{
+    const id = parseInt(req.params.id);
+    const {pet_name } = req.body;
+    const {user_id } = req.body;
+    pool.query(queries.makeAppointment,[pet_name,user_id,id],(error,results)=>{
+        if(error){ 
+            console.log('bad response ')
+            throw error;
+        }else{
+            res.status(201).send("appointment created successfully");
+        }
+    });
+    
+}
+
+    
 module.exports ={
     getClients,
     geClientById,
@@ -344,6 +382,9 @@ module.exports ={
     getPets,
     getPetById,
     getPetAndDocInfo,
+    getAppointments,
+    getAvailAppointByDrId,
+    makeAppointment,
     
 };
 
