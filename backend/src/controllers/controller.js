@@ -361,6 +361,36 @@ const makeAppointment= async (req, res)=>{
     
 }
 
+const cancelAppointment= async (req,res)=>{
+    const id = parseInt(req.params.id);
+    const {pet_name } = "";
+    const {user_id } = "";
+    pool.query(queries.cancelAppointment,[pet_name,user_id,id],(error,results)=>{
+        if(error){ 
+            console.log('bad response ')
+            throw error;
+        }else{
+            res.status(201).send("appointment cancelled");
+        }
+    });
+}
+
+const getClientAppointments= async (req,res)=>{
+    const {user_id } = req.body;
+    pool.query(queries.getClientAppointments,[user_id],(error,results)=>{
+        if(!results.rows){
+            res.send("Not found");
+            return error;
+        }else{
+            console.log('it works')
+            res.status(200).json(results.rows);
+        }
+    })
+    
+
+
+}
+
     
 module.exports ={
     getClients,
@@ -382,9 +412,12 @@ module.exports ={
     getPets,
     getPetById,
     getPetAndDocInfo,
+    
     getAppointments,
     getAvailAppointByDrId,
     makeAppointment,
+    cancelAppointment,
+    getClientAppointments
     
 };
 
