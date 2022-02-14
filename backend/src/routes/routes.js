@@ -23,8 +23,20 @@ router.put('/doctor/:id',controller.updateDoctor);
 
 
 router.get('/pets/', controller.getPets);
-router.get('/pets/name',controller.getPetAndDocInfo)
+router.get('/pets/name',controller.getPetAndDocInfo);
 router.get('/pets/:id', controller.getPetById);
+
+
+router.get('/appointments/', controller.getAppointments);
+router.get('/appointments/client/',controller.getClientAppointments);
+router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
+router.get('/appointments/:dr_id', controller.getAvailAppointByDrId);
+router.put('/appointments/cancelAppointment/:id', controller.cancelAppointment)
+
+
+
+
+
 
 
 

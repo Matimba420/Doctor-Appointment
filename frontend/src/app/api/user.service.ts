@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:3000/api/v1/users';
+  private baseUrl = 'http://localhost:3000/api/client/';
 
   constructor(private http: HttpClient) { }
 
@@ -33,9 +34,21 @@ export class UserService {
     return this.http.put<any>(`${this.baseUrl}/${id}`, user)
   }
 
+  userLogin(user: any): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}login`, user)
+    
+  }
+
+  
+
+ 
+    
+  }
+
+
   
 
 
 
 
-}
+
