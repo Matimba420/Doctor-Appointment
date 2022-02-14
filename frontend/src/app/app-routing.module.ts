@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'modallist',
     loadChildren: () => import('./modallist/modallist.module').then( m => m.ModallistPageModule)
   },
+  {
+    path: 'doctor-profile',
+    loadChildren: () => import('./doctor-profile/doctor-profile.module').then( m => m.DoctorProfilePageModule)
+  },
 ];
 
 @NgModule({
