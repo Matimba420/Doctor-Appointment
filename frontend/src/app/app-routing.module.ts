@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: () => import('./components/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
+  {
+    path: 'drlist',
+    loadChildren: () => import('./drlist/drlist.module').then( m => m.DrlistPageModule)
+  },
 ];
 
 @NgModule({
