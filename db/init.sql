@@ -69,7 +69,7 @@ CREATE TABLE public.address
    street_name character varying(60) NOT NULL,
    surburb character varying(50) NOT NULL,
    postal_code  character(30),
-   user_id integer NOT NULL
+   dr_id integer NOT NULL
 );
 
 CREATE TABLE public.doctor
@@ -98,7 +98,7 @@ CREATE TABLE public.appointment
 (
     id SERIAL PRIMARY KEY,
     dr_id integer NOT NULL,
-    pet_id integer NOT NULL,
+    pet_id integer,
     appoint_date date NOT NULL,
     user_id integer,
     time_slot character varying(20) NOT NULL,
@@ -108,8 +108,8 @@ CREATE TABLE public.appointment
 
 
 ALTER TABLE public.address
-ADD FOREIGN KEY (user_id)
-REFERENCES public.user (id)
+ADD FOREIGN KEY (dr_id)
+REFERENCES public.docter (id)
 ON DELETE CASCADE;
 
 ALTER TABLE public.appointment

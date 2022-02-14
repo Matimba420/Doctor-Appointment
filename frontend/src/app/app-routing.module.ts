@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'drlist',
     loadChildren: () => import('./drlist/drlist.module').then( m => m.DrlistPageModule)
   },
+    {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)},
+  
 ];
 
 @NgModule({
