@@ -1,12 +1,59 @@
-<ion-card>
-  <img src="img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-  </ion-card-content>
+<ion-card *ngFor="let list of drlist">
+  <!-- <ion-card-header>
+    Doctors List
+  </ion-card-header> -->
+  
+
+  <ion-list classs="ion-margin">
+    <button ion-item>
+      <!-- <ion-icon name="cart" item-start></ion-icon> -->
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{list.picture}}">
+        </ion-avatar>
+        <ion-label>{{list.dr_name}}</ion-label>
+      </ion-item >
+      <ion-card-content>
+        {{list.occupation}}
+      </ion-card-content>
+      <ion-card-content>
+        {{list.experience}}  years working experience
+      </ion-card-content>
+      <!-- <ion-card-content>
+        {{list.company}}
+      </ion-card-content>
+      <ion-card-content>
+        {{list.cell_no}}
+      </ion-card-content>
+      <ion-card-content>
+        {{list.email}}
+      </ion-card-content> -->
+    </button>
+
+  </ion-list>
 </ion-card>
+<!-- 
+    <button ion-item>
+      <ion-icon name="medical" item-start></ion-icon>
+      Hospital
+    </button>
+
+    <button ion-item>
+      <ion-icon name="cafe" item-start></ion-icon>
+      Cafe
+    </button>
+
+    <button ion-item>
+      <ion-icon name="paw" item-start></ion-icon>
+      Dog Park
+    </button>
+
+    <button ion-item>
+      <ion-icon name="beer" item-start></ion-icon>
+      Pub
+    </button>
+
+    <button ion-item>
+      <ion-icon name="planet" item-start></ion-icon>
+      Space
+    </button> -->
