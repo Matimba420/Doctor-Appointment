@@ -100,7 +100,7 @@ CREATE TABLE public.appointment
     dr_id integer NOT NULL,
     pet_id integer NOT NULL,
     appoint_date date NOT NULL,
-    user_id integer NOT NULL,
+    user_id integer,
     time_slot character varying(20) NOT NULL,
     is_available boolean DEFAULT true 
 
@@ -133,6 +133,9 @@ ADD is_active boolean DEFAULT true;
 ALTER TABLE public.doctor
 ADD is_active boolean DEFAULT true;
 
+ALTER TABLE doctor
+ADD COLUMN picture character varying(200);
+
 INSERT INTO public.pets(
 	id, pet_name, fee, department)
 	VALUES (1, 'Cat', 750, 'Companion Veterinarian),
@@ -150,11 +153,20 @@ INSERT INTO public.pets(
 	(13, 'Pig', 750, 'Livestock Veterinarian'),
 	(14, 'Goat', 500, 'Livestock Veterinarian'),
 	(15, 'Horse', 3000, 'Livestock Veterinarian');
+
+
+    INSERT INTO public.doctor(
+	 id, dr_name, occupation, experience, company, cell_no, email, password, picture)
+	VALUES (5,'Dr Letswalo', 'Exotic Veterinarian', 12, 'DA Veteranian Clinic', '0123210245', 'drletswalo@gmail.com', '481216', 'https://i.ibb.co/c6ZKCgt/Friendly-and-attractive-of-a-african-american-woman-practitioner-standing-in-a-glass-hall-office-of.jpg'),
+	(2,'Dr Ali','Exotic Veterinarian',6, 'DA Veterinary Clinic','0123456789','drali@gmail.com','246810','https://i.ibb.co/m5CK7yR/A-Japanese-doctor-working-at-her-computer-in-a-Tokyo-Hospital-looking-over-a-patients-x-rays-in-orde.jpg'),
+	(1,'Dr Khan','Companion Veterinarian',7,'DA Veterinary Clinic','0123456789','drkhan@gmail.com','123456','https://i.ibb.co/31VxS11/Doctor-man-sitting-at-the-desk-at-his-working-place-and-smiling-at-camera-Perfect-medical-service-in.jpg'),
+	(3,'Dr Adel','Livestock Veterinarian',5, 'DA Veterinary Clinic','0123456789','dradel@gmail.com','654321','https://i.ibb.co/26txF1m/Portrait-of-female-African-American-doctor-standing-in-her-office-at-clini.jpg' ),
+	(4,'Dr Johnson','Companion Veterinarian', 8,'DA Veteranian Clinic','0609696081','drjohn@gmail.com','369121','https://i.ibb.co/MsSLczS/Portrait-of-adult-female-doctor-sitting-at-desk-in-office-clini.jpg');
     
     
  ===============Query===============   
     
-    select dr_name, cell_no,email, occupation,fee, experience, pet_name
+    select dr_name, cell_no,email, occupation,fee, experience, pet_name, doctor.id
 from pets, doctor
 where department=occupation
 and is_active='true'
