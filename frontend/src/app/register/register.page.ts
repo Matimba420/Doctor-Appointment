@@ -41,12 +41,20 @@ export class RegisterPage implements OnInit {
       },
       
       error: (e) => console.error(
-        Swal.fire(
-      
-          'Invalid email or password!',
-          '',
-          'warning'
-        )
+        // Swal.fire(
+          
+        //   'Invalid email or password!',
+        //   '',
+        //   'error',
+        // )
+
+        Swal.fire({  
+          confirmButtonColor: "red",
+          icon: 'error',  
+          title: 'Invalid email or password',  
+          footer: 'Please verifty your login credentials'})
+
+        
       )
        
       
