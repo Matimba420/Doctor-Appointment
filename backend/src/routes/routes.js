@@ -30,6 +30,10 @@ router.get('/pets/:id', controller.getPetById);
 router.get('/appointments/', controller.getAppointments);
 router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
 router.get('/appointments/:dr_id', controller.getAvailAppointByDrId);
+router.put('/appointments/cancelAppointment/:id', controller.cancelAppointment)
+
+router.get('/appointments/client/:user_id',controller.getClientAppointments)
+
 
 
 
