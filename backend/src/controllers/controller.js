@@ -376,15 +376,18 @@ const cancelAppointment= async (req,res)=>{
 }
 
 const getClientAppointments= async (req,res)=>{
-    const user_id = parseInt(req.params.user_id);
+    const {user_id } = req.body;
     pool.query(queries.getClientAppointments,[user_id],(error,results)=>{
         if(!results.rows){
             res.send("Not found");
             return error;
         }else{
+            console.log('it works')
             res.status(200).json(results.rows);
         }
     })
+    
+
 
 }
 
@@ -409,6 +412,7 @@ module.exports ={
     getPets,
     getPetById,
     getPetAndDocInfo,
+    
     getAppointments,
     getAvailAppointByDrId,
     makeAppointment,
