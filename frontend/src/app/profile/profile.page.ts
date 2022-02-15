@@ -12,25 +12,32 @@ export class ProfilePage implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   client = localStorage.getItem('access');
-  userDetails: any={}
-  
+  userDetails: any=[]
+  // details = {
+  // }
+
   ngOnInit() {
     
-    console.log(JSON.parse(this.client));
+    //console.log(JSON.parse(this.client));
     if(this.client==null){
       this.router.navigateByUrl('/login',{replaceUrl:true});
     }
-    this.getProfile();
+    this.getProfile()
 
   }
 
   getProfile(){
-    //this.userDetails = JSON.parse(localStorage.getItem('access'));
-    this.userService.getUserProfile(this.client).subscribe((res: any)=>{
-      this.userDetails = res;
-      console.log(this.userDetails)
-    })
+    this.userDetails = JSON.parse(localStorage.getItem('access'));
+    // this.userService.getUserProfile(this.client).subscribe((res: any)=>{
+    //   this.userDetails = res;
+    console.log(this.userDetails)
+    // })
     
+  }
+
+  logOut(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/login'])
   }
 
 }
