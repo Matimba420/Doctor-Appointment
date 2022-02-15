@@ -20,9 +20,10 @@ export class LoginPage implements OnInit {
     cell_no: new FormControl('',[Validators.required,Validators.minLength(10)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    
   })
   
-  get form(){
+  get Form(){
     return this.registerForm.controls;
   }
 

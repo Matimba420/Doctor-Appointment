@@ -12,7 +12,7 @@
     <div class="Login-section ion-padding">
         <div class="heading ion-padding">
           <h1> Welcome Animal Lover!</h1>
-          <p> Sign Up to continue </p>
+          <p> Sign in to continue </p>
     </div>
     <div class="Login-form ion-padding">
       <div class="form-input">
@@ -49,13 +49,13 @@
     </ion-item>
     </div>
 
-    <p class="ion-text-center" *ngIf="isLoading"><ion-spinner></ion-spinner></p>
+    <p class="ion-text-center" *ngIf="isloading"> <ion-spinner></ion-spinner> </p>
 
     </div>
     
     <div class="action-buttons ion-padding">
       <ion-button [disabled]="loginForm.invalid" class="log" size="large"  color="primary" type="submit">Login</ion-button>
-      <p>Forgot password?</p>
+      <!-- <p>Forgot password?</p> -->
       <ion-button class="login-button" size="large" fill="outline" routerLink="/register">
     Register
       </ion-button>

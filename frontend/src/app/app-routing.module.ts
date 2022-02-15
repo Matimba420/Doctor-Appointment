@@ -30,6 +30,14 @@ const routes: Routes = [
     loadChildren: () => import('./components/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
   {
+    path: 'modallist',
+    loadChildren: () => import('./modallist/modallist.module').then( m => m.ModallistPageModule)
+  },
+  {
+    path: 'doctor-profile',
+    loadChildren: () => import('./doctor-profile/doctor-profile.module').then( m => m.DoctorProfilePageModule)
+  },
+  {
     path: 'drlist',
     loadChildren: () => import('./drlist/drlist.module').then( m => m.DrlistPageModule)
   },

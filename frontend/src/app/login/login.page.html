@@ -1,4 +1,8 @@
+
+<ion-content [scrollEvents]="true">
+
 <ion-header>
+
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
@@ -22,6 +26,10 @@
           <ion-label position="floating">FIRST NAME</ion-label>
           <ion-input type="text" formControlName="firstname" id="firstname" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['firstname'].touched && Form['firstname'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['firstname'].errors && Form['firstname'].errors['required']">Firstname is required.</div>
+          <div *ngIf="Form['firstname'].errors && Form['firstname'].errors['firstname']">Please, enter valid firstname.</div>
+        </div>
       </div>
 
       <div class="form-input">
@@ -30,6 +38,10 @@
           <ion-label position="floating">LAST NAME</ion-label>
           <ion-input type="text" formControlName="lastname" id="lastname" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['lastname'].touched && Form['lastname'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['lastname'].errors && Form['lastname'].errors['required']">lastname is required.</div>
+          <div *ngIf="Form['lastname'].errors && Form['lastname'].errors['lastname']">Please, enter valid lastname.</div>
+        </div>
       </div>
 
       <div class="form-input">
@@ -38,6 +50,10 @@
           <ion-label position="floating">CELL NUMBER</ion-label>
           <ion-input type="text" formControlName="cell_no" id="cell_no" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['cell_no'].touched && Form['cell_no'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['cell_no'].errors && Form['cell_no'].errors['required']">cellphone number is required.</div>
+          <div *ngIf="Form['cell_no'].errors && Form['cell_no'].errors['cell_no']">Please, enter valid cellpohone number.</div>
+        </div>
       </div>
 
       <div class="form-input">
@@ -46,6 +62,10 @@
           <ion-label position="floating">EMAIL</ion-label>
           <ion-input type="email" formControlName="email" id="email" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['email'].touched && Form['email'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['email'].errors && Form['email'].errors['required']">email is required.</div>
+          <div *ngIf="Form['email'].errors && Form['email'].errors['email']">Please, enter valid email address.</div>
+        </div>
       </div>
     
       <div class="form-input">
@@ -54,13 +74,17 @@
           <ion-label position="floating">PASSWORD</ion-label>
           <ion-input type="password" formControlName="password" id="password" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['password'].errors && Form['password'].errors['required']">email is required.</div>
+          <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid email.</div>
+        </div>
       </div>
     </div>
     
     
     <div class="action-buttons ion-padding">
-      <ion-button size="large" class="login-button" routerLink="/register" type="submit">Sign up</ion-button>
-      <p>Forgot password?</p>
+      <ion-button [disabled]="registerForm.invalid" size="large" class="login-button" routerLink="/register" type="submit">Sign up</ion-button>
+      <!-- <p>Forgot password?</p> -->
       <ion-button class="login-button" size="large" fill="outline" routerLink="/login">Log in
     
       </ion-button>

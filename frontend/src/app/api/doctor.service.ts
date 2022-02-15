@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class DoctorService {
 
-  private baseUrl = 'http://localhost:3000/api/doctor';
+  private baseUrl = 'http://localhost:3000/api/doctor/';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -15,4 +16,15 @@ export class DoctorService {
   getDoctors(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}`);
   }
+  getAvailableAppointments() : Observable<any>{
+    // return this.http.get<any>(`${this.baseUrl}');
+    return this.http.get<any>('http://localhost:3000/api/appointments');
+  }
+
+  doctorLogin(user: any): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}login`, user)
+    
+  }
+
+
 }
