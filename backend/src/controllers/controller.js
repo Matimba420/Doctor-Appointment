@@ -110,25 +110,31 @@ const updateClient = async (req,res) =>{
 const clientLogin =async (req,res) =>{
     const {email} = req.body;
     const {password} = req.body;
+   
+    
     
     pool.query(queries.checkClientEmailExists, [email], (error, results) => {
         if (!results.rows.length){
-            res.status(404).json({error:'email does not exist in the database'});
+            res.status(404).json({error:"email does not exist in the database"});
         }else{
-
+               console.log(password);
         pool.query(queries.getClientPasswordByEmail,[email],(error,results)=>{
+            console.log(results.rows[0]);
             const queryPassword= bcrypt.compareSync(password, results.rows[0].password);
-            // if(!queryPassword){
-            //     res.status(500).json({error:"Invalid password"});
-            // }else{
-                res.status(200).json(results.rows);
+            if(!queryPassword){
+                res.status(404).json({error:"Invalid password or email"});
+            }else{
+                res.status(200).json({Response:results.rows});
                 console.log(queryPassword)
-            // }
+            }
+            
             //console.log(results)
         });  
     }
-    })    
+    }) 
 }
+
+
 
 const activateClient = async (req, res)=>{
     const id = parseInt(req.params.id);
@@ -384,11 +390,10 @@ const getClientAppointments= async (req,res)=>{
             res.status(200).json(results.rows);
         }
     })
-    
 
 
 }
-
+    
     
 module.exports ={
     getClients,
@@ -415,7 +420,5 @@ module.exports ={
     getAvailAppointByDrId,
     makeAppointment,
     cancelAppointment,
-    getClientAppointments
-    
+    getClientAppointments,
 };
-
