@@ -10,103 +10,42 @@
 
   <ion-grid>
     
-    <ion-row>
-      <ion-col>
-        <div><ion-card>
-          <ion-card-content class="card-img-top img-fluid">
-            <div class="card h-100">
-           <img src="/assets/cat.jpeg"/>
-           
-          
-           </div>
-          </ion-card-content>
-        </ion-card>
-        
-      </div>
-      </ion-col>
-
-
-      <ion-col>
+     <ion-row>
+      <!--ion-col *ngFor="let ba of bookAnimal">
         <div><ion-card>
           <ion-card-content>
-           <img src="/assets/dog.jpeg"/>
+           <img src={{ba.images}}/>
           </ion-card-content>
         </ion-card>
       </div>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
+
+   
+      <ion-col>
+        <ion-list>
+      <div><ion-card>
+        <ion-item *ngFor="let item of bookAnimal">
+          <!-- <ion-label> {{item.pet_name}}</ion-label> -->
+        <ion-card-content>
       
-    <ion-grid>
-    
-      <ion-row>
-        <ion-col>
-          <div><ion-card>
-            <ion-card-content>
-              <img src="/assets/bird.jpeg"/>
-            
-            </ion-card-content>
-          </ion-card>
-        </div>
-        </ion-col>
-  
-  
-        <ion-col>
-          <div><ion-card>
-            <ion-card-content>
-             <img src="/assets/farm.jpeg"/>
-            </ion-card-content>
-          </ion-card>
-        </div>
-        </ion-col>
-      </ion-row>
         
-      
-      <ion-grid>
+        
+          <ion-img style="width: 350px; height: 350px;" (click)='getDocInfo(item.pet_name)'
+           [src]="item.images"></ion-img>
+        
+        <ion-label>{{item.pet_name}}</ion-label>
+      </ion-card-content>
+      </ion-item>
     
-        <ion-row>
-          <ion-col>
-            <div><ion-card>
-              <ion-card-content>
-                <img src="/assets/small mammal.jpeg"/>
-              </ion-card-content>
-            </ion-card>
-          </div>
-          </ion-col>
-    
-    
-          <ion-col>
-            <div><ion-card>
-              <ion-card-content>
-                <img src="/assets/horse.jpeg"/>
-              </ion-card-content>
-            </ion-card>
-          </div>
-          </ion-col>
-        </ion-row>
-          
+  </ion-card>
+</div>
+    </ion-list>
+  </ion-col>
+  </ion-row>
       
-        <ion-grid>
     
-          <ion-row>
-            <ion-col>
-              <div><ion-card>
-                <ion-card-content>
-                  <img src="/assets/fish.jpeg"/>
-                </ion-card-content>
-              </ion-card>
-            </div>
-            </ion-col>
-      
-      
-            <ion-col>
-              <div><ion-card>
-                <ion-card-content>
-                  <img src="/assets/reptile.jpeg"/>
-                </ion-card-content>
-              </ion-card>
-            </div>
-            </ion-col>
-          </ion-row>
+            
             
         </ion-grid>
       

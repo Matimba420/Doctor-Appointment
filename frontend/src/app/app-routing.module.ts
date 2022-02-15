@@ -44,6 +44,10 @@ const routes: Routes = [
     {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)},
+  {
+    path: 'doctor-dashboard',
+    loadChildren: () => import('./doctor-dashboard/doctor-dashboard.module').then( m => m.DoctorDashboardPageModule)
+  },
   
 ];
 
