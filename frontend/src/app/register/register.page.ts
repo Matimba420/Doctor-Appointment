@@ -71,6 +71,26 @@ export class RegisterPage implements OnInit {
       });
   }else{
     console.log('doctor login')
+    this.userService.userLogin(this.loginForm.value).subscribe({
+      next:(data) =>{
+        this.isloading=false;
+        localStorage.setItem("access", JSON.stringify(data));
+        console.log(data)
+        this.router.navigateByUrl('/profile',{replaceUrl:true});
+      },
+      
+      error: (e) => (
+        console.log(e),
+         Swal.fire({  
+          confirmButtonColor: "red",
+          icon: 'error',  
+          title: e.error,  
+          footer: 'Please verifty your login credentials'}),
+          this.isloading=false
+      )
+    
+  });
+    
   }
     
 

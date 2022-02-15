@@ -15,4 +15,6 @@ export class DoctorService {
   getDoctors(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}`);
   }
+
+  g
 }
