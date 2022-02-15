@@ -38,6 +38,19 @@
           <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid email.</div>
         </div>
       </div>
+
+      <div class="form-select">
+    <ion-item>
+      <ion-label position="floating">Are you a client</ion-label>
+      <ion-select placeholder="select" (ionChange)="onServiceSelect($event)" required>
+        <ion-select-option value="yes">YES</ion-select-option>
+        <ion-select-option value="no">NO</ion-select-option>
+      </ion-select>
+    </ion-item>
+    </div>
+
+    <p class="ion-text-center" *ngIf="isLoading"><ion-spinner></ion-spinner></p>
+
     </div>
     
     <div class="action-buttons ion-padding">
