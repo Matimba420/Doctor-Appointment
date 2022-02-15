@@ -28,7 +28,7 @@ export class DoctorProfilePage implements OnInit {
   getAvailableAppointments() {
     this.service.getAvailableAppointments().subscribe(res=>{
       this.doctorProfile =res; 
-      
+      console.log(this.getAvailableAppointments)
     })
   }
 };

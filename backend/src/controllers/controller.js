@@ -110,6 +110,7 @@ const updateClient = async (req,res) =>{
 const clientLogin =async (req,res) =>{
     const {email} = req.body;
     const {password} = req.body;
+    
    
     
     

@@ -21,6 +21,10 @@
           <ion-label position="floating">EMAIL</ion-label>
           <ion-input type="email" formControlName="email" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['email'].touched && Form['email'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['email'].errors && Form['email'].errors['required']">email is required.</div>
+          <div *ngIf="Form['email'].errors && Form['email'].errors['email']">Please, enter valid email.</div>
+        </div>
       </div>
     
       <div class="form-input">
@@ -29,11 +33,15 @@
           <ion-label position="floating">PASSWORD</ion-label>
           <ion-input type="password" formControlName="password" required></ion-input>
         </ion-item>
+        <div *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
+          <div *ngIf="Form['password'].errors && Form['password'].errors['required']">email is required.</div>
+          <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid email.</div>
+        </div>
       </div>
     </div>
     
     <div class="action-buttons ion-padding">
-      <ion-button class="log" size="large"  color="primary" type="submit">Login</ion-button>
+      <ion-button [disabled]="loginForm.invalid" class="log" size="large"  color="primary" type="submit">Login</ion-button>
       <p>Forgot password?</p>
       <ion-button class="login-button" size="large" fill="outline" routerLink="/register">
     Register

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Router } from '@angular/router';
 import { UserService } from '../api/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterPage implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
 
-  get form(){
+  get Form(){
     return this.loginForm.controls;
   }
 
@@ -38,8 +39,33 @@ export class RegisterPage implements OnInit {
         console.log(data)
         this.router.navigate(['/profile'])
       },
-      error: (e) => console.error(e)
+      
+      error: (e) => console.error(
+        // Swal.fire(
+          
+        //   'Invalid email or password!',
+        //   '',
+        //   'error',
+        // )
+
+        Swal.fire({  
+          confirmButtonColor: "red",
+          icon: 'error',  
+          title: 'Invalid email or password',  
+          footer: 'Please verifty your login credentials'})
+
+        
+      )
+       
+      
     });
+    // Swal.fire(
+      
+    //   'Invalid email or password!',
+    //   '',
+    //   'warning'
+    // )
+    
 
   }
 
