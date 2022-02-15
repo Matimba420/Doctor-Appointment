@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Router } from '@angular/router';
 import { UserService } from '../api/user.service';
+import { DoctorService } from '../api/doctor.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(public formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
+  constructor(public formBuilder: FormBuilder, private userService: UserService,private doctorService: DoctorService, private router: Router) { }
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -70,13 +71,13 @@ export class RegisterPage implements OnInit {
         
       });
   }else{
-    console.log('doctor login')
-    this.userService.userLogin(this.loginForm.value).subscribe({
+    // console.log('doctor login')
+    this.doctorService.doctorLogin(this.loginForm.value).subscribe({
       next:(data) =>{
         this.isloading=false;
-        localStorage.setItem("access", JSON.stringify(data));
+        localStorage.setItem("doctorAccess", JSON.stringify(data));
         console.log(data)
-        this.router.navigateByUrl('/profile',{replaceUrl:true});
+        this.router.navigateByUrl('/doctor-profile',{replaceUrl:true});
       },
       
       error: (e) => (
