@@ -18,6 +18,7 @@ export class RegisterPage implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
+  
   isClient:boolean =true;
   isloading:boolean=false;
 

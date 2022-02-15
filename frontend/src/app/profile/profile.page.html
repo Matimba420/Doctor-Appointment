@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Profile</ion-title>
+    <ion-button size="small" slot="end" (click)="logOut()">Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
+  <div *ngFor="let data of userDetails">
+
+    <ion-card class="text-center">
+      <ion-card-header>
+        <ion-icon name="person-sharp" size="large"></ion-icon>
+        <h1>{{data.firstname}} {{data.lastname}}</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="mail"></ion-icon> {{data.email}} <br>
+        <ion-icon name="call"></ion-icon> {{data.cell_no}}
+      </ion-card-content>
+      <ion-button shape="round" fill="outline">Edit Profile</ion-button>
+    </ion-card>
+
+  </div>
+  <div>
+    <ion-card>
+      <ion-card-header>
+       <h4>Appointments</h4> 
+      </ion-card-header>
+      
+      <ion-card-content>
+       
+      </ion-card-content>
+    </ion-card>
+  
+
+  </div>
+
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/bookanimal">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

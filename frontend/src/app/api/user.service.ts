@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -40,6 +40,14 @@ export class UserService {
     return this.http.post<any>(`${this.baseUrl}login`, user)
     
   }
+
+  getUserProfile(token : any) : Observable<any> {
+    return this.http.post<any>(this.baseUrl, token, { 
+       headers: new HttpHeaders({
+         'Authorization': `Bearer ${token}`
+       })
+     });
+   }
 
   
 
