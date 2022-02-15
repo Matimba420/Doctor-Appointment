@@ -32,8 +32,8 @@ const geClientById=(req,res) =>{
 
 const addClient = async (req,res) => {
     const {firstname, lastname, cell_no, email, password} = req.body;
-    if(toString(password).length<8){
-        res.status(400).send('Your Password should be longer than 7 characters');
+    if( toString(password).length<8){
+        res.status(400).json('Your Password should be longer than 7 characters');
     }else{
 
         const salt=await bcrypt.genSalt(10);
@@ -43,17 +43,17 @@ const addClient = async (req,res) => {
         pool.query(queries.checkClientEmailExists, [email], (error, results) => {
             
             if (results.rows.length){
-                res.send("email already exists");
+                res.status(409).json({error:"Invalid email or password"});
                 
             }else{
                 pool.query(queries.addClient, 
                     [firstname,lastname, cell_no,email, passwordHash],
                     (error,results)=>{
                     if(error){ 
-                        console.log('bad response ')
+                        res.status(500).json({error: 'invalid input'})
                         throw error;
                     }else{
-                        res.status(201).send("User created successfully");
+                        res.status(201).json("User created successfully");
                     }
                 });
             }

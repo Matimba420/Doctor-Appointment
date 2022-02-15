@@ -17,59 +17,67 @@ export class RegisterPage implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
+  isClient:boolean =true;
+  isloading:boolean=false;
 
   get Form(){
     return this.loginForm.controls;
   }
 
   register(){
-    this.userService.getUsers().subscribe((res: any)=>{
-      console.log(res)
-      //this.router.navigate['/profile']
-    })
+    
+      this.userService.getUsers().subscribe((res: any)=>{
+        console.log(res)
+        //this.router.navigate['/profile']
+      })
+  
+  }
+
+  onServiceSelect(e){
+    let response =e.detail.value;
+    if(response=='no'){
+      this.isClient=false;
+    }else{
+      this.isClient=true;
+    }
+
+    
   }
 
   signIn(){
     console.log(this.loginForm.value)
     
     // this.userService.userLogin(this.loginForm.value)
-    this.userService.userLogin(this.loginForm.value).subscribe({
-      next:(data) =>{
-        localStorage.setItem("access", JSON.stringify(data));
-        console.log(data)
-        this.router.navigate(['/profile'])
-      },
-      
-      error: (e) => console.error(
-        // Swal.fire(
+    if(this.isClient==true){
+        this.isloading=true;
+        this.userService.userLogin(this.loginForm.value).subscribe({
+          next:(data) =>{
+            this.isloading=false;
+            localStorage.setItem("access", JSON.stringify(data));
+            console.log(data)
+            this.router.navigateByUrl('/profile',{replaceUrl:true});
+          },
           
-        //   'Invalid email or password!',
-        //   '',
-        //   'error',
-        // )
-
-        Swal.fire({  
-          confirmButtonColor: "red",
-          icon: 'error',  
-          title: 'Invalid email or password',  
-          footer: 'Please verifty your login credentials'})
-
+          error: (e) => (
+            console.log(e),
+             Swal.fire({  
+              confirmButtonColor: "red",
+              icon: 'error',  
+              title: e.error,  
+              footer: 'Please verifty your login credentials'}),
+              this.isloading=false
+          )
         
-      )
-       
-      
-    });
-    // Swal.fire(
-      
-    //   'Invalid email or password!',
-    //   '',
-    //   'warning'
-    // )
+      });
+  }else{
+    console.log('doctor login')
+  }
     
 
   }
 
   ngOnInit() {
+    
   }
 
 }
