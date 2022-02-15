@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DoctorService {
 
-  private baseUrl = 'http://localhost:3000/api/doctor';
+  private baseUrl = 'http://localhost:3000/api/doctor/';
   
 
   constructor(private http: HttpClient) { }
@@ -21,8 +21,8 @@ export class DoctorService {
     return this.http.get<any>('http://localhost:3000/api/appointments');
   }
 
-  doctorLogin(doctor: any): Observable<any>{
-    return this.http.post<any>(`${this.baseUrl}login`, doctor)
+  doctorLogin(user: any): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}login`, user)
     
   }
 

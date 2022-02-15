@@ -64,7 +64,7 @@ export class RegisterPage implements OnInit {
              Swal.fire({  
               confirmButtonColor: "red",
               icon: 'error',  
-              title: e.error,  
+              title: e.error.error,  
               footer: 'Please verifty your login credentials'}),
               this.isloading=false
           )
@@ -85,7 +85,7 @@ export class RegisterPage implements OnInit {
          Swal.fire({  
           confirmButtonColor: "red",
           icon: 'error',  
-          title: e.error,  
+          title: e.error.error,  
           footer: 'Please verifty your login credentials'}),
           this.isloading=false
       )

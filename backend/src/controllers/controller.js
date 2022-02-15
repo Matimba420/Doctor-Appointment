@@ -113,17 +113,17 @@ const clientLogin =async (req,res) =>{
     
     pool.query(queries.checkClientEmailExists, [email], (error, results) => {
         if (!results.rows.length){
-            res.status(404).json({error:"email does not exist in the database"});
+            res.status(404).json({error:'email does not exist in the database'});
         }else{
 
         pool.query(queries.getClientPasswordByEmail,[email],(error,results)=>{
             const queryPassword= bcrypt.compareSync(password, results.rows[0].password);
-            if(!queryPassword){
-                res.status(500).json({error:"Invalid password"});
-            }else{
+            // if(!queryPassword){
+            //     res.status(500).json({error:"Invalid password"});
+            // }else{
                 res.status(200).json(results.rows);
                 console.log(queryPassword)
-            }
+            // }
             //console.log(results)
         });  
     }
@@ -184,7 +184,7 @@ const addDoctor = async (req,res) => {
                 
             }else{
                 pool.query(queries.addDoctor, 
-                    [dr_name, occupation, experience, company, cell_no, email, password],
+                    [dr_name, occupation, experience, company, cell_no, email, passwordHash],
                     (error,results)=>{
                     if(error){ 
                         console.log('bad response ')
@@ -251,15 +251,16 @@ const doctorLogin =async (req,res) =>{
     
     pool.query(queries.checkDoctorEmailExists, [email], (error, results) => {
         if (!results.rows.length){
-            res.status(404).send("email does not exist in the database");
+            res.status(404).json({error:"email does not exist in the database"});
         }else{
-
+               console.log(password);
         pool.query(queries.getDoctorPasswordByEmail,[email],(error,results)=>{
+            console.log(results.rows[0]);
             const queryPassword= bcrypt.compareSync(password, results.rows[0].password);
             if(!queryPassword){
-                res.send("Invalid password");
+                res.status(404).json({error:"Invalid password or email"});
             }else{
-                res.status(200).json(results.rows);
+                res.status(200).json({Response:results.rows});
                 console.log(queryPassword)
             }
             
