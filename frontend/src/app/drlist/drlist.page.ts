@@ -8,7 +8,7 @@ import { DoctorService } from '../api/doctor.service';
 })
 export class DrlistPage implements OnInit {
   
-  drlist:any={};
+  drlist:any=[];
 
   constructor(private service: DoctorService) { }
 
