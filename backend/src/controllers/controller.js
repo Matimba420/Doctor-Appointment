@@ -268,7 +268,7 @@ const doctorLogin =async (req,res) =>{
             if(!queryPassword){
                 res.status(404).json({error:"Invalid password or email"});
             }else{
-                res.status(200).json({Response:results.rows});
+                res.status(200).json(results.rows);
                 console.log(queryPassword)
             }
             
