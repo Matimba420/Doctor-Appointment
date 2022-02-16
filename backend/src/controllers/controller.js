@@ -118,9 +118,11 @@ const clientLogin =async (req,res) =>{
             res.status(404).json({error:"email does not exist in the database"});
         }else{
                console.log(password);
+               console.log(results.rows[0].password)
         pool.query(queries.getClientPasswordByEmail,[email],(error,results)=>{
-            console.log(results.rows[0]);
+            console.log(results.rows[0].password);
             const queryPassword= bcrypt.compareSync(password, results.rows[0].password);
+            console.log(queryPassword)
             if(!queryPassword){
                 res.status(404).json({error:"Invalid password or email"});
             }else{
