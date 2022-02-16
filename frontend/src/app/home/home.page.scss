@@ -8,9 +8,7 @@
 }
 
 ion-button{
-  font-weight: bolder;
-  background: linear-gradient(90deg, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-
+  font-weight: bold;
 }
 
 #container strong {
@@ -21,12 +19,26 @@ ion-button{
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
+  gap: 0.3rem;
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+h1{
+    font-size: 30pt;
+    font-weight: bolder;
+    text-align: center;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+span{
+  background: -webkit-linear-gradient(#eee, rgb(69, 100, 201));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

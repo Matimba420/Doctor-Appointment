@@ -12,8 +12,12 @@
         <div>
             <ion-card>
               <img src="/assets/pexels-tima-miroshnichenko-6234608.jpg"/>
-              <div class="card-title">Users</div>
-              <div class="card-subtitle">41 Listings</div>
+              <div class="card-title">Clients</div>
+              <div class="card-subtitle">
+                <ion-chip>
+                  <ion-label color="white">100</ion-label>
+                </ion-chip>
+              </div>
             </ion-card>
         </div>
       </ion-col>
@@ -21,19 +25,162 @@
         <div><ion-card size="auto">
           <img src="/assets/pexels-mikhail-nilov-7470752.jpg"/>
           <div class="card-title">Doctors</div>
-          <div class="card-subtitle">64 Listings</div>
+          <div class="card-subtitle">
+            <ion-chip>
+              <ion-label color="white">10</ion-label>
+            </ion-chip>
+          </div>
         </ion-card></div>
       </ion-col>
       <ion-col size="12" size-sm="4">
         <div><ion-card>
           <img src="/assets/pexels-pixabay-40568.jpg"/>
           <div class="card-title">Appointments</div>
-          <div class="card-subtitle">72 Listings</div>
+          <div class="card-subtitle">
+            <ion-chip>
+              <ion-label>40</ion-label>
+            </ion-chip>
+          </div>
         </ion-card></div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-accordion-group>
+          <ion-accordion value="colors" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+              <ion-label><ion-icon name="people-circle-outline"></ion-icon>Clients</ion-label>
+            </ion-item>
+        
+            <ion-list slot="content">
+              <div class="table" style="overflow-x: auto;">
+                <ion-item>
+                  <table width="100%">
+                    <tr>
+                      <th>#</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Cell Number</th>
+                      <th>Actions</th>
+                    </tr>
+                    <tr *ngFor="let i of [1,2,3,4,5]">
+                      <td>{{i}}</td>
+                      <td>Kate</td>
+                      <td>Middleton</td>
+                      <td>kate@outlook.com</td>
+                      <td>087 345 3362</td>
+                      <td>
+                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </ion-item>
+              </div>
+            </ion-list>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-accordion-group>
+          <ion-accordion value="colors" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+              <ion-label><ion-icon name="people-circle-outline"></ion-icon>Doctors</ion-label>
+            </ion-item>
+        
+            <ion-list slot="content">
+              <div class="table" style="overflow-x: auto;">
+                <ion-item>
+                  <table width="100%">
+                    <tr>
+                      <th>#</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Cell Number</th>
+                      <th>Actions</th>
+                    </tr>
+                    <tr *ngFor="let i of [1,2,3,4,5]">
+                      <td>{{i}}</td>
+                      <td>Dr. Jake</td>
+                      <td>Bower</td>
+                      <td>bower.j@vet.co.za</td>
+                      <td>011 456 4442</td>
+                      <td>
+                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </ion-item>
+              </div>
+            </ion-list>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-accordion-group>
+          <ion-accordion value="colors" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+              <ion-label><ion-icon name="checkbox-outline"></ion-icon>&nbsp;Appointments</ion-label>
+            </ion-item>
+        
+            <ion-list slot="content">
+              <div class="table" style="overflow-x: auto;">
+                <ion-item>
+                  <table width="100%">
+                    <tr>
+                      <th>#</th>
+                      <th>Doctor</th>
+                      <th>Patient</th>
+                      <th>Service</th>
+                      <th>Service Fee</th>
+                      <th>Actions</th>
+                    </tr>
+                    <tr *ngFor="let i of [1,2,3,4,5]">
+                      <td>{{i}}</td>
+                      <td>Jake Bower</td>
+                      <td>Kiko</td>
+                      <td>De-worming</td>
+                      <td>R300</td>
+                      <td>
+                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </ion-item>
+              </div>
+            </ion-list>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+
+
+
+
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   
 
   
