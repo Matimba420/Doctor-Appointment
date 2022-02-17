@@ -36,6 +36,7 @@ export class LoginPage implements OnInit {
     this.userService.addUser(this.registerForm.value).subscribe({
       next:(data) =>{
         console.log(data)
+        Swal.fire('', 'Account successfully registered', 'success')
         this.router.navigate(['/login']);
       }
     
