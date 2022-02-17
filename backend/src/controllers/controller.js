@@ -68,11 +68,11 @@ const removeClient = (req, res) =>{
     pool.query(queries.getClientById,[id],(error, results)=>{
         const noUserfound = !results.rows.length;
         if(noUserfound){
-            res.send("User does not exist in the database.");
+            res.status(404).json("User does not exist in the database.");
         }else{
             pool.query(queries.removeClient,[id],(error, results)=>{
                 if(error) throw error;
-                res.status(200).send("user removed successfully");
+                res.status(200).json("user removed successfully");
         });
         }
     });
@@ -118,9 +118,11 @@ const clientLogin =async (req,res) =>{
             res.status(404).json({error:"email does not exist in the database"});
         }else{
                console.log(password);
+               console.log(results.rows[0].password)
         pool.query(queries.getClientPasswordByEmail,[email],(error,results)=>{
-            console.log(results.rows[0]);
+            console.log(results.rows[0].password);
             const queryPassword= bcrypt.compareSync(password, results.rows[0].password);
+            console.log(queryPassword)
             if(!queryPassword){
                 res.status(404).json({error:"Invalid password or email"});
             }else{
@@ -266,7 +268,7 @@ const doctorLogin =async (req,res) =>{
             if(!queryPassword){
                 res.status(404).json({error:"Invalid password or email"});
             }else{
-                res.status(200).json({Response:results.rows});
+                res.status(200).json(results.rows);
                 console.log(queryPassword)
             }
             

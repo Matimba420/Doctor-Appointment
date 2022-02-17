@@ -45,20 +45,6 @@ export class BookanimalPage implements OnInit {
     this.router.navigateByUrl('/drlist',{replaceUrl:true});
   }
   
-
-
-            // export class bookanimal{
-            //   logScrollStart(event) {
-            //     console.log("logScrollStart : When Scroll Starts", event);
-            //   }
-
-            //   logScrolling(event) {
-            //     console.log("logScrolling : When Scrolling", event);
-            //   }
-
-            //   logScrollEnd(event) {
-            //     console.log("logScrollEnd : When Scroll Ends", event);
-            //   }
  
 }
 

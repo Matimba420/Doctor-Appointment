@@ -18,7 +18,7 @@ const checkDoctorEmailExists = "SELECT * FROM PUBLIC.DOCTOR  WHERE email= $1"
 const removeDoctor ="UPDATE PUBLIC.DOCTOR  SET is_active='false' WHERE id=$1";
 const updateDoctor ="UPDATE PUBLIC.DOCTOR  SET cell_no=$1, password=$2 WHERE ID = $3"
 const DoctorLogin = "SELECT id, firstname, lastname, cell_no, email FROM PUBLIC.DOCTOR  WHERE password=$1 AND email=$2";
-const getDoctorPasswordByEmail="SELECT password FROM PUBLIC.DOCTOR  WHERE email=$1"
+const getDoctorPasswordByEmail="SELECT * FROM PUBLIC.DOCTOR  WHERE email=$1"
 const activateDoctor="UPDATE PUBLIC.DOCTOR SET is_active=$1 WHERE id=$2 ";
 
 

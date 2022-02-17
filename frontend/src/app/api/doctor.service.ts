@@ -26,5 +26,9 @@ export class DoctorService {
     
   }
 
+  removeDoctorById(id:any):Observable<any>{
+    return this.http.delete<any[]>(`${this.baseUrl}${id}`);
+  }
+
 
 }

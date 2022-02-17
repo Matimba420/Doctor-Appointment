@@ -1,4 +1,42 @@
 <ion-app>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button >
+        <!--ion-icon slot="icon-only" name="star"></ion-icon-->
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="homeFont" size="medium" [routerLink]="['/home']">Vet App</ion-title>
+    <ion-buttons slot="end">
+      <div>
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-buttons>
+        <ion-searchbar animated></ion-searchbar>
+      </ion-buttons>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+       <ion-menu-toggle><ion-item [routerLink]="['/login']" ><ion-icon name="log-in-outline"></ion-icon> Login</ion-item></ion-menu-toggle>
+       <ion-menu-toggle><ion-item [routerLink]="['/signup']"><ion-icon name="person-add-outline"></ion-icon> Sign Up</ion-item></ion-menu-toggle>
+       <ion-menu-toggle><ion-item [routerLink]="['/profile']"><ion-icon name="log-in-outline"></ion-icon>Profile</ion-item></ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!---->
+
+  <!---->
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
+
+
+<!-- <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -16,10 +54,4 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
-</ion-app>
-<!-- <ion-app>
-
-
-  <ion-router-outlet main></ion-router-outlet>
-  
 </ion-app> -->
