@@ -41,6 +41,12 @@ export class UserService {
     
   }
 
+  removeUserById(id:any):Observable<any>{
+    return this.http.delete<any[]>(`${this.baseUrl}${id}`);
+  }
+
+
+
   getUserProfile(token : any) : Observable<any> {
     return this.http.post<any>(this.baseUrl, token, { 
        headers: new HttpHeaders({

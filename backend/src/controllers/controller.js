@@ -68,11 +68,11 @@ const removeClient = (req, res) =>{
     pool.query(queries.getClientById,[id],(error, results)=>{
         const noUserfound = !results.rows.length;
         if(noUserfound){
-            res.send("User does not exist in the database.");
+            res.status(404).json("User does not exist in the database.");
         }else{
             pool.query(queries.removeClient,[id],(error, results)=>{
                 if(error) throw error;
-                res.status(200).send("user removed successfully");
+                res.status(200).json("user removed successfully");
         });
         }
     });

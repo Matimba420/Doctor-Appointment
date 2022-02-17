@@ -15,7 +15,7 @@
               <div class="card-title">Clients</div>
               <div class="card-subtitle">
                 <ion-chip>
-                  <ion-label color="white">100</ion-label>
+                  <ion-label color="white">{{numClients}}</ion-label>
                 </ion-chip>
               </div>
             </ion-card>
@@ -27,7 +27,7 @@
           <div class="card-title">Doctors</div>
           <div class="card-subtitle">
             <ion-chip>
-              <ion-label color="white">10</ion-label>
+              <ion-label color="white">{{numDoctors}}</ion-label>
             </ion-chip>
           </div>
         </ion-card></div>
@@ -58,7 +58,7 @@
             <ion-list slot="content">
               <div class="table" style="overflow-x: auto;">
                 <ion-item>
-                  <table width="100%">
+                  <table width="100%" >
                     <tr>
                       <th>#</th>
                       <th>First Name</th>
@@ -67,14 +67,15 @@
                       <th>Cell Number</th>
                       <th>Actions</th>
                     </tr>
-                    <tr *ngFor="let i of [1,2,3,4,5]">
-                      <td>{{i}}</td>
-                      <td>Kate</td>
-                      <td>Middleton</td>
-                      <td>kate@outlook.com</td>
-                      <td>087 345 3362</td>
+                    <tr *ngFor="let client of clients">
+                      <td>{{client.id}}</td>
+                      <td>{{client.firstname}}</td>
+                      <td>{{client.lastname}}</td>
+                      <td>{{client.email}}</td>
+                      <td>{{client.cell_no}}</td>
                       <td>
-                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                        <ion-icon name="trash-outline" (click)="removeClientById(client.id)"></ion-icon>&nbsp;
+                        <ion-icon name="pencil-outline"></ion-icon>
                       </td>
                     </tr>
                   </table>
@@ -103,20 +104,27 @@
                   <table width="100%">
                     <tr>
                       <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
+                      <th>Name</th>
+                      <th>Occupation</th>
+                      <th>Experience(years)</th>
+                      <!-- <th>Last Name</th> -->
                       <th>Email</th>
                       <th>Cell Number</th>
+                      <th>Branch</th>
                       <th>Actions</th>
                     </tr>
-                    <tr *ngFor="let i of [1,2,3,4,5]">
-                      <td>{{i}}</td>
-                      <td>Dr. Jake</td>
-                      <td>Bower</td>
-                      <td>bower.j@vet.co.za</td>
-                      <td>011 456 4442</td>
+                    <tr *ngFor="let doctor of doctors">
+                      <td>{{doctor.id}}</td>
+                      <td>{{doctor.dr_name}}</td>
+                      <td>{{doctor.occupation}}</td>
+                      <td>{{doctor.experience}}</td>
+                      <!-- <td>Bower</td> -->
+                      <td>{{doctor.email}}</td>
+                      <td>{{doctor.cell_no}}</td>
+                      <td>{{doctor.company}}</td>
                       <td>
-                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                        <ion-icon name="trash-outline" (click)="removeDoctorById(doctor.id)"></ion-icon>&nbsp;
+                        <ion-icon name="pencil-outline"></ion-icon>
                       </td>
                     </tr>
                   </table>
