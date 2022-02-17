@@ -43,7 +43,7 @@ const addClient = async (req,res) => {
         pool.query(queries.checkClientEmailExists, [email], (error, results) => {
             
             if (results.rows.length){
-                res.status(409).json({error:"Invalid email or password"});
+                res.status(409).json({error:"Email Already exists"});
                 
             }else{
                 pool.query(queries.addClient, 
