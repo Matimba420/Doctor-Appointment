@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class BookanimalPage implements OnInit {
   
   
-  bookAnimal;
+  bookAnimal:any=[];
+  
 
 
   
