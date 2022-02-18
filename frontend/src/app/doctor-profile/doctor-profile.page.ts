@@ -15,23 +15,23 @@ export class DoctorProfilePage implements OnInit {
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.getDoctor();
+    // this.getDoctor();
     this.getDoctorById(this.route.snapshot.params['id']);
   }
 
-  getDoctor(){
-    this.service.getDoctors().subscribe(res=>{
-      this.doctorProfile = res;
-      console.log(this.doctorProfile)
-    });
+  // getDoctor(){
+  //   this.service.getDoctors().subscribe(res=>{
+  //     this.doctorProfile = res;
+  //     console.log(this.doctorProfile)
+  //   });
 
    
-  }
 
-  getAvailableAppointments() {
+
+  getAvailableAppointments( id:any ) {
     this.service.getAvailableAppointments().subscribe(res=>{
       this.doctorProfile =res; 
-      console.log(this.getAvailableAppointments)
+      console.log(this.drInfo)
     })
   }
 
