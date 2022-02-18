@@ -374,7 +374,7 @@ const cancelAppointment= async (req,res)=>{
     const {user_id } = "";
     pool.query(queries.cancelAppointment,[pet_name,user_id,id],(error,results)=>{
         if(error){ 
-            console.log('bad response ')
+            console.status(404).json({error:'bad response '})
             throw error;
         }else{
             mailer('ntsakokhozacc@gmail.com')
