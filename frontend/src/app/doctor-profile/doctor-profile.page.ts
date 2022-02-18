@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../api/doctor.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -9,11 +10,13 @@ import { DoctorService } from '../api/doctor.service';
 export class DoctorProfilePage implements OnInit {
 
   doctorProfile:any=[];
+  drInfo:any=[];
 
-  constructor(private service: DoctorService) { }
+  constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.getDoctor();
+    this.getDoctorById(this.route.snapshot.params['id']);
   }
 
   getDoctor(){
@@ -31,4 +34,17 @@ export class DoctorProfilePage implements OnInit {
       console.log(this.getAvailableAppointments)
     })
   }
+
+
+  getDoctorById(id:any){
+    this.service.getDoctorById(id).subscribe(res=>{
+      this.drInfo=res;
+      console.log(this.drInfo);
+      
+
+    });
+  }
+
+
+  
 };

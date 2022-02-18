@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../api/doctor.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { DoctorService } from '../api/doctor.service';
 export class DrlistPage implements OnInit {
   
   drlist:any=[];
+  
 
-  constructor(private service: DoctorService) { }
+  constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.getDoctor();
+    
   }
 
   getDoctor(){
@@ -22,5 +25,7 @@ export class DrlistPage implements OnInit {
       console.log(this.drlist)
     })
   }
+
+  
 
 }
