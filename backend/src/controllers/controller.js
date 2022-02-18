@@ -377,7 +377,7 @@ const cancelAppointment= async (req,res)=>{
             console.log('bad response ')
             throw error;
         }else{
-            mailer('queenharriet5@gmail.com')
+            mailer('ntsakokhozacc@gmail.com')
             res.status(201).send("appointment cancelled");
         }
     });
@@ -417,7 +417,7 @@ const mailer = async (email)=>{
         //cc:'etlhako@gmail.com',
         subject: 'Appointment cancelling', // Subject line
         // text: text, // plain text body
-        html:   "<h1>'Greetings Mr khoza'</h1>Your appointment has been cancelled"
+        html:   `<h2>Greetings Mr khoza</h1><br><h4>Your appointment has been cancelled ${email}</h4>`
         // html body
     };
     Transporter.sendMail(mailOptions,function(err,data){
