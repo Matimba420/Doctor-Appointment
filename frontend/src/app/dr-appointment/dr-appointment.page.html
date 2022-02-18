@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>drAppointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content class="ion-padding-start ion-padding-end" fullscreen>
+    <div class="grid">
+      <div class="grid-item">
+        <h2>Choose Available Date & Time</h2>
+        <ion-datetime  min="{{todayDate}}" max="2099-12-31" displayFormat="DD MM YYYY H:mm" 
+        #datetime [value]='dateValue'
+        picker-format="DD MM YYYY H:mm" ></ion-datetime>
+      </div>
+    </div>
+    <ion-button class="m-auto" expand="block"(click)=setAvailability()>Confirm</ion-button>
+
+  
+    </ion-content> 
