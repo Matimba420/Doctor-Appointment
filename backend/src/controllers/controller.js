@@ -417,7 +417,7 @@ const mailer = async (email)=>{
         //cc:'etlhako@gmail.com',
         subject: 'Appointment cancelling', // Subject line
         // text: text, // plain text body
-        html:   `<h2>Greetings Mr khoza</h1><br><h4>Your appointment has been cancelled ${email}</h4>`
+        html:   `<h2>Greetings Mr khoza</h1><br><h4>Your appointment has been cancelled ☹️ ${email}</h4>`
         // html body
     };
     Transporter.sendMail(mailOptions,function(err,data){
