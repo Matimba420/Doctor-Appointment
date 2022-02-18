@@ -1,59 +1,45 @@
-<ion-card *ngFor="let list of drlist">
-  <!-- <ion-card-header>
-    Doctors List
-  </ion-card-header> -->
-  
+<!-- <ion-content class="card-background-page">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="4">
+        <div>
+            <ion-card *ngFor="let list of drlist">
+              <img src="{{list.picture}}"/>
+              <div class="card-title">{{list.dr_name}}</div>
+              <div class="card-subtitle">
+                <ion-chip>
+                  <ion-label color="white">{{list.occupation}}</ion-label>
+                </ion-chip>
+                <ion-chip>
+                  <ion-label color="white">{{list.experience}} years working experience</ion-label>
+                </ion-chip>
+              </div>
+            </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+<ion-content class="card-background-page">
 
-  <ion-list classs="ion-margin">
-    <button ion-item>
-      <!-- <ion-icon name="cart" item-start></ion-icon> -->
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="{{list.picture}}">
-        </ion-avatar>
-        <ion-label>{{list.dr_name}}</ion-label>
-      </ion-item >
-      <ion-card-content>
-        {{list.occupation}}
-      </ion-card-content>
-      <ion-card-content>
-        {{list.experience}}  years working experience
-      </ion-card-content>
-      <!-- <ion-card-content>
-        {{list.company}}
-      </ion-card-content>
-      <ion-card-content>
-        {{list.cell_no}}
-      </ion-card-content>
-      <ion-card-content>
-        {{list.email}}
-      </ion-card-content> -->
-    </button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="4" *ngFor="let list of drlist">
+        <ion-card>
+          <img src="{{list.picture}}" routerLink="/doctor-profile/{{list.id}}">
+          <ion-card-content>
+            <ion-card-title>{{list.dr_name}}</ion-card-title>
+          </ion-card-content>
+          <ion-text>
+            <h3>{{list.occupation}}</h3>
+          </ion-text>
+          <ion-text>
+            <h3>{{list.experience}} Years Of Experience</h3>
+          </ion-text>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
 
-  </ion-list>
-</ion-card>
-<!-- 
-    <button ion-item>
-      <ion-icon name="medical" item-start></ion-icon>
-      Hospital
-    </button>
 
-    <button ion-item>
-      <ion-icon name="cafe" item-start></ion-icon>
-      Cafe
-    </button>
-
-    <button ion-item>
-      <ion-icon name="paw" item-start></ion-icon>
-      Dog Park
-    </button>
-
-    <button ion-item>
-      <ion-icon name="beer" item-start></ion-icon>
-      Pub
-    </button>
-
-    <button ion-item>
-      <ion-icon name="planet" item-start></ion-icon>
-      Space
-    </button> -->

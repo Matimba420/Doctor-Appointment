@@ -47,11 +47,11 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  },  {
-    path: 'dr-appointment',
-    loadChildren: () => import('./dr-appointment/dr-appointment.module').then( m => m.DrAppointmentPageModule)
   },
-
+  {
+    path: 'doctor-profile/:id',
+    loadChildren: () => import('./doctor-profile/doctor-profile.module').then( m => m.DoctorProfilePageModule)
+  }
 
   
 ];

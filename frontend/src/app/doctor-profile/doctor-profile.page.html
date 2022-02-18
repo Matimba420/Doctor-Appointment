@@ -1,6 +1,6 @@
 <ion-content [scrollEvents]="true">
 
-<ion-header no-border>
+<!-- <ion-header no-border>
 <ion-row>
   <div class="card">
     <div class="header">
@@ -19,7 +19,7 @@
       </ion-col>
       <ion-col col-4 text-left>
 
-        <ion-label class="drname">Dr Joseph</ion-label>
+        <ion-label class="drname">{{item.dr_name}}</ion-label>
         <ion-label>Digoro</ion-label>
        
         
@@ -60,6 +60,54 @@
           <p>{{doctorProfile.date}} {{doctorProfile.available}}</p>
         </ion-item>
         
-        </ion-list>
-    </ion-card-content>
+        </ion-list> -->
+    <!-- </ion-card-content> -->
  
+    <ion-content class="card-background-page">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-sm="4" *ngFor="let item of drInfo">
+           
+            <ion-card>
+            
+              <img src="{{item.picture}}" >
+              <ion-card-content>
+                <ion-title>{{item.dr_name}}</ion-title>
+              </ion-card-content>
+              <ion-list>
+                <ion-item>
+                  <h2>Experience </h2>
+                </ion-item>
+                <ion-item>
+                 
+                  {{item.experience}} years.
+                 
+                </ion-item>
+
+                <ion-item>
+                  <h2>Occupation</h2>
+                </ion-item>
+                <ion-item>
+               {{item.occupation}} 
+                
+                </ion-item>
+             
+                <ion-item>
+                  <h2>Available Dates & Hours</h2>
+                </ion-item>
+                <ion-item>
+                  {{item.appoint_date}} {{item.time_slot}}
+                </ion-item>
+                
+                </ion-list>
+            
+            
+          </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+     
+    </ion-content>
+  

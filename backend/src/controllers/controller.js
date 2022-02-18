@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const pool = require('../../db');
 const queries = require('../queries/queries')
 const Pool = require('pg').Pool;
+const nodemailer = require('nodemailer');
 
 const getClients = (req, res) => {
     pool.query(queries.getClients,(error, results) => {
@@ -373,9 +374,10 @@ const cancelAppointment= async (req,res)=>{
     const {user_id } = "";
     pool.query(queries.cancelAppointment,[pet_name,user_id,id],(error,results)=>{
         if(error){ 
-            console.log('bad response ')
+            console.status(404).json({error:'bad response '})
             throw error;
         }else{
+            mailer('ntsakokhozacc@gmail.com')
             res.status(201).send("appointment cancelled");
         }
     });
@@ -395,6 +397,38 @@ const getClientAppointments= async (req,res)=>{
 
 
 }
+const Transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user:'ntsakokhozacc@gmail.com',
+        pass:'pdthgosbwikeapvz'
+    },
+    tls:{
+        rejectUnauthorized:false
+      }
+});
+
+const mailer = async (email)=>{
+    let mailOptions = {
+        from: 'ntsakokhozacc@gmail.com', // sender address
+        to: email, // list of receivers
+        //cc:'etlhako@gmail.com',
+        subject: 'Appointment cancelling', // Subject line
+        // text: text, // plain text body
+        html:   `<h2>Greetings Mr khoza</h1><br><h4>Your appointment has been cancelled ☹️ ${email}</h4>`
+        // html body
+    };
+    Transporter.sendMail(mailOptions,function(err,data){
+      if(err){
+          console.log(err);
+      }
+    });
+   
+}
+
+
     
     
 module.exports ={
