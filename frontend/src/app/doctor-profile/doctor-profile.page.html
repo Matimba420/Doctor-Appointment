@@ -1,65 +1,49 @@
 <ion-content [scrollEvents]="true">
 
-<ion-header no-border>
-<ion-row>
-  <div class="card">
-    <div class="header">
-      <div class="avatar">
-        <img src="/assets/charles-deluvio-Mv9hjnEUHR4-unsplash.jpeg">
+  <ion-header no-border>
+    <ion-row>
+      <div class="card">
+        <div class="header">
+          <div class="avatar">
+            <img src="/assets/charles-deluvio-Mv9hjnEUHR4-unsplash.jpeg">
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-
-</ion-row>
+    </ion-row>
     <ion-row>
       <ion-col col-4 text-left>
         <ion-icon name="ios-contact-outline">
         </ion-icon>
       </ion-col>
       <ion-col col-4 text-left>
-
         <ion-label class="drname">Dr Joseph</ion-label>
         <ion-label>Digoro</ion-label>
-       
-        
       </ion-col>
     </ion-row>
- 
-</ion-header>
-
-
-<ion-content>
-  <ion-card class="custom-card">
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <h2>Experience </h2>
-        </ion-item>
-        <ion-item>
-          <p>
-          {{doctorProfile.experience}} years working as a veterinarian.
-          </p>
-       
-        
-        </ion-item>
-    
-    
-        <ion-item>
-          <h2>Occupation</h2>
-        </ion-item>
-        <ion-item>
-          <p> The veterinarian is an expert in {{doctorProfile.occupation}} </p>
-        
-        </ion-item>
-     
-        <ion-item>
-          <h2>Available Dates & Hours</h2>
-        </ion-item>
-        <ion-item>
-          <p>{{doctorProfile.date}} {{doctorProfile.available}}</p>
-        </ion-item>
-        
+  </ion-header>
+  <ion-content>
+    <ion-card class="custom-card">
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <h2>Experience </h2>
+          </ion-item>
+          <ion-item>
+            <p>
+              {{doctorProfile.experience}} years working as a veterinarian.
+            </p>
+          </ion-item>
+          <ion-item>
+            <h2>Occupation</h2>
+          </ion-item>
+          <ion-item>
+            <p> The veterinarian is an expert in {{doctorProfile.occupation}} </p>
+          </ion-item>
+          <ion-item>
+            <h2>Available Dates & Hours</h2>
+          </ion-item>
+          <ion-item>
+            <p>{{doctorProfile.date}} {{doctorProfile.available}}</p>
+          </ion-item>
         </ion-list>
-    </ion-card-content>
- 
+      </ion-card-content>
