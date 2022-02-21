@@ -364,7 +364,7 @@ const getAvailAppointByDrId = async (req,res)=>{
 const getBookedAppointmentsBydrId= async (req,res)=>{
     const dr_id = parseInt(req.params.dr_id);
     pool.query(queries.getBookedAppointmentsByDrId,[dr_id],(error,results)=>{
-        if(!results){
+        if(!results.rows){
             res.send("Not found");
         }else{
             res.status(200).json(results.rows);
