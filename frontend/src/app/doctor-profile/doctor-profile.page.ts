@@ -41,7 +41,6 @@ export class DoctorProfilePage implements OnInit {
       this.drInfo=res;
       console.log(this.drInfo);
       
-
     });
   }
 
