@@ -31,7 +31,9 @@ const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experienc
 const getAppointments ="SELECT * FROM APPOINTMENT";
 
 
-const getAvailableAppointments="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and dr_id=doctor.id and is_available=true and appoint_date>= CURRENT_DATE";
+const getAvailableAppointments="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
+
+const getBookedAppointmentsByDrId="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=false and appoint_date>= CURRENT_DATE";
 const makeAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =false where id=$3";
 const cancelAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =true where id=$3";
 const getClientAppointments="SELECT * FROM PUBLIC.APPOINTMENT where user_id=$1";
@@ -65,11 +67,12 @@ module.exports = {
     getPetById,
     getPetAndDocInfo,
 
-
+    getClientAppointments,
     getAppointments,
     getAvailableAppointments,
     makeAppointment,
     cancelAppointment,
-    getClientAppointments,
+   
+    getBookedAppointmentsByDrId,
 
 };
