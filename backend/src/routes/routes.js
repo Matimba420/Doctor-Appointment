@@ -29,8 +29,9 @@ router.get('/pets/:id', controller.getPetById);
 
 router.get('/appointments/', controller.getAppointments);
 router.get('/appointments/client/',controller.getClientAppointments);
-router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
 router.get('/appointments/:dr_id', controller.getAvailAppointByDrId);
+router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
+
 router.put('/appointments/cancelAppointment/:id', controller.cancelAppointment)
 
 

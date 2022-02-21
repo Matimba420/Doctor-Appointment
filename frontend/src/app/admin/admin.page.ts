@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../api/user.service';
 import { DoctorService } from '../api/doctor.service';
+
+import { FormGroup, FormBuilder, Validators, FormControl,FormsModule } from "@angular/forms";
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,12 +12,27 @@ import Swal from 'sweetalert2';
 })
 export class AdminPage implements OnInit {
 
-  constructor(private clientService: UserService,private doctorService: DoctorService) { }
+  constructor(private formBuilder: FormBuilder,private clientService: UserService,private doctorService: DoctorService) { }
   numClients:any;
   numDoctors:any;
   numAppointments:any;
   clients:any=[];
   doctors:any=[];
+
+  clientForm: boolean = false;
+
+  registerForm = new FormGroup({
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('',[Validators.required]),
+    cell_no: new FormControl('',[Validators.required,Validators.minLength(10)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    
+  })
+  
+  get Form(){
+    return this.registerForm.controls;
+  }
 
 
   ngOnInit() {
@@ -99,6 +116,32 @@ export class AdminPage implements OnInit {
     })
   }
 
+  openClientForm(){
+    this.clientForm = !this.clientForm
+  }
 
+  register(){
+    // this.userService.addUser(this.registerForm.value).subscribe((data: any)=>{
+    //   console.log(data)
+    //   this.router.navigate(['/login']);
+    // })
+
+    this.clientService.addUser(this.registerForm.value).subscribe({
+      next:(data) =>{
+        console.log(data)
+        Swal.fire('', 'User successfully Added', 'success')
+        
+      },
+      error: (e) => (
+        console.log(e),
+         Swal.fire({  
+          confirmButtonColor: "red",
+          icon: 'error',  
+          title: e.error.error,  
+          })
+      )
+    
+  });
+    }
   
   }
