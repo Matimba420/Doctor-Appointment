@@ -54,6 +54,7 @@ const addClient = async (req,res) => {
                         res.status(500).json({error: 'invalid input'})
                         throw error;
                     }else{
+                        addUserMailer(email,firstname,lastname);
                         res.status(201).json("User created successfully");
                     }
                 });
@@ -190,7 +191,6 @@ const addDoctor = async (req,res) => {
             
             if (results.rows.length){
                 res.send("email already exists");
-                
             }else{
                 pool.query(queries.addDoctor, 
                     [dr_name, occupation, experience, company, cell_no, email, passwordHash],
@@ -199,7 +199,8 @@ const addDoctor = async (req,res) => {
                         console.log('bad response ')
                         throw error;
                     }else{
-                        res.status(201).send("User created successfully");
+                        addDoctorMailer([email],[dr_name], [password]);
+                        res.status(201).send("Account registered successfully");
                     }
                 });
             }
@@ -342,10 +343,28 @@ const getAppointments=(req,res)=>{
 }
 
 
-const getAvailAppointByDrId= async (req,res)=>{
-    const dr_id = parseInt(req.params.dr_id);
+const getAvailAppointByDrId = async (req,res)=>{
+
+    const dr_id = parseInt(req.params.id);
+    console.log("i have been called");
+
+    
     pool.query(queries.getAvailableAppointments,[dr_id],(error,results)=>{
+
+        console.log(dr_id)
         if(!results.rows){
+            res.send("Not found");
+        }else{
+            res.status(200).json(results.rows);
+        }
+    })
+}
+
+
+const getBookedAppointmentsBydrId= async (req,res)=>{
+    const dr_id = parseInt(req.params.dr_id);
+    pool.query(queries.getBookedAppointmentsByDrId,[dr_id],(error,results)=>{
+        if(!results){
             res.send("Not found");
         }else{
             res.status(200).json(results.rows);
@@ -383,8 +402,8 @@ const cancelAppointment= async (req,res)=>{
     });
 }
 
-const getClientAppointments= async (req,res)=>{
-    const {user_id } = req.body;
+const getClientAppointmentsById= async (req,res)=>{
+    const user_id = parseInt(req.params.id);
     pool.query(queries.getClientAppointments,[user_id],(error,results)=>{
         if(!results.rows){
             res.send("Not found");
@@ -428,6 +447,59 @@ const mailer = async (email)=>{
    
 }
 
+const addUserMailer = async (email,firstname,lastname)=>{
+    let mailOptions = {
+        from: 'ntsakokhozacc@gmail.com', // sender address
+        to: email, // list of receivers
+        //cc:'etlhako@gmail.com',
+        subject: 'Account successfully registered', // Subject line
+        // text: text, // plain text body
+        html:   `<h2>Greetings ${firstname} ${lastname},</h2><br>
+        <h1><center>🐶🐱🐭🐹🐰🐵🐔🐸🐴🦅🦜🐧🦮  </center></h1><br>
+        <h3>Thank you for joining the VET APP 😊<br>
+        You can now access our varied array of vetinary services all at convience of your finger tips.🙂</h3><br>
+        visit our sight at <a href="http://localhost:4200/">Visit vetapp.co.za!</a>`
+        // html body
+    };
+    Transporter.sendMail(mailOptions,function(err,data){
+      if(err){
+          console.log(err);
+      }
+    });
+   
+}
+
+const addDoctorMailer = async (email,dr_name, password)=>{
+    let mailOptions = {
+        from: 'ntsakokhozacc@gmail.com', // sender address
+        to: email, // list of receivers
+        //cc:'etlhako@gmail.com',
+        subject: 'Account successfully registered', // Subject line
+        // text: text, // plain text body
+        html:   `<h3>Greetings ${dr_name},</h3><br>
+        <h1><center>🐶🐱🐭🐹🐰🐵🐔🐸🐴🦅🦜🐧🦮  </center></h1><br>
+        <h3>This email serves to inform you that your account is now active😊, <br>
+        We're very excited about our new partnership, and we just want to thank 
+        you for being a part of our extended family.<br>
+        We look forward to a long and fruitful relationship between our entities.🙂
+        Below are your login credentials you, your password can be updated at your own discretion on our platform:</h3><br>
+        <h2><ul><u>Login Details</u><h2/>
+        Username: ${email}<br>
+        password: ${password}<br>
+        visit our sight at <a href="http://localhost:4200/login">Visit vetapp.co.za!</a><br><br>
+        </ul><h3>
+        kind Regards,<br>
+         PetAPP Team
+         </h3>`
+        // html body
+    };
+    Transporter.sendMail(mailOptions,function(err,data){
+      if(err){
+          console.log(err);
+      }
+    });
+   
+}
 
     
     
@@ -454,7 +526,8 @@ module.exports ={
     
     getAppointments,
     getAvailAppointByDrId,
+    getBookedAppointmentsBydrId,
     makeAppointment,
     cancelAppointment,
-    getClientAppointments,
+    getClientAppointmentsById,
 };
