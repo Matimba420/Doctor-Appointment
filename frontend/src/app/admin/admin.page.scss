@@ -59,3 +59,22 @@ ion-grid
 {
   background-color: rgb(108, 170, 211);
 }
+
+form{
+  max-width: 400px;
+  margin: auto;
+  
+}
+
+h1{
+  font-weight: bold;
+}
+
+.action-buttons{
+  text-align: center;
+  .login-button{
+  width: 100%;
+  font-weight: bold;
+  background-color: #90bd42;
+  }
+}
