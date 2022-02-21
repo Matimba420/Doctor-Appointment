@@ -15,6 +15,7 @@ export class AppComponent {
     private platform: Platform,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
+    
 
    ) { this.initializeApp()}
 
@@ -41,5 +42,18 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  isLoggedIn(){
+    const loggedInUser = JSON.parse(localStorage.getItem('access'));
+    if(loggedInUser ===null){
+      return false;
+    }
+    return true;
+  }
+
+  logout(){
+    localStorage.clear();
+    
   }
 }

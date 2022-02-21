@@ -1,16 +1,11 @@
 
 
-<ion-text color="#ffff">
-  <h1>What type of animal needs our help?</h1>
-</ion-text>
-
-
 <ion-content [scrollEvents]="true">
 
 
-  <ion-grid>
+  <!-- <ion-grid>
     
-     <ion-row>
+     <ion-row> -->
       <!--ion-col *ngFor="let ba of bookAnimal">
         <div><ion-card>
           <ion-card-content>
@@ -22,30 +17,26 @@
     </ion-row> -->
 
    
-      <ion-col>
-        <ion-list>
-      <div><ion-card>
-        <ion-item *ngFor="let item of bookAnimal">
-          <!-- <ion-label> {{item.pet_name}}</ion-label> -->
-        <ion-card-content>
-      
-        
-        
-          <ion-img style="width: 350px; height: 350px;" (click)='getDocInfo(item.pet_name)'
-           [src]="item.images"></ion-img>
-        
-        <ion-label>{{item.pet_name}}</ion-label>
-      </ion-card-content>
-      </ion-item>
-    
-  </ion-card>
-</div>
-    </ion-list>
-  </ion-col>
-  </ion-row>
-      
-    
+    <ion-content class="card-background-page">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-sm="4" *ngFor="let item of bookAnimal">
+           
+            <ion-card><ion-card-content>
+              <img src="{{item.images}}" (click)=' getAvailableAppointments(item.pet_name)' >
+              
+                <ion-title>{{item.pet_name}}</ion-title>
+              </ion-card-content>
+             
             
             
-        </ion-grid>
+          </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+     
+    </ion-content>
+  
       

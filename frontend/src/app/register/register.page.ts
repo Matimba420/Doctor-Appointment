@@ -90,13 +90,12 @@ export class RegisterPage implements OnInit {
           footer: 'Please verifty your login credentials'}),
           this.isloading=false
       )
-    
   });
     
   }
     
 
-  }
+}
 
   ngOnInit() {
     

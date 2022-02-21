@@ -10,7 +10,6 @@ const port = 3000;
 
 var corsOptions={
     origin:'http://localhost:4200',
-    origin:'http://localhost:8100',
 }
 
 app.use(cors(corsOptions));

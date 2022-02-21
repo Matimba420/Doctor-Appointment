@@ -38,10 +38,20 @@ export class LoginPage implements OnInit {
         console.log(data)
         Swal.fire('', 'Account successfully registered', 'success')
         this.router.navigate(['/login']);
-      }
+      },
+      error: (e) => (
+        console.log(e),
+         Swal.fire({  
+          confirmButtonColor: "red",
+          icon: 'error',  
+          title: e.error.error,  
+          })
+      )
     
-    });
+  });
     }
+
+    
 
     
 

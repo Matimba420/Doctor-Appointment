@@ -1,19 +1,29 @@
+*{
+  --background: rgb(108, 170, 211);
+}
+
+
+
 #container {
+  // background-color: rgb(108, 170, 211);
   text-align: center;
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  
 }
 
 ion-button{
   font-weight: bold;
+  
 }
 
 #container strong {
   font-size: 20px;
   line-height: 26px;
+  
 }
 
 #container p {
@@ -22,12 +32,13 @@ ion-button{
   color: #8c8c8c;
   gap: 0.3rem;
   margin: 0;
+  
 }
 
 #container a {
   text-decoration: none;
+  
 }
-
 h1{
     font-size: 30pt;
     font-weight: bolder;
@@ -38,7 +49,14 @@ h1{
 }
 
 span{
-  background: -webkit-linear-gradient(#eee, rgb(69, 100, 201));
+  background: -webkit-linear-gradient(rgb(116, 115, 115), rgb(31, 33, 41));
   background-clip: text;
   -webkit-text-fill-color: transparent;
+ 
+}
+img
+{
+ height: 400px;
+ width: 400px;
+
 }
