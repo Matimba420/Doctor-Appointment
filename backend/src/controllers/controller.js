@@ -353,7 +353,7 @@ const getAvailAppointByDrId = async (req,res)=>{
 
         console.log(dr_id)
         if(!results.rows){
-            res.send("Not found");
+            res.status(404).json({error:"Not found"});
         }else{
             res.status(200).json(results.rows);
         }
