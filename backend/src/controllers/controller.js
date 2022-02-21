@@ -343,9 +343,27 @@ const getAppointments=(req,res)=>{
 }
 
 
-const getAvailAppointByDrId= async (req,res)=>{
-    const dr_id = parseInt(req.params.dr_id);
+const getAvailAppointByDrId = async (req,res)=>{
+
+    const dr_id = parseInt(req.params.id);
+    console.log("i have been called");
+
+    
     pool.query(queries.getAvailableAppointments,[dr_id],(error,results)=>{
+
+        console.log(dr_id)
+        if(!results.rows){
+            res.status(404).json({error:"Not found"});
+        }else{
+            res.status(200).json(results.rows);
+        }
+    })
+}
+
+
+const getBookedAppointmentsBydrId= async (req,res)=>{
+    const dr_id = parseInt(req.params.dr_id);
+    pool.query(queries.getBookedAppointmentsByDrId,[dr_id],(error,results)=>{
         if(!results.rows){
             res.send("Not found");
         }else{
@@ -384,8 +402,8 @@ const cancelAppointment= async (req,res)=>{
     });
 }
 
-const getClientAppointments= async (req,res)=>{
-    const {user_id } = req.body;
+const getClientAppointmentsById= async (req,res)=>{
+    const user_id = parseInt(req.params.id);
     pool.query(queries.getClientAppointments,[user_id],(error,results)=>{
         if(!results.rows){
             res.send("Not found");
@@ -508,7 +526,8 @@ module.exports ={
     
     getAppointments,
     getAvailAppointByDrId,
+    getBookedAppointmentsBydrId,
     makeAppointment,
     cancelAppointment,
-    getClientAppointments,
+    getClientAppointmentsById,
 };
