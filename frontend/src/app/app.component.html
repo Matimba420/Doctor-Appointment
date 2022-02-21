@@ -1,8 +1,8 @@
 <ion-app>
   <ion-toolbar>
-    <ion-buttons slot="primary">
-      <ion-button >
-        <!--ion-icon slot="icon-only" name="star"></ion-icon-->
+    <ion-buttons slot="start" *ngIf="hide()==true">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title class="homeFont" size="medium" [routerLink]="['/home']">Vet App</ion-title>
