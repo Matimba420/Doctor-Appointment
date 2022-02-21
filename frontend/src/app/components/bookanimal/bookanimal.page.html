@@ -24,7 +24,9 @@
           <ion-col size="12" size-sm="4" *ngFor="let item of bookAnimal">
            
             <ion-card><ion-card-content>
-              <img src="{{item.images}}" (click)=' getAvailableAppointments(item.pet_name)' >
+              <!-- <img src="{{item.images}}" (click)=' getAvailableAppointments(item.pet_name)' > -->
+              <img src="{{item.images}}" routerLink="/drlist">
+              
               
                 <ion-title>{{item.pet_name}}</ion-title>
               </ion-card-content>
