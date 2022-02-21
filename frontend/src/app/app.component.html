@@ -1,9 +1,7 @@
 <ion-app>
   <ion-toolbar>
-    <ion-buttons slot="primary">
-      <ion-button >
-        <!--ion-icon slot="icon-only" name="star"></ion-icon-->
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title class="homeFont" size="medium" [routerLink]="['/home']">Vet App</ion-title>
     <ion-buttons slot="end">
@@ -23,10 +21,10 @@
     </ion-header>
     <ion-content>
       <ion-list>
-       <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==false"><ion-icon name="log-in-outline"></ion-icon> Login</ion-item></ion-menu-toggle>
-       <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==true" (click)="logout()"><ion-icon name="log-in-outline"></ion-icon> Logout</ion-item></ion-menu-toggle>
-       <ion-menu-toggle><ion-item [routerLink]="['/register']" *ngIf="isLoggedIn()==false"><ion-icon name="person-add-outline"></ion-icon> Sign Up</ion-item></ion-menu-toggle>
-       <ion-menu-toggle><ion-item [routerLink]="['/profile']" *ngIf="isLoggedIn()==true"><ion-icon name="log-in-outline"></ion-icon>Profile</ion-item></ion-menu-toggle>
+       <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==false"><ion-icon name="log-in-outline"></ion-icon> <strong>Login</strong></ion-item></ion-menu-toggle>
+       <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==true" (click)="logout()"><ion-icon name="log-in-outline"></ion-icon>  <strong>Logout</strong></ion-item></ion-menu-toggle>
+       <ion-menu-toggle><ion-item [routerLink]="['/register']" *ngIf="isLoggedIn()==false"><ion-icon name="person-add-outline"></ion-icon>  <strong>Sign Up</strong></ion-item></ion-menu-toggle>
+       <ion-menu-toggle><ion-item [routerLink]="['/profile']" *ngIf="isLoggedIn()==true"><ion-icon name="person-outline"></ion-icon> <strong>Profile</strong></ion-item></ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>

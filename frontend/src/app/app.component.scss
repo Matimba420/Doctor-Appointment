@@ -1,12 +1,4 @@
-ion-item{
-    font-weight: lighter;
-}
-ion-title
-{
-    background-color: rgb(108, 170, 211); 
-}
-
-ion-buttons
-{
-    background-color:rgb(3, 31, 48); 
+ion-toolbar{
+    --background: #90bd42;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(48, 48, 48, 0.19);
 }
