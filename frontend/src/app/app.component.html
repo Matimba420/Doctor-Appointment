@@ -12,15 +12,17 @@
       </div>
     </ion-buttons>
 
+    <!-- <ion-searchbar showCancelButton="always"></ion-searchbar> -->
+
   </ion-toolbar>
 
 
   <ion-menu side="start" menuId="first" contentId="main">
-    <ion-header>
+    <!-- <ion-header>
       <ion-buttons>
         <ion-searchbar animated></ion-searchbar>
       </ion-buttons>
-    </ion-header>
+    </ion-header> -->
     <ion-content>
       <ion-list>
        <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==false"><ion-icon name="log-in-outline"></ion-icon> Login</ion-item></ion-menu-toggle>

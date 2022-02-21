@@ -9,8 +9,9 @@ import { DoctorService } from '../api/doctor.service';
 })
 export class DrlistPage implements OnInit {
   
+  filterTerm: string;
   drlist:any=[];
-  
+  show: boolean = true;
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
@@ -19,12 +20,21 @@ export class DrlistPage implements OnInit {
     
   }
 
+
   getDoctor(){
     this.service.getDoctors().subscribe(res=>{
       this.drlist = res;
       console.log(this.drlist)
     })
   }
+
+  // showResults(){
+  //   if(this.filterTerm == ''){
+  //     return false;
+  //   }
+
+  //   return true;
+  // }
 
   
 
