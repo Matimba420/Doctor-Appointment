@@ -185,17 +185,6 @@
     
   </ion-grid>
 
-
-
-
-
-  <!-- <ion-fab vertical="top" horizontal="start" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
-  
-
   
 
   
@@ -211,8 +200,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="Login-section ion-padding">
         <div class="heading ion-padding">
-          <h1> Create an account!</h1>
-          <p> Let your pet have a better life with us</p>
+          <h1>Add A User</h1>
         </div>
       
       <div class="Login-form ion-padding">
@@ -271,8 +259,8 @@
             <ion-input type="password" formControlName="password" id="password" required></ion-input>
           </ion-item>
           <div *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['password'].errors && Form['password'].errors['required']">email is required.</div>
-            <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid email.</div>
+            <div *ngIf="Form['password'].errors && Form['password'].errors['required']">Password is required.</div>
+            <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid password.</div>
           </div>
         </div>
       </div>

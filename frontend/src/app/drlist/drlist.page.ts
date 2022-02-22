@@ -9,22 +9,45 @@ import { DoctorService } from '../api/doctor.service';
 })
 export class DrlistPage implements OnInit {
   
+  filterTerm: string;
   drlist:any=[];
-  
+  show: boolean = true;
+  petInfo=JSON.parse(localStorage.getItem('pet_name'));
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.getDoctor();
+    this.getPetAndDocInfo();
+    console.log(this.petInfo.pet_name);
+    
     
   }
 
-  getDoctor(){
-    this.service.getDoctors().subscribe(res=>{
+
+  getPetAndDocInfo(){
+    this.service.getPetAndDocInfo(this.petInfo.pet_name).subscribe(res=>{
       this.drlist = res;
-      console.log(this.drlist)
+      console.log('***********');
+      
+      console.log(res)
     })
   }
+
+
+  // getPet(){
+  //   this.service.getPetAndDocInfo(this.petInfo.pet_name).subscribe(res=>{
+  //     console.log(res);
+      
+  //   })
+  // }
+
+  // showResults(){
+  //   if(this.filterTerm == ''){
+  //     return false;
+  //   }
+
+  //   return true;
+  // }
 
   
 

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DrlistPageRoutingModule } from './drlist-routing.module';
 
 import { DrlistPage } from './drlist.page';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
