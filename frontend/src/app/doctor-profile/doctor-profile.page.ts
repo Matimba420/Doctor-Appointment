@@ -11,12 +11,15 @@ export class DoctorProfilePage implements OnInit {
 
   doctorProfile:any=[];
   drInfo:any=[];
+  availAppointments:any=[]
+  drId=this.route.snapshot.params['id']
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
     // this.getDoctor();
     this.getDoctorById(this.route.snapshot.params['id']);
+    this.getAvailableAppointments(this.route.snapshot.params['id'])
   }
 
   // getDoctor(){
@@ -28,10 +31,10 @@ export class DoctorProfilePage implements OnInit {
    
 
 
-  getAvailableAppointments( id:any ) {
-    this.service.getAvailableAppointments().subscribe(res=>{
-      this.doctorProfile =res; 
-      console.log(this.drInfo)
+  getAvailableAppointments(id:any) {
+    this.service.getAvailableAppointmentsByDrId(id).subscribe(res=>{
+      this.availAppointments =res; 
+      console.log(this.availAppointments)
     })
   }
 
