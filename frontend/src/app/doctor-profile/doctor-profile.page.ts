@@ -12,6 +12,8 @@ export class DoctorProfilePage implements OnInit {
   doctorProfile:any=[];
   drInfo:any=[];
   availAppointments:any=[]
+  userDetails:any=JSON.parse(localStorage.getItem('access'));
+  petName:any=JSON.parse(localStorage.getItem('pet_name'));
   drId=this.route.snapshot.params['id']
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
@@ -48,6 +50,25 @@ export class DoctorProfilePage implements OnInit {
     });
   }
 
+  bookAppointment(_obj: any){
+    // const id = parseInt(req.params.id);
+    // const {pet_name } = req.body;
+    // const {user_id } = req.body;
+    console.log(_obj)
+    console.log(this.petName.pet_name)
+    console.log(this.userDetails[0].id);
+    const data={
+      pet_name:this.petName.pet_name ,
+      user_id: this.userDetails[0].id
+    }
+
+    this.service.makeAppointment(_obj,data).subscribe(res=>{
+      console.log(res);
+      
+
+    });
+
+  }
 
   
 };

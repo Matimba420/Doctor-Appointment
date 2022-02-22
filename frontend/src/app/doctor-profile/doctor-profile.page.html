@@ -59,6 +59,8 @@
  
     <ion-content class="card-background-page">
 
+      <br><br><br>
+
       <ion-grid>
         <ion-row>
           <ion-col size="12" size-sm="4" *ngFor="let item of drInfo">
@@ -90,10 +92,20 @@
                 <ion-item>
                   <h2>Available Dates & Hours</h2>
                 </ion-item>
-                <ion-item>
-                  {{item.appoint_date}} {{item.time_slot}}
-                </ion-item>
+                <div *ngIf="availAppointments == null">
+                  not found
+                </div>
+                <div *ngFor="let dr of availAppointments">
+                  <ion-item>
+                    {{dr.appoint_date | date: 'short'}} {{dr.time_slot}}
+                  </ion-item>
+                  <ion-item>
+                    <ion-button color="dark" (click)="bookAppointment(dr.id)">Book</ion-button>
+                  </ion-item>
+                </div>
                 
+                
+
                 </ion-list>
             
             
