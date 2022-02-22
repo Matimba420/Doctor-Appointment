@@ -25,7 +25,7 @@
            
             <ion-card><ion-card-content>
               <!-- <img src="{{item.images}}" (click)=' getAvailableAppointments(item.pet_name)' > -->
-              <img src="{{item.images}}" routerLink="/drlist">
+              <img src="{{item.images}}" (click)="getDocInfo(item)">
               
               
                 <ion-title>{{item.pet_name}}</ion-title>
