@@ -27,7 +27,9 @@ export class BookanimalPage implements OnInit {
   getPets(){
     this.service.getPets().subscribe(res=>{
       this.bookAnimal = res;
-     console.log(this.bookAnimal);
+      console.log('*********************');
+      
+    //  console.log(this.bookAnimal[0].department);
     
     });
     
@@ -43,6 +45,7 @@ export class BookanimalPage implements OnInit {
   getDocInfo(name: any){
     console.log(name)
     localStorage.setItem("pet_name", JSON.stringify(name));
+    // localStorage.setItem("pet_department", JSON.stringify(name.department));
     this.router.navigateByUrl('/drlist',{replaceUrl:true});
   }
   

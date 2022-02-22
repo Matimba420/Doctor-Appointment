@@ -34,6 +34,16 @@ export class DoctorService {
     return this.http.get<any[]>(`${this.baseUrl}${id}`);
   }
 
+  getPetAndDocInfo(data:any):Observable<any>{
+    return this.http.get<any>(`http://localhost:3000/api/pets/name/${data}`);
+  }
+  
+
+
+
+
+  
+
 
 
 }

@@ -25,7 +25,7 @@ const activateDoctor="UPDATE PUBLIC.DOCTOR SET is_active=$1 WHERE id=$2 ";
 const getPets="SELECT * FROM PUBLIC.PETS";
 const getPetById="SELECT * FROM PUBLIC.PETS WHERE id=$1 ";
 
-const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experience, pet_name,doctor.id from pets, doctor where department=occupation and is_active='true' and pets.id=(select pets.id where pet_name = $1)";
+const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experience, pet_name,doctor.id,doctor.picture from pets, doctor where department=occupation and is_active='true' and pets.id=(select pets.id where pet_name = $1)";
 
 
 const getAppointments ="SELECT * FROM APPOINTMENT";

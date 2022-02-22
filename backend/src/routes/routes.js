@@ -23,7 +23,7 @@ router.put('/doctor/:id',controller.updateDoctor);
 
 
 router.get('/pets/', controller.getPets);
-router.get('/pets/name',controller.getPetAndDocInfo);
+router.get('/pets/name/:id',controller.getPetAndDocInfo);
 router.get('/pets/:id', controller.getPetById);
 
 

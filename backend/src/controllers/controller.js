@@ -320,7 +320,8 @@ const getPetById = (req, res)=>{
 
 const getPetAndDocInfo=(req,res)=>{
 
-    const {pet_name} = req.body
+    const pet_name = req.params.id;
+    console.log(req.params.id)
     pool.query(queries.getPetAndDocInfo,[pet_name],(error,results)=>{
         if(!results.rows){
             res.send("Not found");
