@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../api/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -39,7 +40,8 @@ export class ProfilePage implements OnInit {
 
   logOut(){
     localStorage.removeItem('access');
-    this.router.navigate(['/login'])
+    localStorage.removeItem('pet_name');
+    this.router.navigate(['/login']);
   }
 
   getClientAppointments(){
@@ -48,5 +50,38 @@ export class ProfilePage implements OnInit {
       console.log(this.userAppointments)
     })
   }
+
+  cancelAppointment(id:any){
+    console.log(id);
+    console.log(this.userAppointments)
+    
+
+    Swal.fire({
+      title: `Are you sure you want to cancel your appoint?`,
+      text: `Once cancelled you will have to book another appointment should you want to book again!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, cancel it!',
+      confirmButtonColor: "red",
+      cancelButtonText: 'No, keep it',
+      cancelButtonColor:'blue'
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        this.userService.cancelAppointment(id).subscribe(res=>{
+          Swal.fire('', res, 'success')
+          console.log(res);
+        });
+        
+        
+        
+        this.ngOnInit();
+      } else if (result.isDismissed) {
+        this.ngOnInit()
+      }
+    })
+    
+  }
+  
 
 }

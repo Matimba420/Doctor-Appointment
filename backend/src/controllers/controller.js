@@ -398,7 +398,7 @@ const cancelAppointment= async (req,res)=>{
             throw error;
         }else{
             mailer('ntsakokhozacc@gmail.com')
-            res.status(201).send("appointment cancelled");
+            res.status(201).json("appointment cancelled");
         }
     });
 }
