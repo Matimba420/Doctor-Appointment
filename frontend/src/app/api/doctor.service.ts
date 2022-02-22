@@ -35,12 +35,6 @@ export class DoctorService {
   }
 
   getPetAndDocInfo(data:any):Observable<any>{
-    console.log(data);
-    
-    // let petname:any = {
-    //   "pet_name": data
-    // }
-    // console.log(petname);
     return this.http.get<any>(`http://localhost:3000/api/pets/name/${data}`);
   }
   
