@@ -67,9 +67,6 @@ export class DoctorProfilePage implements OnInit {
       console.log(res);
       Swal.fire('', res , 'success');
       this.router.navigate(['/profile']);
-      
-      
-
     });
 
   }

@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
 
   client = localStorage.getItem('access');
   userDetails: any=[]
+  userAppointments:any=[];
   // details = {
   // }
 
@@ -23,6 +24,7 @@ export class ProfilePage implements OnInit {
       this.router.navigateByUrl('/login',{replaceUrl:true});
     }
     this.getProfile()
+    this.getClientAppointments();
 
   }
 
@@ -38,6 +40,13 @@ export class ProfilePage implements OnInit {
   logOut(){
     localStorage.removeItem('access');
     this.router.navigate(['/login'])
+  }
+
+  getClientAppointments(){
+    this.userService.getClientAppointments(this.userDetails[0].id).subscribe(res=>{
+      this.userAppointments=res
+      console.log(this.userAppointments)
+    })
   }
 
 }
