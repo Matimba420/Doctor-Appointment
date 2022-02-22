@@ -35,7 +35,7 @@ router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
 
 
 router.put('/appointments/cancelAppointment/:id', controller.cancelAppointment);
-router.post('/appointments/setAvailability', controller.setAvaolability);
+router.post('/appointments/setAvailability', controller.setAvailability);
 
 
 

@@ -470,6 +470,8 @@ const addUserMailer = async (email,firstname,lastname)=>{
    
 }
 
+const setAvailability = 
+
 const addDoctorMailer = async (email,dr_name, password)=>{
     let mailOptions = {
         from: 'ntsakokhozacc@gmail.com', // sender address
