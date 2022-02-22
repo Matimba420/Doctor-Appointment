@@ -23,13 +23,26 @@
 
   </div>
   <div>
-    <ion-card>
+    <ion-card style="color: white;">
       <ion-card-header>
-       <h4>Appointments</h4> 
+       <h2>Appointments</h2> 
       </ion-card-header>
       
       <ion-card-content>
-       
+       <table>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Option</th>
+          </tr>
+          <tr *ngFor="let appointment of userAppointments">
+            <td>
+              {{appointment.appoint_date | date: 'mediumDate'}}
+            </td>
+            <td>{{appointment.time_slot}}</td>
+            <td><ion-icon name="close-circle-outline"></ion-icon></td>
+          </tr>
+       </table>
       </ion-card-content>
     </ion-card>
   
