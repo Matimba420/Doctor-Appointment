@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
 
   client = localStorage.getItem('access');
   userDetails: any=[]
+  userAppointments:any=[];
   // details = {
   // }
 
@@ -23,14 +24,15 @@ export class ProfilePage implements OnInit {
       this.router.navigateByUrl('/login',{replaceUrl:true});
     }
     this.getProfile()
+    this.getClientAppointments();
 
   }
 
   getProfile(){
     this.userDetails = JSON.parse(localStorage.getItem('access'));
-    // this.userService.getUserProfile(this.client).subscribe((res: any)=>{
-    //   this.userDetails = res;
-    console.log(this.userDetails)
+    // this.userService.getUser(this.client).subscribe((res: any)=>{
+      // this.userDetails = res;
+      console.log(this.userDetails)
     // })
     
   }
@@ -38,6 +40,13 @@ export class ProfilePage implements OnInit {
   logOut(){
     localStorage.removeItem('access');
     this.router.navigate(['/login'])
+  }
+
+  getClientAppointments(){
+    this.userService.getClientAppointments(this.userDetails[0].id).subscribe(res=>{
+      this.userAppointments=res
+      console.log(this.userAppointments)
+    })
   }
 
 }

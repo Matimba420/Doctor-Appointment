@@ -320,7 +320,8 @@ const getPetById = (req, res)=>{
 
 const getPetAndDocInfo=(req,res)=>{
 
-    const {pet_name} = req.body
+    const pet_name = req.params.id;
+    console.log(req.params.id)
     pool.query(queries.getPetAndDocInfo,[pet_name],(error,results)=>{
         if(!results.rows){
             res.send("Not found");
@@ -381,7 +382,7 @@ const makeAppointment= async (req, res)=>{
             console.log('bad response ')
             throw error;
         }else{
-            res.status(201).send("appointment created successfully");
+            res.status(201).json("appointment created successfully");
         }
     });
     

@@ -45,15 +45,19 @@ export class UserService {
     return this.http.delete<any[]>(`${this.baseUrl}${id}`);
   }
 
+  getClientAppointments(id:any):Observable<any>{
+    return this.http.get<any>(`http://localhost:3000/api/appointments/client/${id}`)
+  }
 
 
-  getUserProfile(token : any) : Observable<any> {
-    return this.http.post<any>(this.baseUrl, token, { 
-       headers: new HttpHeaders({
-         'Authorization': `Bearer ${token}`
-       })
-     });
-   }
+
+  // getUserProfile(token : any) : Observable<any> {
+  //   return this.http.post<any>(this.baseUrl, token, { 
+  //      headers: new HttpHeaders({
+  //        'Authorization': `Bearer ${token}`
+  //      })
+  //    });
+  //  }
 
   
 

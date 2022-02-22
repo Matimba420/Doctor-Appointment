@@ -25,13 +25,31 @@ const activateDoctor="UPDATE PUBLIC.DOCTOR SET is_active=$1 WHERE id=$2 ";
 const getPets="SELECT * FROM PUBLIC.PETS ORDER BY pet_name";
 const getPetById="SELECT * FROM PUBLIC.PETS WHERE id=$1 ";
 
-const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experience, pet_name,doctor.id from pets, doctor where department=occupation and is_active='true' and pets.id=(select pets.id where pet_name = $1)";
+const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experience, pet_name,doctor.id,doctor.picture from pets, doctor where department=occupation and is_active='true' and pets.id=(select pets.id where pet_name = $1)";
 
 
 const getAppointments ="SELECT * FROM APPOINTMENT";
 
 
-const getAvailableAppointments="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
+const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPOINTMENT.appoint_date,APPOINTMENT.is_available,cell_no,email,experience,is_active,picture FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
+
+// APPOINTMENT.appoint_date: "2022-02-27T22:00:00.000Z"
+// cell_no: "0123456789"
+// company: "DA Veterinary Clinic"
+// dr_id: 1
+// dr_name: "Dr Khan"
+// email: "drkhan@gmail.com"
+// experience: 7
+// APPOINTMENT.id: 1
+// is_active: true
+// APPOINTMENT.is_available: true
+// occupation: "Companion Veterinarian"
+// password: "$2a$10$HRm4wb7dTeaQlO65JzuqN.eP9sE62Cggma/VpKw4ic4Inmkwp32me"
+// APPOINTMENT.pet_id: null
+// picture: "https://i.ibb.co/31VxS11/Doctor-man-sitting-at-the-desk-at-his-working-place-and-smiling-at-camera-Perfect-medical-service-in.jpg"
+// APPOINTMENT.time_slot: "11:00-12:00"
+// user_id: null
+
 
 const getBookedAppointmentsByDrId="SELECT firstname, lastname, appoint_date, time_slot, pet_name FROM pets, appointment, public.user WHERE public.user.id=user_id AND pets.id=pet_id AND appoint_date>=current_date AND is_available='false' AND dr_id=$1 ORDER BY appoint_date, time_slot ASC";
 const makeAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =false where id=$3";

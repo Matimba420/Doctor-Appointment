@@ -9,7 +9,7 @@
   
   <div *ngFor="let data of userDetails">
 
-    <ion-card class="text-center">
+    <ion-card class="text-center" style="color: white;">
       <ion-card-header>
         <ion-icon name="person-sharp" size="large"></ion-icon>
         <h1>{{data.firstname}} {{data.lastname}}</h1>
@@ -18,7 +18,7 @@
         <ion-icon name="mail"></ion-icon> {{data.email}} <br>
         <ion-icon name="call"></ion-icon> {{data.cell_no}}
       </ion-card-content>
-      <ion-button shape="round" fill="outline">Edit Profile</ion-button>
+      <ion-button color="dark">Edit</ion-button>
     </ion-card>
 
   </div>
