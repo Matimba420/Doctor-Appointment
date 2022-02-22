@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../api/doctor.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -16,7 +17,7 @@ export class DoctorProfilePage implements OnInit {
   petName:any=JSON.parse(localStorage.getItem('pet_name'));
   drId=this.route.snapshot.params['id']
 
-  constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
+  constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute,) { }
 
   ngOnInit() {
     // this.getDoctor();
@@ -64,6 +65,9 @@ export class DoctorProfilePage implements OnInit {
 
     this.service.makeAppointment(_obj,data).subscribe(res=>{
       console.log(res);
+      Swal.fire('', res , 'success');
+      this.router.navigate(['/profile']);
+      
       
 
     });

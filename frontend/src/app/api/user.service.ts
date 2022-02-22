@@ -47,13 +47,13 @@ export class UserService {
 
 
 
-  getUserProfile(token : any) : Observable<any> {
-    return this.http.post<any>(this.baseUrl, token, { 
-       headers: new HttpHeaders({
-         'Authorization': `Bearer ${token}`
-       })
-     });
-   }
+  // getUserProfile(token : any) : Observable<any> {
+  //   return this.http.post<any>(this.baseUrl, token, { 
+  //      headers: new HttpHeaders({
+  //        'Authorization': `Bearer ${token}`
+  //      })
+  //    });
+  //  }
 
   
 

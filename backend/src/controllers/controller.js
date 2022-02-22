@@ -382,7 +382,7 @@ const makeAppointment= async (req, res)=>{
             console.log('bad response ')
             throw error;
         }else{
-            res.status(201).send("appointment created successfully");
+            res.status(201).json("appointment created successfully");
         }
     });
     

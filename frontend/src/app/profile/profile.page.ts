@@ -28,10 +28,10 @@ export class ProfilePage implements OnInit {
 
   getProfile(){
     this.userDetails = JSON.parse(localStorage.getItem('access'));
-    this.userService.getUserProfile(this.client).subscribe((res: any)=>{
-      this.userDetails = res;
+    // this.userService.getUser(this.client).subscribe((res: any)=>{
+      // this.userDetails = res;
       console.log(this.userDetails)
-    })
+    // })
     
   }
 
