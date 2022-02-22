@@ -57,7 +57,7 @@ export class RegisterPage implements OnInit {
             this.isloading=false;
             localStorage.setItem("access", JSON.stringify(data));
             console.log(data)
-            this.router.navigateByUrl('/profile',{replaceUrl:true});
+            this.router.navigateByUrl('/bookanimal',{replaceUrl:true});
           },
           
           error: (e) => (

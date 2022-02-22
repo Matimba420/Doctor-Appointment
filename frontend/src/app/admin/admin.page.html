@@ -4,8 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="card-background-page">
-
+<ion-content class="card-background-page" *ngIf="clientForm==false">
+  <ion-text color="white">
+    <h1 style="font-weight: bold; font-size: xx-large;">Admin</h1>
+  </ion-text>
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-sm="4">
@@ -16,8 +18,11 @@
               <div class="card-subtitle">
                 <ion-chip>
                   <ion-label color="white">{{numClients}}</ion-label>
-                </ion-chip>
+                </ion-chip><br>
+               
+                <ion-button color="primary" (click)="openClientForm()">Add Client</ion-button>
               </div>
+              
             </ion-card>
         </div>
       </ion-col>
@@ -28,7 +33,8 @@
           <div class="card-subtitle">
             <ion-chip>
               <ion-label color="white">{{numDoctors}}</ion-label>
-            </ion-chip>
+            </ion-chip><br>
+            <ion-button color="primary">Add Doctor</ion-button>
           </div>
         </ion-card></div>
       </ion-col>
@@ -45,7 +51,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -184,15 +189,100 @@
 
 
 
-  <ion-fab vertical="top" horizontal="start" slot="fixed">
+  <!-- <ion-fab vertical="top" horizontal="start" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
   
 
   
 
   
 
+</ion-content>
+
+<ion-content *ngIf="clientForm">
+  
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="admin"></ion-back-button>
+  </ion-buttons>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="Login-section ion-padding">
+        <div class="heading ion-padding">
+          <h1>Add A User</h1>
+        </div>
+      
+      <div class="Login-form ion-padding">
+        <div class="form-input">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating">FIRST NAME</ion-label>
+            <ion-input type="text" formControlName="firstname" id="firstname" required></ion-input>
+          </ion-item>
+          <div *ngIf="Form['firstname'].touched && Form['firstname'].invalid" class="alert alert-danger">
+            <div *ngIf="Form['firstname'].errors && Form['firstname'].errors['required']">Firstname is required.</div>
+            <div *ngIf="Form['firstname'].errors && Form['firstname'].errors['firstname']">Please, enter valid firstname.</div>
+          </div>
+        </div>
+  
+        <div class="form-input">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating">LAST NAME</ion-label>
+            <ion-input type="text" formControlName="lastname" id="lastname" required></ion-input>
+          </ion-item>
+          <div *ngIf="Form['lastname'].touched && Form['lastname'].invalid" class="alert alert-danger">
+            <div *ngIf="Form['lastname'].errors && Form['lastname'].errors['required']">lastname is required.</div>
+            <div *ngIf="Form['lastname'].errors && Form['lastname'].errors['lastname']">Please, enter valid lastname.</div>
+          </div>
+        </div>
+  
+        <div class="form-input">
+          <ion-icon name="call-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating">CELL NUMBER</ion-label>
+            <ion-input type="text" formControlName="cell_no" id="cell_no" required></ion-input>
+          </ion-item>
+          <div *ngIf="Form['cell_no'].touched && Form['cell_no'].invalid" class="alert alert-danger">
+            <div *ngIf="Form['cell_no'].errors && Form['cell_no'].errors['required']">cellphone number is required.</div>
+            <div *ngIf="Form['cell_no'].errors && Form['cell_no'].errors['cell_no']">Please, enter valid cellpohone number.</div>
+          </div>
+        </div>
+  
+        <div class="form-input">
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating">EMAIL</ion-label>
+            <ion-input type="email" formControlName="email" id="email" required></ion-input>
+          </ion-item>
+          <div *ngIf="Form['email'].touched && Form['email'].invalid" class="alert alert-danger">
+            <div *ngIf="Form['email'].errors && Form['email'].errors['required']">email is required.</div>
+            <div *ngIf="Form['email'].errors && Form['email'].errors['email']">Please, enter valid email address.</div>
+          </div>
+        </div>
+      
+        <div class="form-input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating">PASSWORD</ion-label>
+            <ion-input type="password" formControlName="password" id="password" required></ion-input>
+          </ion-item>
+          <div *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
+            <div *ngIf="Form['password'].errors && Form['password'].errors['required']">Password is required.</div>
+            <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid password.</div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="action-buttons ion-padding">
+        <ion-button [disabled]="registerForm.invalid" size="large" class="login-button" type="submit">Sign up</ion-button>
+      </div>
+      
+      </div>
+    </form>
+    
+  <!-- </div> -->
 </ion-content>

@@ -36,13 +36,15 @@
 ion-group-accordion{
     margin-right: 10px;
     margin-left: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 ion-accordion{
-  border-radius: 12.5px;
+  border-radius: 7px;
+
 }
 
-ion-item{
+ion-item, h1{
   text-align: center;
 }
 
@@ -56,4 +58,23 @@ ion-row{
 ion-grid
 {
   background-color: rgb(108, 170, 211);
+}
+
+form{
+  max-width: 400px;
+  margin: auto;
+  
+}
+
+h1{
+  font-weight: bold;
+}
+
+.action-buttons{
+  text-align: center;
+  .login-button{
+  width: 100%;
+  font-weight: bold;
+  background-color: #90bd42;
+  }
 }

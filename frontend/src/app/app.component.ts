@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +11,22 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-
-  activePageTitle = '';
+  activePageTitle = ''
+  showButton: boolean = false;
+  
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
+    private location: Location, 
+    private router: Router
     
 
-   ) { this.initializeApp()}
+   ) { 
+     this.initializeApp();
+
+    }
+   
 
   pages = [
     {
@@ -56,4 +65,19 @@ export class AppComponent {
     localStorage.clear();
     
   }
+
+  goBack(){
+    this.location.back();
+    //this.location.getState();
+    console.log(this.router.url);
+  }
+
+  hide(){
+    if(this.router.url == '/home'){
+      return false
+    }
+    return true;
+  }
+
+
 }
