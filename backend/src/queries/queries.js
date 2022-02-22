@@ -22,7 +22,7 @@ const getDoctorPasswordByEmail="SELECT * FROM PUBLIC.DOCTOR  WHERE email=$1"
 const activateDoctor="UPDATE PUBLIC.DOCTOR SET is_active=$1 WHERE id=$2 ";
 
 
-const getPets="SELECT * FROM PUBLIC.PETS";
+const getPets="SELECT * FROM PUBLIC.PETS ORDER BY pet_name";
 const getPetById="SELECT * FROM PUBLIC.PETS WHERE id=$1 ";
 
 const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experience, pet_name,doctor.id from pets, doctor where department=occupation and is_active='true' and pets.id=(select pets.id where pet_name = $1)";
@@ -37,6 +37,7 @@ const getBookedAppointmentsByDrId="SELECT firstname, lastname, appoint_date, tim
 const makeAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =false where id=$3";
 const cancelAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =true where id=$3";
 const getClientAppointments="SELECT * FROM PUBLIC.APPOINTMENT where user_id=$1";
+const setAvailability="INSERT INTO APPOINTMENT(dr_id, appoint_date,time_slot) VALUES($1,$2,$3)";
 
 
 module.exports = {

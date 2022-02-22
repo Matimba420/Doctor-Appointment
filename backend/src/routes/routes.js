@@ -33,7 +33,7 @@ router.get('/appointments/avail/:id' , controller.getAvailAppointByDrId);
 router.get('/appointments/booked/:id', controller.getBookedAppointmentsBydrId);
 router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
 
-router.put('/appointments/cancelAppointment/:id', controller.cancelAppointment)
+
 
 
 
