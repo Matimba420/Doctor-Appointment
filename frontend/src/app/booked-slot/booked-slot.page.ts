@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DoctorService } from '../api/doctor.service';
 
 @Component({
   selector: 'app-booked-slot',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookedSlotPage implements OnInit {
 
-  constructor() { }
+  filterTerm: String;
+  bookedSlot: any[];
+  show: boolean =true;
+
+  constructor(private services: DoctorService) { }
 
   ngOnInit() {
+    this.getBookedAppointmentsBydrId();
   }
 
+
+    getBookedAppointmentsBydrId(){
+      this.services.getBookedAppointmentsBydrId(id).subscribe(res=>{
+        this.bookedSlot = res;
+        console.log('i am working')
+      })
+
+  }
+
+  
 }
+function id(id: any) {
+  throw new Error('Function not implemented.');
+}
+

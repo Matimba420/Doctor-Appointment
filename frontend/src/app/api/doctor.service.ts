@@ -34,6 +34,9 @@ export class DoctorService {
     return this.http.get<any[]>(`${this.baseUrl}${id}`);
   }
 
+  getBookedAppointmentsBydrId(id: any): Observable<any>{
+    return this.http.get<any[]>(`http://localhost:3000/api/appointments/booked/${id}`);
+  }
 
 
 }

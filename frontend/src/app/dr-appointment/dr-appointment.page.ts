@@ -19,6 +19,7 @@ export class DrAppointmentPage implements OnInit {
    await this.toastCtrl.create({
      message: "Availability updated!",
      duration:2000,
+     position: 'middle',
      buttons:[{
        text: 'Ok',
        handler: ()=>{

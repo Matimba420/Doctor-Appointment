@@ -33,7 +33,7 @@ const getAppointments ="SELECT * FROM APPOINTMENT";
 
 const getAvailableAppointments="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
 
-const getBookedAppointmentsByDrId="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=false and appoint_date>= CURRENT_DATE";
+const getBookedAppointmentsByDrId="SELECT firstname, lastname, appoint_date, time_slot, pet_name FROM pets, appointment, public.user WHERE public.user.id=user_id AND pets.id=pet_id AND appoint_date>=current_date AND is_available='false' AND dr_id=$1 ORDER BY appoint_date, time_slot ASC";
 const makeAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =false where id=$3";
 const cancelAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =true where id=$3";
 const getClientAppointments="SELECT * FROM PUBLIC.APPOINTMENT where user_id=$1";
