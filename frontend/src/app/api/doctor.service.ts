@@ -44,7 +44,14 @@ export class DoctorService {
 
   makeAppointment(id: any, data: any): Observable<any>{
     return this.http.put<any>(`http://localhost:3000/api/appointments/makeAppointment/${id}`, data)
-  }
+  
+}
+
+getBookedAppointmentsBydrId(id:any):Observable<any>{
+  return this.http.get<any>(`http://localhost:3000/api/appointments/booked/${id}`);
+}
+
+
 
 
 

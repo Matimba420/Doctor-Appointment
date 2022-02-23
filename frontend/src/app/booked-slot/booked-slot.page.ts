@@ -19,8 +19,8 @@ export class BookedSlotPage implements OnInit {
   }
 
 
-    getBookedAppointmentsBydrId(){
-      this.services.getBookedAppointmentsBydrId(id).subscribe(res=>{
+    getBookedAppointmentsBydrId() {
+      this.services.getBookedAppointmentsBydrId(this.bookedSlot).subscribe(res=>{
         this.bookedSlot = res;
         console.log('i am working')
       })
