@@ -64,6 +64,10 @@ export class AdminPage implements OnInit {
     })
   }
 
+  getAppointments(){
+    
+  }
+
   removeClientById(id:any){
     Swal.fire({
       title: 'Are you sure?',

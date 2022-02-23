@@ -502,6 +502,23 @@ const addDoctorMailer = async (email,dr_name, password)=>{
    
 }
 
+const newAppointment = async (req,res) => {
+    const {dr_id,appoint_date,time_slot} = req.body;
+    console.log(dr_id)
+    console.log(appoint_date)
+    console.log(time_slot)
+    pool.query(queries.newAppointment, [dr_id,appoint_date,time_slot],(error,results)=>{
+        if(error){ 
+            res.status(500).json({error: 'invalid input'})
+            // throw error;
+        }else{
+
+            res.status(201).json("New availability slot created successfully");
+        }
+    });
+    
+}
+
     
     
 module.exports ={
@@ -531,4 +548,5 @@ module.exports ={
     makeAppointment,
     cancelAppointment,
     getClientAppointmentsById,
+    newAppointment,
 };

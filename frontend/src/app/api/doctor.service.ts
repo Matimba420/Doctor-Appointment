@@ -46,6 +46,10 @@ export class DoctorService {
     return this.http.put<any>(`http://localhost:3000/api/appointments/makeAppointment/${id}`, data)
   }
 
+  getAppointments(){
+    
+  }
+
 
 
   
