@@ -18,6 +18,8 @@ export class AdminPage implements OnInit {
   numAppointments:any;
   clients:any=[];
   doctors:any=[];
+  appointments:any=[];
+  counter=1;
 
   clientForm: boolean = false;
 
@@ -38,7 +40,7 @@ export class AdminPage implements OnInit {
   ngOnInit() {
     this.getClients();
     this.getDoctors();
-    // console.log(this.clients);
+    this.getAppointments();
     
   }
 
@@ -63,6 +65,41 @@ export class AdminPage implements OnInit {
       //this.router.navigate['/profile']
     })
   }
+
+  getAppointments(){
+    this.doctorService.getAppointments().subscribe((res:any)=>{
+      
+      this.appointments=res
+      this.numAppointments=res.length;
+    })
+    
+  }
+
+  removeAppointment(id:any){
+    console.log(id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "The appointment will be removed from the client and doctor view!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      confirmButtonColor: "red",
+      cancelButtonText: 'No, keep it',
+      cancelButtonColor:'blue'
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        this.doctorService.removeAppointment(id).subscribe((res:any)=>{
+          Swal.fire('', res, 'success');
+          this.ngOnInit();
+        })
+      } else if (result.isDismissed) {
+        this.ngOnInit()
+      }
+    })
+  }
+
+
 
   removeClientById(id:any){
     Swal.fire({

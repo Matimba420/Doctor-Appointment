@@ -19,17 +19,19 @@
    
     <ion-content class="card-background-page">
       <br><br><br>
-      <h1 style="text-align: center; font-weight: bolder; margin-top: 20px;">Choose An Animal</h1>
+      <h1 style="text-align: center; font-weight: bolder; margin-top: 20px;"> What type of animal needs help?</h1>
+      <ion-card-subtitle>choose an animal</ion-card-subtitle>
       <ion-grid>
         <ion-row>
           <ion-col size="12" size-sm="4" *ngFor="let item of bookAnimal">
            
-            <ion-card><ion-card-content>
+            <ion-card class="card">
+              <ion-card-content>
               <!-- <img src="{{item.images}}" (click)=' getAvailableAppointments(item.pet_name)' > -->
-              <img src="{{item.images}}" (click)="getDocInfo(item)">
+              <img class="image"src ="{{item.images}}" (click)="getDocInfo(item)">
               
               
-                <ion-title>{{item.pet_name}}</ion-title>
+                <ion-title class="petname">{{item.pet_name}}</ion-title>
               </ion-card-content>
              
             

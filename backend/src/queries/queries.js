@@ -28,7 +28,7 @@ const getPetById="SELECT * FROM PUBLIC.PETS WHERE id=$1 ";
 const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experience, pet_name,doctor.id,doctor.picture from pets, doctor where department=occupation and is_active='true' and pets.id=(select pets.id where pet_name = $1)";
 
 
-const getAppointments ="SELECT * FROM APPOINTMENT";
+const getAppointments ="SELECT * FROM APPOINTMENT,DOCTOR,PUBLIC.USER,PETS WHERE APPOINTMENT.dr_id=DOCTOR.id and APPOINTMENT.user_id=public.USER.id and APPOINTMENT.pet_id=PETS.ID ";
 
 
 const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPOINTMENT.appoint_date,APPOINTMENT.is_available,cell_no,email,experience,is_active,picture FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
@@ -55,6 +55,9 @@ const getBookedAppointmentsByDrId="SELECT * FROM APPOINTMENT, DOCTOR WHERE dr_id
 const makeAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =false where id=$3";
 const cancelAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =true where id=$3";
 const getClientAppointments="SELECT APPOINTMENT.appoint_date,APPOINTMENT.dr_id,APPOINTMENT.id,APPOINTMENT.is_available,APPOINTMENT.pet_id,APPOINTMENT.time_slot,APPOINTMENT.user_id,DOCTOR.dr_name,DOCTOR.email,PETS.pet_name FROM PUBLIC.APPOINTMENT,PUBLIC.DOCTOR,PUBLIC.PETS where user_id=$1 AND dr_id=DOCTOR.id AND APPOINTMENT.pet_id=PETS.id";
+
+const newAppointment="INSERT INTO APPOINTMENT(dr_id,appoint_date,time_slot, is_available) VALUES($1,$2,$3,'true') ";
+const removeAppointment= "UPDATE APPOINTMENT SET is_available='false' WHERE id=$1"
 
 
 module.exports = {
@@ -92,5 +95,7 @@ module.exports = {
     cancelAppointment,
    
     getBookedAppointmentsByDrId,
+    newAppointment,
+    removeAppointment,
 
 };
