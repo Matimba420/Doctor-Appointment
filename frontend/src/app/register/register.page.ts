@@ -78,7 +78,7 @@ export class RegisterPage implements OnInit {
         this.isloading=false;
         localStorage.setItem("doctorAccess", JSON.stringify(data));
         console.log(data)
-        this.router.navigateByUrl('/doctor-profile',{replaceUrl:true});
+        this.router.navigateByUrl('/dr-dashboard',{replaceUrl:true});
       },
       
       error: (e) => (

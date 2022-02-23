@@ -9,7 +9,7 @@
       <div class="grid-item">
         <h2>Choose Available Date & Time</h2>
       
-        <ion-datetime min="{{todayDate}}" max="2099-12-31" [showClearButton]="true"  [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime min="{{todayDate}}" max="2099-12-31" [showClearButton]="true" value="{{todayDate}}" [(ngModel)]="myDate"></ion-datetime>
        
       </div>
     </div>

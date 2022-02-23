@@ -54,8 +54,9 @@ const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPO
 const getBookedAppointmentsByDrId="SELECT firstname, lastname, appoint_date, time_slot, pet_name FROM pets, appointment, public.user WHERE public.user.id=user_id AND pets.id=pet_id AND appoint_date>=current_date AND is_available='false' AND dr_id=$1 ORDER BY appoint_date, time_slot ASC";
 const makeAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =false where id=$3";
 const cancelAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.PETS where pet_name=$1), user_id=$2, is_available =true where id=$3";
-const getClientAppointments="SELECT * FROM PUBLIC.APPOINTMENT where user_id=$1";
-const setAvailability="INSERT INTO APPOINTMENT(dr_id, appoint_date,time_slot) VALUES($1,$2,$3)";
+const getClientAppointments="SELECT APPOINTMENT.appoint_date,APPOINTMENT.dr_id,APPOINTMENT.id,APPOINTMENT.is_available,APPOINTMENT.pet_id,APPOINTMENT.time_slot,APPOINTMENT.user_id,DOCTOR.dr_name,DOCTOR.email,PETS.pet_name FROM PUBLIC.APPOINTMENT,PUBLIC.DOCTOR,PUBLIC.PETS where user_id=$1 AND dr_id=DOCTOR.id AND APPOINTMENT.pet_id=PETS.id";
+
+const newAppointment="INSERT INTO APPOINTMENT(dr_id,appoint_date,time_slot, is_available) VALUES($1,$2,$3,'true') ";
 
 
 module.exports = {
@@ -93,5 +94,6 @@ module.exports = {
     cancelAppointment,
    
     getBookedAppointmentsByDrId,
+    newAppointment,
 
 };

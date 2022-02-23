@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+    <ion-button size="small" slot="end" (click)="logOut()">Logout</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div *ngFor="let item of drList">
+
+    <ion-card class="text-center" style="color: white;">
+      <ion-card-header>
+        <ion-icon name="person-sharp" size="large"></ion-icon>
+        <h1>{{item.dr_name}}</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="mail"></ion-icon> {{item.email}} <br>
+        <ion-icon name="call"></ion-icon> {{item.cell_no}}
+      </ion-card-content>
+      <ion-button color="dark">Edit</ion-button>
+    </ion-card>
+
+  </div>
+  <div>
+    <ion-card style="color: white;">
+      <ion-card-header>
+       <h2>Appointments</h2> 
+      </ion-card-header>
+      
+      <ion-card-content>
+       <table>
+          <tr>
+          
+            
+            <th>Date</th>
+            <th>Time</th>
+            <th>Option</th>
+          </tr>
+          <tr *ngFor="let list of appointment">
+            <td>{{list.name}}</td>
+            
+            <td>
+              {{list.appoint_date | date: 'mediumDate'}}
+            </td>
+            <td>{{list.pet_name}}</td>
+            <td>{{list.time_slot}}</td>
+            <td><ion-icon name="close-circle-outline" (click)="cancelAppointment(list.id)"></ion-icon></td>
+          </tr>
+       </table>
+      </ion-card-content>
+    </ion-card>
+  
+
+  </div>
+
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/dr-appointment">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

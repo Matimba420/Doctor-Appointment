@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'booked-slot',
     loadChildren: () => import('./booked-slot/booked-slot.module').then( m => m.BookedSlotPageModule)
   },
+  {
+    path: 'dr-dashboard',
+    loadChildren: () => import('./dr-dashboard/dr-dashboard.module').then( m => m.DrDashboardPageModule)
+  },
 
   
 ];
