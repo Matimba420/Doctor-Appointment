@@ -27,13 +27,57 @@ ion-content{
     bottom: 0;
     position: fixed;
     margin: auto;
- 
+    
     
   }
   .p-list{
     color:hsl(0, 0%, 29%);
   }
 
- 
-  
+  .card-background-page{
+   --background: #f3f3f3;
+ }
 
+ .docprofile{
+  --background: #222d3b;
+
+ }
+
+ .doccolor{
+   --background: #222d3b;
+ }
+
+h2{
+  --background: #63c3fe;
+}
+
+.cardcontentcolor{
+  color: #f3f3f3;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  
+  
+}
+.iconposition{
+  
+  padding-left: 185px;
+  padding-top: 5px;
+}
+
+.briefcase{
+  padding-top: 5px;
+  color:#74ecb9;
+  
+  
+}
+
+.calendar{
+  padding-top: 5px;
+  color:#74ecb9;
+}
+
+.iconxp{
+  padding-top: 5px;
+  color:#74ecb9;
+}

@@ -1,14 +1,14 @@
 <ion-app>
   <ion-toolbar>
     <ion-buttons slot="start" *ngIf="hide()==true">
-      <ion-button (click)="goBack()">
+      <ion-button  (click)="goBack()">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title class="homeFont" size="medium" [routerLink]="['/home']">Vet App</ion-title>
     <ion-buttons slot="end">
       <div>
-        <ion-menu-button autoHide="false"></ion-menu-button>
+        <ion-menu-button class="burger" autoHide="false"></ion-menu-button>
       </div>
     </ion-buttons>
 

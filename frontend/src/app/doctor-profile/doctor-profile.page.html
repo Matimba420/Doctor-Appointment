@@ -1,4 +1,4 @@
-<ion-content [scrollEvents]="true">
+<ion-content class="backgroundcolor" [scrollEvents]="true">
 
 <!-- <ion-header no-border>
 <ion-row>
@@ -65,32 +65,32 @@
         <ion-row>
           <ion-col size="12" size-sm="4" *ngFor="let item of drInfo">
            
-            <ion-card>
+            <ion-card class="docprofile">
             
               <img src="{{item.picture}}" >
-              <ion-card-content>
-                <ion-title>{{item.dr_name}}</ion-title>
+              <ion-card-content class="cardcontentcolor">
+                <ion-title class="cardcontentcolor" >{{item.dr_name}}</ion-title><ion-icon class="iconposition"name="medkit-outline"></ion-icon>
               </ion-card-content>
               <ion-list>
-                <ion-item>
-                  <h2>Experience </h2>
+                <ion-item class="doccolor">
+                  <ion-icon class="iconxp"name="timer-outline"></ion-icon>  <h2>Experience </h2>
                 </ion-item>
-                <ion-item>
+                <ion-item class="doccolor">
                  
                   {{item.experience}} years.
                  
-                </ion-item>
+                </ion-item >
 
-                <ion-item>
-                  <h2>Occupation</h2>
+                <ion-item class="doccolor">
+                  <ion-icon class="briefcase"name="briefcase-outline"></ion-icon><h2>Occupation</h2>
                 </ion-item>
-                <ion-item>
-               {{item.occupation}} 
+                <ion-item class="doccolor">
+               {{item.occupation}}. 
                 
                 </ion-item>
              
-                <ion-item>
-                  <h2>Available Dates & Hours</h2>
+                <ion-item class="doccolor">
+                  <ion-icon class="calendar"name="calendar-outline"></ion-icon> <h2>Available Dates & Hours</h2>
                 </ion-item>
                 <div *ngIf="availAppointments == null">
                   not found
