@@ -44,7 +44,7 @@
           <div class="card-title">Appointments</div>
           <div class="card-subtitle">
             <ion-chip>
-              <ion-label>40</ion-label>
+              <ion-label>{{numAppointments}}</ion-label>
             </ion-chip>
           </div>
         </ion-card></div>
@@ -164,14 +164,15 @@
                       <th>Service Fee</th>
                       <th>Actions</th>
                     </tr>
-                    <tr *ngFor="let i of [1,2,3,4,5]">
-                      <td>{{i}}</td>
-                      <td>Jake Bower</td>
-                      <td>Kiko</td>
-                      <td>De-worming</td>
-                      <td>R300</td>
+                    <tr *ngFor="let appointment of appointments">
+                      <td>{{counter+1}}</td>
+                      <td>{{appointment.dr_name}}</td>
+                      <td>{{appointment.firstname}} {{appointment.lastname}}</td>
+                      <td>{{appointment.pet_name}}</td>
+                      <td>{{appointment.fee}}</td>
                       <td>
-                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                        <ion-icon name="trash-outline" (click)="removeAppointment(appointment.id)"></ion-icon>&nbsp;
+                        <ion-icon name="pencil-outline"></ion-icon>
                       </td>
                     </tr>
                   </table>
