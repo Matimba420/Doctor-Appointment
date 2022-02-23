@@ -18,6 +18,8 @@ export class AdminPage implements OnInit {
   numAppointments:any;
   clients:any=[];
   doctors:any=[];
+  appointments:any=[];
+  counter=1;
 
   clientForm: boolean = false;
 
@@ -38,7 +40,7 @@ export class AdminPage implements OnInit {
   ngOnInit() {
     this.getClients();
     this.getDoctors();
-    // console.log(this.clients);
+    this.getAppointments();
     
   }
 
@@ -65,6 +67,11 @@ export class AdminPage implements OnInit {
   }
 
   getAppointments(){
+    this.doctorService.getAppointments().subscribe((res:any)=>{
+      
+      this.appointments=res
+      console.log(res);
+    })
     
   }
 

@@ -47,7 +47,7 @@ export class DoctorService {
   }
 
   getAppointments(){
-    
+    return this.http.get<any>('http://localhost:3000/api/appointments/');
   }
 
 
