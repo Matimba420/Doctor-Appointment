@@ -70,7 +70,7 @@ export class AdminPage implements OnInit {
     this.doctorService.getAppointments().subscribe((res:any)=>{
       
       this.appointments=res
-      console.log(res);
+      this.numAppointments=res.length;
     })
     
   }
