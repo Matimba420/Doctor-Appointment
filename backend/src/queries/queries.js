@@ -57,6 +57,7 @@ const cancelAppointment = "UPDATE APPOINTMENT SET pet_id=(select id from PUBLIC.
 const getClientAppointments="SELECT APPOINTMENT.appoint_date,APPOINTMENT.dr_id,APPOINTMENT.id,APPOINTMENT.is_available,APPOINTMENT.pet_id,APPOINTMENT.time_slot,APPOINTMENT.user_id,DOCTOR.dr_name,DOCTOR.email,PETS.pet_name FROM PUBLIC.APPOINTMENT,PUBLIC.DOCTOR,PUBLIC.PETS where user_id=$1 AND dr_id=DOCTOR.id AND APPOINTMENT.pet_id=PETS.id";
 
 const newAppointment="INSERT INTO APPOINTMENT(dr_id,appoint_date,time_slot, is_available) VALUES($1,$2,$3,'true') ";
+const removeAppointment= "UPDATE APPOINTMENT SET is_available='false' WHERE id=$1"
 
 
 module.exports = {
@@ -95,5 +96,6 @@ module.exports = {
    
     getBookedAppointmentsByDrId,
     newAppointment,
+    removeAppointment,
 
 };

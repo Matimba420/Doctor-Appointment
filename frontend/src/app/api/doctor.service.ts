@@ -50,6 +50,10 @@ export class DoctorService {
     return this.http.get<any>('http://localhost:3000/api/appointments/');
   }
 
+  removeAppointment(id:any):Observable<any>{
+    return this.http.put<any>(`http://localhost:3000/api/appointments/remove/${id}`,'')
+  }
+
 
 
   

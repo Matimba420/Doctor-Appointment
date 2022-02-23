@@ -171,7 +171,8 @@
                       <td>{{appointment.pet_name}}</td>
                       <td>{{appointment.fee}}</td>
                       <td>
-                        <ion-icon name="trash-outline"></ion-icon>&nbsp;<ion-icon name="pencil-outline"></ion-icon>
+                        <ion-icon name="trash-outline" (click)="removeAppointment(appointment.id)"></ion-icon>&nbsp;
+                        <ion-icon name="pencil-outline"></ion-icon>
                       </td>
                     </tr>
                   </table>
