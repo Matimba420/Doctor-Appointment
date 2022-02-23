@@ -53,6 +53,10 @@ getBookedAppointmentsBydrId(id:any):Observable<any>{
 
 
 
+  getAppointments(){
+    
+  }
+
 
 
   
