@@ -9,16 +9,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DrDashboardPage implements OnInit {
 
-  constructor(private service: DoctorService) { }
+  constructor(private service: DoctorService,) { }
    doctor = localStorage.getItem('doctorAccess');
   drList: any=[]
   appointments:any=[];
+  //drId=this.route.snapshot.params['id'];
 
   ngOnInit() {
 
-    this.getDoctorById()
-    //this.getAvailableAppointments(id)
-    //this.getAvailableAppointments(this.route.snapshot.params['id']);
+    this.getDoctorById();
+    this.getAvailableAppointments(this.route.snapshot.params['id']);
+   // this.getAvailableAppointments(id);
   }
 
   getDoctorById(){
@@ -30,10 +31,11 @@ export class DrDashboardPage implements OnInit {
   getAvailableAppointments(id:any) {
     //this.drList = JSON.parse(localStorage.getItem('doctorAccess'));
     this.service.getAvailableAppointmentsByDrId(id).subscribe(res=>{
-    this.appointments =res; 
-    console.log("Insdide")
+    this.appointments =res;
+    console.log("Inside")
       console.log(this.appointments)
     })
   }
 
 }
+ 
