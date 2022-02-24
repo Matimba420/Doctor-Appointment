@@ -16,6 +16,11 @@ export class DoctorService {
   getDoctors(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}`);
   }
+
+  addDoctor(doctor: any): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}`, doctor);
+  }
+
   getAvailableAppointments() : Observable<any>{
     // return this.http.get<any>(`${this.baseUrl}');
     return this.http.get<any>('http://localhost:3000/api/appointments');

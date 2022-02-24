@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../api/user.service';
 import { DoctorService } from '../api/doctor.service';
+import { Router } from '@angular/router';
 
 import { FormGroup, FormBuilder, Validators, FormControl,FormsModule } from "@angular/forms";
 import Swal from 'sweetalert2';
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class AdminPage implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private clientService: UserService,private doctorService: DoctorService) { }
+  constructor(private formBuilder: FormBuilder,private clientService: UserService,private doctorService: DoctorService, private router:Router) { }
   numClients:any;
   numDoctors:any;
   numAppointments:any;
@@ -22,6 +23,7 @@ export class AdminPage implements OnInit {
   counter=1;
 
   clientForm: boolean = false;
+  doctorForm: boolean = false;
 
   registerForm = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
@@ -30,10 +32,25 @@ export class AdminPage implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     
-  })
+  });
+
+  registerDoctorForm = new FormGroup({
+    dr_name: new FormControl('', [Validators.required]),
+    occupation: new FormControl('',[Validators.required]),
+    experience: new FormControl('',[Validators.required,Validators.minLength(1)]),
+    company: new FormControl('',[Validators.required]),
+    cell_no: new FormControl('',[Validators.required,Validators.minLength(10)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    picture: new FormControl('', [Validators.required]),
+  });
   
-  get Form(){
-    return this.registerForm.controls;
+  // get Form(){
+  //   return this.registerForm.controls;
+  // }
+
+  get form(){
+    return this.registerDoctorForm.controls;
   }
 
 
@@ -41,7 +58,6 @@ export class AdminPage implements OnInit {
     this.getClients();
     this.getDoctors();
     this.getAppointments();
-    
   }
 
   getClients(){
@@ -157,17 +173,16 @@ export class AdminPage implements OnInit {
     this.clientForm = !this.clientForm
   }
 
-  register(){
-    // this.userService.addUser(this.registerForm.value).subscribe((data: any)=>{
-    //   console.log(data)
-    //   this.router.navigate(['/login']);
-    // })
+  openDoctorForm(){
+    this.doctorForm=!this.doctorForm;
+  }
 
+  register(){
     this.clientService.addUser(this.registerForm.value).subscribe({
       next:(data) =>{
         console.log(data)
         Swal.fire('', 'User successfully Added', 'success')
-        
+        window.location.reload();  
       },
       error: (e) => (
         console.log(e),
@@ -179,6 +194,31 @@ export class AdminPage implements OnInit {
       )
     
   });
-    }
+}
   
-  }
+
+registerDoc(){
+  this.doctorService.addDoctor(this.registerDoctorForm.value).subscribe({
+    next:(data) =>{
+      console.log(data)
+      Swal.fire('', 'User successfully Added', 'success')
+      window.location.reload();  
+    },
+    error: (e) => (
+      console.log(e),
+       Swal.fire({  
+        confirmButtonColor: "red",
+        icon: 'error',  
+        title: e.error.error,  
+        })
+    )
+  
+});
+}
+
+
+    
+  
+
+  
+}
