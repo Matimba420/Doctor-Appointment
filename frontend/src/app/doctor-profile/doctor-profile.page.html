@@ -1,4 +1,4 @@
-<ion-content class="backgroundcolor" [scrollEvents]="true">
+
 
 <!-- <ion-header no-border>
 <ion-row>
@@ -57,9 +57,9 @@
         </ion-list> -->
     <!-- </ion-card-content> -->
  
-    <ion-content class="card-background-page">
+    <ion-content class="card-background-page" [scrollEvents]="true">
 
-      <br><br><br>
+      
 
       <ion-grid>
         <ion-row>
@@ -96,11 +96,11 @@
                   not found
                 </div>
                 <div *ngFor="let dr of availAppointments">
-                  <ion-item>
+                  <ion-item class="appointmentsbg">
                     {{dr.appoint_date | date: 'short'}} {{dr.time_slot}}
-                  </ion-item>
-                  <ion-item>
-                    <ion-button color="dark" (click)="bookAppointment(dr.id)">Book</ion-button>
+                  
+               
+                    <ion-button color="dark" (click)="bookAppointment(dr.id)" class="bookAppointmentbtn">Book</ion-button>
                   </ion-item>
                 </div>
                 
