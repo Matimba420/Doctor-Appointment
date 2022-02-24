@@ -53,6 +53,9 @@ ion-content{
 
  .doccolor{
    --background: #222d3b;
+   font-size: 1.3em;
+   
+
    
  }
 
@@ -62,33 +65,40 @@ h2{
 
 .cardcontentcolor{
   color: #f3f3f3;
-  font-size: 1.5em;
+  font-size: 1.4em;
   text-transform: uppercase;
   text-align: center;
+  
   
   
 }
 .iconposition{
   
-  padding-left: 185px;
+  padding-left: 145px;
   padding-top: 5px;
+  
 }
 
 .briefcase{
-  padding-top: 5px;
+  padding-bottom: 5px;
   color:#74ecb9;
+  padding-right: 5px;
+  
   
   
 }
 
 .calendar{
-  padding-top: 5px;
+  padding-bottom: 2px;
   color:#74ecb9;
+  padding-right: 5px;
 }
 
 .iconxp{
-  padding-top: 5px;
+  padding-bottom: 2px;
   color:#74ecb9;
+  padding-right: 5px;
+
 }
 
 .appointmentsbg{
@@ -98,4 +108,28 @@ h2{
 .bookAppointmentbtn{
   padding-right: 50px;
 }
+
+.item{
+  border-bottom: 2px color #74ecb9;
+}
+
+.xptitle{
+  font-size: 1.2em;
+  color: #74ecb9;
+  
+}
+
+.occupationTitle{
+  font-size: 1.2em;
+  color: #74ecb9;
+  
+}
+
+.AnT{
+  font-size: 1.2em;
+  color: #74ecb9;
+  
+}
+
+
 
