@@ -521,6 +521,19 @@ const newAppointment = async (req,res) => {
     
 }
 
+const removeAppointment = async (req,res) =>{
+    const id = parseInt(req.params.id);
+    pool.query(queries.removeAppointment,[id],(error, results)=>{
+        // const result = !results.rows.length;
+        if(error){
+            res.status(404).json({error:"Appointment does not exist in the database."});
+            throw error;
+        }else{
+            res.status(200).json("appointment successfully removed");
+        }
+    });
+}
+
     
     
 module.exports ={
@@ -551,4 +564,5 @@ module.exports ={
     cancelAppointment,
     getClientAppointmentsById,
     newAppointment,
+    removeAppointment,
 };

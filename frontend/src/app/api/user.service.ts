@@ -53,7 +53,7 @@ export class UserService {
     return this.http.put<any>(`http://localhost:3000/api/appointments/cancelAppointment/${id}`,'')
   }
 
-
+  
 
   // getUserProfile(token : any) : Observable<any> {
   //   return this.http.post<any>(this.baseUrl, token, { 
