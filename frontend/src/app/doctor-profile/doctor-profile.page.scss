@@ -29,6 +29,7 @@ ion-content{
     margin: auto;
     
     
+    
   }
   .p-list{
     color:hsl(0, 0%, 29%);
@@ -36,15 +37,23 @@ ion-content{
 
   .card-background-page{
    --background: #f3f3f3;
+   
  }
 
  .docprofile{
   --background: #222d3b;
+  height: relative;
+      margin-top:81px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding-bottom: 20px;
 
  }
 
  .doccolor{
    --background: #222d3b;
+   
  }
 
 h2{
@@ -81,3 +90,12 @@ h2{
   padding-top: 5px;
   color:#74ecb9;
 }
+
+.appointmentsbg{
+  --background: #222d3b;
+  
+}
+.bookAppointmentbtn{
+  padding-right: 50px;
+}
+
