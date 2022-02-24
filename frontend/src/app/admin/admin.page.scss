@@ -1,5 +1,7 @@
 .card-background-page {
 
+    --background: #f3f3f3;
+
     ion-card {
       position: relative;
       text-align: center;
@@ -8,13 +10,14 @@
     
     .card-title {
       position: absolute;
-      top: 36%;
-      font-size: 2.0em;
+      top: 30%;
+      font-size: 2.7em;
       font-weight: bold;
       width: 100%;
       font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px 4px #000000;
+      color: #63c3fe;
+      text-transform: uppercase;
+     
     }
   
     .card-subtitle {
@@ -41,6 +44,7 @@ ion-group-accordion{
 
 ion-accordion{
   border-radius: 7px;
+ 
 
 }
 
@@ -51,14 +55,7 @@ ion-item, h1{
 td{
   padding-top: 10px;
 }
-ion-row{
-  background-color: rgb(108, 170, 211);
-}
 
-ion-grid
-{
-  background-color: rgb(108, 170, 211);
-}
 
 form{
   max-width: 400px;
@@ -66,10 +63,7 @@ form{
   
 }
 
-h1{
-  font-weight: bold;
-  color: white;
-}
+
 
 .action-buttons{
   text-align: center;
@@ -78,4 +72,8 @@ h1{
   font-weight: bold;
   background-color: #90bd42;
   }
+}
+ion-row{
+  background: #f3f3f3; 
+  padding-top: 50px;
 }
