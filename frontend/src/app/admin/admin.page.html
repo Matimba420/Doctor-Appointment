@@ -1,12 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>admin</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content class="card-background-page" *ngIf="clientForm==false && doctorForm===false">
   <ion-text color="white">
-    <h1 style="font-weight: bold; font-size: xx-large;">Admin</h1>
   </ion-text>
   <ion-grid>
     <ion-row>
@@ -298,9 +293,9 @@
             <ion-label position="floating">Dr NAME</ion-label>
             <ion-input type="text" formControlName="dr_name" id="dr_name" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['dr_name'].touched && Form['dr_name'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['dr_name'].errors && Form['dr_name'].errors['required']">Doctor name is required.</div>
-            <div *ngIf="Form['dr_name'].errors && Form['dr_name'].errors['dr_name']">Please, enter valid Doctor name.</div>
+          <div *ngIf="F['dr_name'].touched && F['dr_name'].invalid" class="alert alert-danger">
+            <div *ngIf="F['dr_name'].errors && F['dr_name'].errors['required']">Doctor name is required.</div>
+            <div *ngIf="F['dr_name'].errors && F['dr_name'].errors['dr_name']">Please, enter valid Doctor name.</div>
           </div>
         </div>
   
@@ -308,11 +303,11 @@
           <ion-icon name="person-outline"></ion-icon>
           <ion-item>
             <ion-label position="floating">OCCUPATION</ion-label>
-            <ion-input type="text" formControlName="lastname" id="lastname" required></ion-input>
+            <ion-input type="text" formControlName="occupation" id="occupation" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['occupation'].touched && Form['occupation'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['occupation'].errors && Form['occupation'].errors['required']">Occupation is required.</div>
-            <div *ngIf="Form['occupation'].errors && Form['occupation'].errors['occupation']">Please, enter a valid occupation.</div>
+          <div *ngIf="F['occupation'].touched && F['occupation'].invalid" class="alert alert-danger">
+            <div *ngIf="F['occupation'].errors && F['occupation'].errors['required']">Occupation is required.</div>
+            <div *ngIf="F['occupation'].errors && F['occupation'].errors['occupation']">Please, enter a valid occupation.</div>
           </div>
         </div>
 
@@ -322,9 +317,9 @@
             <ion-label position="floating">EXPERIENCE(YEARS)</ion-label>
             <ion-input type="text" formControlName="experience" id="experience" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['experience'].touched && Form['experience'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['experience'].errors && Form['experience'].errors['required']">Experience is required.</div>
-            <div *ngIf="Form['experience'].errors && Form['experience'].errors['experience']">Please, enter a valid experience.</div>
+          <div *ngIf="F['experience'].touched && F['experience'].invalid" class="alert alert-danger">
+            <div *ngIf="F['experience'].errors && F['experience'].errors['required']">Experience is required.</div>
+            <div *ngIf="F['experience'].errors && F['experience'].errors['experience']">Please, enter a valid experience.</div>
           </div>
         </div>
 
@@ -334,9 +329,9 @@
             <ion-label position="floating">Company</ion-label>
             <ion-input type="text" formControlName="company" id="company" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['company'].touched && Form['company'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['company'].errors && Form['company'].errors['required']">Company is required.</div>
-            <div *ngIf="Form['company'].errors && Form['company'].errors['company']">Please, enter a valid company name.</div>
+          <div *ngIf="F['company'].touched && F['company'].invalid" class="alert alert-danger">
+            <div *ngIf="F['company'].errors && F['company'].errors['required']">Company is required.</div>
+            <div *ngIf="F['company'].errors && F['company'].errors['company']">Please, enter a valid company name.</div>
           </div>
         </div>
   
@@ -346,9 +341,9 @@
             <ion-label position="floating">CELL NUMBER</ion-label>
             <ion-input type="text" formControlName="cell_no" id="cell_no" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['cell_no'].touched && Form['cell_no'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['cell_no'].errors && Form['cell_no'].errors['required']">cellphone number is required.</div>
-            <div *ngIf="Form['cell_no'].errors && Form['cell_no'].errors['cell_no']">Please, enter valid cellpohone number.</div>
+          <div *ngIf="F['cell_no'].touched && F['cell_no'].invalid" class="alert alert-danger">
+            <div *ngIf="F['cell_no'].errors && F['cell_no'].errors['required']">cellphone number is required.</div>
+            <div *ngIf="F['cell_no'].errors && F['cell_no'].errors['cell_no']">Please, enter valid cellpohone number.</div>
           </div>
         </div>
   
@@ -358,9 +353,9 @@
             <ion-label position="floating">EMAIL</ion-label>
             <ion-input type="email" formControlName="email" id="email" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['email'].touched && Form['email'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['email'].errors && Form['email'].errors['required']">email is required.</div>
-            <div *ngIf="Form['email'].errors && Form['email'].errors['email']">Please, enter valid email address.</div>
+          <div *ngIf="F['email'].touched && F['email'].invalid" class="alert alert-danger">
+            <div *ngIf="F['email'].errors && F['email'].errors['required']">email is required.</div>
+            <div *ngIf="F['email'].errors && F['email'].errors['email']">Please, enter valid email address.</div>
           </div>
         </div>
       
@@ -370,9 +365,9 @@
             <ion-label position="floating">PASSWORD</ion-label>
             <ion-input type="password" formControlName="password" id="password" required></ion-input>
           </ion-item>
-          <div *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
-            <div *ngIf="Form['password'].errors && Form['password'].errors['required']">Password is required.</div>
-            <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid password.</div>
+          <div *ngIf="F['password'].touched && F['password'].invalid" class="alert alert-danger">
+            <div *ngIf="F['password'].errors && F['password'].errors['required']">Password is required.</div>
+            <div *ngIf="F['password'].errors && F['password'].errors['password']">Please, enter valid password.</div>
           </div>
         </div>
       </div>
@@ -383,9 +378,9 @@
           <ion-label position="floating">PICTURE</ion-label>
           <ion-input type="text" formControlName="picture" id="picture" required></ion-input>
         </ion-item>
-        <div *ngIf="Form['picture'].touched && Form['picture'].invalid" class="alert alert-danger">
-          <div *ngIf="Form['picture'].errors && Form['picture'].errors['required']">Company is required.</div>
-          <div *ngIf="Form['picture'].errors && Form['picture'].errors['picture']">Please, enter a valid company name.</div>
+        <div *ngIf="F['picture'].touched && F['picture'].invalid" class="alert alert-danger">
+          <div *ngIf="F['picture'].errors && F['picture'].errors['required']">Picture is required.</div>
+          <div *ngIf="F['picture'].errors && F['picture'].errors['picture']">Please, enter a valid picture name.</div>
         </div>
       </div>
       

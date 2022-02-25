@@ -11,7 +11,7 @@ const activateClient="UPDATE PUBLIC.USER SET is_active=$1 WHERE id=$2 "
 
 
 
-const addDoctor = "INSERT INTO PUBLIC.DOCTOR (dr_name, occupation, experience, company, cell_no, email, password) VALUES ($1,$2,$3,$4,$5,$6,$7)";
+const addDoctor = "INSERT INTO PUBLIC.DOCTOR (dr_name, occupation, experience, company, cell_no, email, password,picture) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
 const getDoctors = "SELECT * FROM PUBLIC.DOCTOR  where is_active='true'  ORDER BY id ASC";
 const getDoctorById = "SELECT * FROM PUBLIC.DOCTOR  WHERE id =$1 and is_active='true'"
 const checkDoctorEmailExists = "SELECT * FROM PUBLIC.DOCTOR  WHERE email= $1 and is_active='true'"

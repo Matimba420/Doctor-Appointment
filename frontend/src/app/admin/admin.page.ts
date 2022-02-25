@@ -45,11 +45,11 @@ export class AdminPage implements OnInit {
     picture: new FormControl('', [Validators.required]),
   });
   
-  // get Form(){
-  //   return this.registerForm.controls;
-  // }
+  get Form(){
+    return this.registerForm.controls;
+  }
 
-  get form(){
+  get F(){
     return this.registerDoctorForm.controls;
   }
 
@@ -194,7 +194,7 @@ export class AdminPage implements OnInit {
       )
     
   });
-}
+  }
   
 
 registerDoc(){
@@ -212,7 +212,6 @@ registerDoc(){
         title: e.error.error,  
         })
     )
-  
 });
 }
 
