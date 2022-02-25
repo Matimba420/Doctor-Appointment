@@ -23,7 +23,7 @@
         <ion-searchbar animated></ion-searchbar>
       </ion-buttons>
     </ion-header> -->
-    <ion-content>
+    <ion-content class="bgside">
       <ion-list>
        <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==false"><ion-icon name="log-in-outline"></ion-icon> <strong>Login</strong></ion-item></ion-menu-toggle>
        <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==true" (click)="logout()"><ion-icon name="log-in-outline"></ion-icon>  <strong>Logout</strong></ion-item></ion-menu-toggle>

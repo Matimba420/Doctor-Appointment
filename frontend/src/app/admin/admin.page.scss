@@ -1,3 +1,10 @@
+*{
+  font-family: sans-serif;
+  
+}
+
+
+
 .card-background-page {
 
     --background: #f3f3f3;
@@ -76,4 +83,15 @@ form{
 ion-row{
   background: #f3f3f3; 
   padding-top: 50px;
+}
+
+.appointStyle{
+  --background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
+   url("/assets/satyabrata-sm-u_kMWN-BWyU-unsplash.jpeg") no-repeat center center / cover;
+}
+
+.action-buttons-ion-padding{
+ color: #222d3b;
+ position: relative;
+ 
 }
