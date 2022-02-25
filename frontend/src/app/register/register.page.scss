@@ -38,8 +38,8 @@ ion-content{
             ion-item::part(native) {
                 padding-left: 0;
             background-color: transparent;
-            border-bottom: solid white 1px;
-            background:#222d3b;
+            border-bottom: solid #222d3b 1px;
+            color: #222d3b;
             }
 
             ion-icon{
@@ -48,6 +48,7 @@ ion-content{
                 z-index: 2;
                 font-size: 1.2rem;
                 left: 5px;
+                color: #222d3b;
                 
             }
 
@@ -102,4 +103,8 @@ ion-content{
 
     .errors{
         color: #222d3b;
+    }
+
+    .alert{
+        color: rgb(238, 117, 117);
     }
