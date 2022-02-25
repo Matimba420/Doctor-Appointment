@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DrDashboardPage implements OnInit {
 
   constructor(private service: DoctorService,) { }
-   doctor = localStorage.getItem('doctorAccess');
+  loggedInDoctor= JSON.parse(localStorage.getItem('doctorAccess'));
   drList: any=[]
   appointments:any=[];
   //drId=this.route.snapshot.params['id'];
@@ -18,7 +18,7 @@ export class DrDashboardPage implements OnInit {
   ngOnInit() {
 
     this.getDoctorById();
-    this.getAvailableAppointments(this.route.snapshot.params['id']);
+   // this.getAvailableAppointments(this.route.snapshot.params['id']);
    // this.getAvailableAppointments(id);
   }
 

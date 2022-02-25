@@ -63,9 +63,15 @@ getBookedAppointmentsBydrId(id:any):Observable<any>{
   }
 
   removeAppointment(id:any):Observable<any>{
-    return this.http.put<any>(`http://localhost:3000/api/appointments/remove/${id}`,'')
+    return this.http.put<any>(`http://localhost:3000/api/appointments/remove/${id}`,'');
   }
 
+  newAppointment(body:any):Observable<any>{
+    return this.http.post<any>('http://localhost:3000/api/appointments', body)
+
+  }
+
+  
 
 
   
