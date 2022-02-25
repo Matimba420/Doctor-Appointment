@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../api/doctor.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dr-dashboard',
@@ -8,34 +9,91 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dr-dashboard.page.scss'],
 })
 export class DrDashboardPage implements OnInit {
+  count = 1;
 
-  constructor(private service: DoctorService,) { }
+  constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute,) {}
+
   loggedInDoctor= JSON.parse(localStorage.getItem('doctorAccess'));
   drList: any=[]
-  appointments:any=[];
-  //drId=this.route.snapshot.params['id'];
-
+  //appointments:any=[];
+  availAppointments:any=[]
+  drID:any;
   ngOnInit() {
 
     this.getDoctorById();
-   // this.getAvailableAppointments(this.route.snapshot.params['id']);
-   // this.getAvailableAppointments(id);
+    // console.log("dro " ,this.availAppointments);
+    
+    this.getAvailableAppointments(this.drID);
+
+    let reload = localStorage.getItem('reload') as string;
+
+    if( reload != null)
+    {
+      window.location.reload();
+      localStorage.removeItem('reload');
+    } 
+   
   }
 
   getDoctorById(){
     this.drList = JSON.parse(localStorage.getItem('doctorAccess'));
-   // this.drList=this.drList[0].value;
-      console.log(this.drList.id)
+   
+    console.log("this is the dr list ",this.drList[0].id);
+    this.drID = this.drList[0].id;
   }
 
   getAvailableAppointments(id:any) {
-    //this.drList = JSON.parse(localStorage.getItem('doctorAccess'));
     this.service.getAvailableAppointmentsByDrId(id).subscribe(res=>{
-    this.appointments =res;
-    console.log("Inside")
-      console.log(this.appointments)
+      this.availAppointments =res; 
+      console.log(this.availAppointments)
+      // let reload = localStorage.getItem('reload') as string;
+
+      // if( reload != null)
+      // {
+      //   window.location.reload();
+      //   localStorage.removeItem('reload');
+      // } 
     })
   }
 
+  
+  cancelAppointment(id:any){
+    console.log(id);
+    console.log(this.availAppointments)
+    
+
+    Swal.fire({
+      title: `Are you sure you want to cancel your appoint?`,
+      text: `Once cancelled you will have to book another appointment should you want to book again!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, cancel it!',
+      confirmButtonColor: "red",
+      cancelButtonText: 'No, keep it',
+      cancelButtonColor:'blue'
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        this.service.cancelAppointment(id).subscribe(res=>{
+          Swal.fire('', res, 'success')
+          console.log(res);
+        });
+        
+        
+        
+        this.ngOnInit();
+      } else if (result.isDismissed) {
+        this.ngOnInit()
+      }
+    })
+    
+  }
+
+}
+
+
+
+function dr_id(dr_id: any) {
+  throw new Error('Function not implemented.');
 }
  

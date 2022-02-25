@@ -36,15 +36,15 @@
             <th>Time</th>
             <th>Option</th>
           </tr>
-          <tr *ngFor="let list of appointments">
-            <!-- <td>{{list.name}}</td> -->
+          <tr *ngFor="let list of  availAppointments">
+            
             
             <td>
               {{list.appoint_date | date: 'mediumDate'}}
             </td>
-            <!-- <td>{{list.pet_name}}</td> -->
+           
             <td>{{list.time_slot}}</td>
-            <!-- <td><ion-icon name="close-circle-outline" (click)="cancelAppointment(list.id)"></ion-icon></td> -->
+             <td><ion-icon name="close-circle-outline" (click)="cancelAppointment(list.id)"></ion-icon></td> 
           </tr>
        </table>
       </ion-card-content>

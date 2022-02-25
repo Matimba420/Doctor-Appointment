@@ -41,10 +41,6 @@ export class DrAppointmentPage implements OnInit {
  }
  
   
-
-
-
-
   ngOnInit() {
     console.log(this.loggedInDoctor);
     console.log(this.loggedInDoctor[0].id);
@@ -83,7 +79,9 @@ export class DrAppointmentPage implements OnInit {
    setAppointment(data:any){
     this.doctorService.newAppointment(data).subscribe((res: any)=>{
       console.log(res)
-      this.router.navigate(['/dr-dashboard'])
+      //this.router.navigate(['/dr-dashboard']);
+      localStorage.setItem('reload', JSON.stringify('true'));
+      // window.reload();
     })
 
   }

@@ -22,7 +22,7 @@ export class DoctorProfilePage implements OnInit {
   ngOnInit() {
     // this.getDoctor();
     this.getDoctorById(this.route.snapshot.params['id']);
-    this.getAvailableAppointments(this.route.snapshot.params['id'])
+    this.getAvailableAppointments(this.route.snapshot.params['id']);
     
     
   }
@@ -39,7 +39,7 @@ export class DoctorProfilePage implements OnInit {
   getAvailableAppointments(id:any) {
     this.service.getAvailableAppointmentsByDrId(id).subscribe(res=>{
       this.availAppointments =res; 
-      // console.log(this.availAppointments)
+       console.log(this.availAppointments)
     })
   }
 
