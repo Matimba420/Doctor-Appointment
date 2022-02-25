@@ -31,16 +31,22 @@
       <ion-card-content>
        <table>
           <tr>
+            <th>Doctor</th>
+            
             <th>Date</th>
+            <th>Pet</th>
             <th>Time</th>
             <th>Option</th>
           </tr>
           <tr *ngFor="let appointment of userAppointments">
+            <td>{{appointment.dr_name}}</td>
+            
             <td>
               {{appointment.appoint_date | date: 'mediumDate'}}
             </td>
+            <td>{{appointment.pet_name}}</td>
             <td>{{appointment.time_slot}}</td>
-            <td><ion-icon name="close-circle-outline"></ion-icon></td>
+            <td><ion-icon name="close-circle-outline" (click)="cancelAppointment(appointment.id)"></ion-icon></td>
           </tr>
        </table>
       </ion-card-content>

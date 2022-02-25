@@ -1,7 +1,7 @@
 ion-content{
-    --background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
-    url("/assets/satyabrata-sm-u_kMWN-BWyU-unsplash.jpeg") no-repeat center center / cover;
-
+    // --background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
+    // url("/assets/satyabrata-sm-u_kMWN-BWyU-unsplash.jpeg") no-repeat center center / cover;
+    --background: #f3f3f3;
 }
 
 .Login-section{
@@ -22,12 +22,12 @@ ion-content{
         h1{
             font-size: 2rem;
             font-weight: bolder;
-            color: aliceblue;
+            color: #222d3b;
         }
         p{
             margin-top:10px ;
             font-size: 1rem;
-            color: #fff;
+            color: #222d3b;
         }
 
     }
@@ -38,7 +38,8 @@ ion-content{
             ion-item::part(native) {
                 padding-left: 0;
             background-color: transparent;
-            border-bottom: solid white 1px;
+            border-bottom: solid #222d3b 1px;
+            color: #222d3b;
             }
 
             ion-icon{
@@ -47,6 +48,7 @@ ion-content{
                 z-index: 2;
                 font-size: 1.2rem;
                 left: 5px;
+                color: #222d3b;
                 
             }
 
@@ -62,7 +64,7 @@ ion-content{
                 font-size: 0.9rem;
                 --padding-start:36px;
                 --padding-top:36px;
-                color: white;
+                color: #222d3b;
 
             }
         }
@@ -73,7 +75,7 @@ ion-content{
     .action-buttons{
         text-align: center;
         .login-button{
-        --border-color: white;
+        --border-color: #222d3b;
         width: 100%;
         font-weight: bold;
         background-color: transparent;
@@ -94,4 +96,15 @@ ion-content{
     }
 
     
+    .selectuser{
+        color: #ffff;
 
+    }
+
+    .errors{
+        color: #222d3b;
+    }
+
+    .alert{
+        color: rgb(238, 117, 117);
+    }

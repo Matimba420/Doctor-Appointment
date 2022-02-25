@@ -1,8 +1,33 @@
 ion-toolbar{
-    --background: #90bd42;
+    --background: #f3f3f3;
     // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(48, 48, 48, 0.19);
 }
 
-body{
-    --background: rgb(108, 170, 211);
+.menu,ion-item{
+    --background: #f3f3f3;
+    color: #222d3b;
+}
+
+ion-item{
+    border: none;
+}
+// body{
+//     --background: rgb(108, 170, 211);
+// }
+
+.homeFont{
+    color: #222d3b;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.burger{
+    color: #222d3b;
+}
+
+.arrow-back-outline{
+    color: #222d3b;
+}
+ion-icon{
+    color: #222d3b;
 }

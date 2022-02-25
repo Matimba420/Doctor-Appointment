@@ -1,14 +1,14 @@
 <ion-app>
   <ion-toolbar>
     <ion-buttons slot="start" *ngIf="hide()==true">
-      <ion-button (click)="goBack()">
+      <ion-button  (click)="goBack()">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title class="homeFont" size="medium" [routerLink]="['/home']">Vet App</ion-title>
     <ion-buttons slot="end">
       <div>
-        <ion-menu-button autoHide="false"></ion-menu-button>
+        <ion-menu-button class="burger" autoHide="false"></ion-menu-button>
       </div>
     </ion-buttons>
 
@@ -17,13 +17,13 @@
   </ion-toolbar>
 
 
-  <ion-menu side="start" menuId="first" contentId="main">
+  <ion-menu side="end" menuId="first" contentId="main" >
     <!-- <ion-header>
       <ion-buttons>
         <ion-searchbar animated></ion-searchbar>
       </ion-buttons>
     </ion-header> -->
-    <ion-content>
+    <ion-content class="menu">
       <ion-list>
        <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==false"><ion-icon name="log-in-outline"></ion-icon> <strong>Login</strong></ion-item></ion-menu-toggle>
        <ion-menu-toggle><ion-item [routerLink]="['/login']" *ngIf="isLoggedIn()==true" (click)="logout()"><ion-icon name="log-in-outline"></ion-icon>  <strong>Logout</strong></ion-item></ion-menu-toggle>

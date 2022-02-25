@@ -40,7 +40,8 @@ h1{
     text-align: center;
     max-width: 540px;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    color: #222d3b;
 }
 
 span{
@@ -54,4 +55,12 @@ img
  height: 300px;
  width: 300px;
 
+}
+
+.bgcontent{
+  --background: #f3f3f3;
+}
+
+.buttoncolor{
+  color: #63c3fe;
 }

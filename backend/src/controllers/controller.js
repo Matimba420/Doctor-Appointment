@@ -178,7 +178,7 @@ const getDoctorById=(req,res) =>{
 };
 
 const addDoctor = async (req,res) => {
-    const { dr_name, occupation, experience, company, cell_no, email, password} = req.body;
+    const { dr_name, occupation, experience, company, cell_no, email, password,picture} = req.body;
     if(toString(password).length<8){
         res.status(400).send('Your Password should be longer than 7 characters');
     }else{
@@ -193,14 +193,14 @@ const addDoctor = async (req,res) => {
                 res.send("email already exists");
             }else{
                 pool.query(queries.addDoctor, 
-                    [dr_name, occupation, experience, company, cell_no, email, passwordHash],
+                    [dr_name, occupation, experience, company, cell_no, email, passwordHash,picture],
                     (error,results)=>{
                     if(error){ 
-                        console.log('bad response ')
+                        res.status(409).json({error:'bad response '})
                         throw error;
                     }else{
                         addDoctorMailer([email],[dr_name], [password]);
-                        res.status(201).send("Account registered successfully");
+                        res.status(201).json("Account registered successfully");
                     }
                 });
             }
@@ -398,7 +398,7 @@ const cancelAppointment= async (req,res)=>{
             throw error;
         }else{
             mailer('ntsakokhozacc@gmail.com')
-            res.status(201).send("appointment cancelled");
+            res.status(201).json("appointment cancelled");
         }
     });
 }
@@ -435,7 +435,7 @@ const mailer = async (email)=>{
         from: 'ntsakokhozacc@gmail.com', // sender address
         to: email, // list of receivers
         //cc:'etlhako@gmail.com',
-        subject: 'Appointment cancelling', // Subject line
+        subject: 'Appointment cancellation', // Subject line
         // text: text, // plain text body
         html:   `<h2>Greetings Mr khoza</h1><br><h4>Your appointment has been cancelled ☹️ ${email}</h4>`
         // html body
@@ -502,6 +502,36 @@ const addDoctorMailer = async (email,dr_name, password)=>{
    
 }
 
+const newAppointment = async (req,res) => {
+    const {dr_id,appoint_date,time_slot} = req.body;
+    console.log(dr_id)
+    console.log(appoint_date)
+    console.log(time_slot)
+    pool.query(queries.newAppointment, [dr_id,appoint_date,time_slot],(error,results)=>{
+        if(error){ 
+            res.status(500).json({error: 'invalid input'})
+            // throw error;
+        }else{
+
+            res.status(201).json("New availability slot created successfully");
+        }
+    });
+    
+}
+
+const removeAppointment = async (req,res) =>{
+    const id = parseInt(req.params.id);
+    pool.query(queries.removeAppointment,[id],(error, results)=>{
+        // const result = !results.rows.length;
+        if(error){
+            res.status(404).json({error:"Appointment does not exist in the database."});
+            throw error;
+        }else{
+            res.status(200).json("appointment successfully removed");
+        }
+    });
+}
+
     
     
 module.exports ={
@@ -531,4 +561,6 @@ module.exports ={
     makeAppointment,
     cancelAppointment,
     getClientAppointmentsById,
+    newAppointment,
+    removeAppointment,
 };
