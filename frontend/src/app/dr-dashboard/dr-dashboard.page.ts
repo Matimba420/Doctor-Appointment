@@ -57,7 +57,7 @@ export class DrDashboardPage implements OnInit {
   }
 
   
-  cancelAppointment(id:any){
+  removeAppointment(id:any){
     console.log(id);
     console.log(this.availAppointments)
     
@@ -74,7 +74,7 @@ export class DrDashboardPage implements OnInit {
     }).then((result) => {
 
       if (result.isConfirmed) {
-        this.service.cancelAppointment(id).subscribe(res=>{
+        this.service.removeAppointment(id).subscribe(res=>{
           Swal.fire('', res, 'success')
           console.log(res);
         });

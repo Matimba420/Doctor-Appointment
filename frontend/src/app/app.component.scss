@@ -8,6 +8,11 @@ ion-toolbar{
     color: #222d3b;
 }
 
+ion-toolbar .sc-ion-searchbar-ios-h {
+    margin-left: -47px;
+    margin-right: -50px;
+    width: 35rem;
+}
 ion-item{
     border: none;
 }

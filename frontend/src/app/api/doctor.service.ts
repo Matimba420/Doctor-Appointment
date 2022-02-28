@@ -52,8 +52,8 @@ export class DoctorService {
   
 }
 
-cancelAppointment(id:any):Observable<any>{
-  return this.http.put<any>(`http://localhost:3000/api/appointments/cancelAppointment/${id}`,'')
+cancelDrAppointment(id:any):Observable<any>{
+  return this.http.put<any>(`http://localhost:3000/api/appointments/cancelDrAppointment/${id}`,'')
 }
 
 getBookedAppointmentsBydrId(id:any):Observable<any>{

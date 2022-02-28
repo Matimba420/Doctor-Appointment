@@ -47,14 +47,18 @@
   </ion-grid> -->
   
   
+  
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-sm="4" *ngFor="let list of drlist">
-        <ion-card class="doctorcard">
-
-          <img class="cardimage"src="{{list.picture}}" routerLink="/doctor-profile/{{list.id}}">
-          <ion-card-content class="actualcard">
-            <ion-card-title class="doctorname">{{list.dr_name}}</ion-card-title>
+      <ion-searchbar [(ngModel)]="filterTerm">
+        <!-- <p *ngIf="result.length === 0">No Result</p>   -->
+      </ion-searchbar>
+   
+      <ion-col size="12" size-sm="4" *ngFor="let list of drlist | filter: filterTerm">
+        <ion-card>
+          <img src="{{list.picture}}" routerLink="/doctor-profile/{{list.id}}">
+          <ion-card-content>
+            <ion-card-title>{{list.dr_name}}</ion-card-title>
           </ion-card-content>
           <ion-text class="occupation">
             <ion-card-title class="job">{{list.occupation}}</ion-card-title>
