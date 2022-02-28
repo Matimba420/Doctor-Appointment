@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { BookanimalPageRoutingModule } from './bookanimal-routing.module';
 
 import { BookanimalPage } from './bookanimal.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BookanimalPageRoutingModule
+    BookanimalPageRoutingModule,
+    Ng2SearchPipeModule,
   ],
   declarations: [BookanimalPage]
 })

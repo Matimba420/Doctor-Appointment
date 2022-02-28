@@ -1,45 +1,41 @@
-
-
 <ion-content [scrollEvents]="true">
-
-
-  <!-- <ion-grid>
+  
+  <ion-searchbar [(ngModel)]="filterTerm"></ion-searchbar>
+  <!-- <ion-list *ngIf="!filterTerm">
     
-     <ion-row> -->
-      <!--ion-col *ngFor="let ba of bookAnimal">
-        <div><ion-card>
-          <ion-card-content>
-           <img src={{ba.images}}/>
-          </ion-card-content>
-        </ion-card>
-      </div>
-      </ion-col>
-    </ion-row> -->
+         <p>empty</p>
+ </ion-list> -->
 
-   
-    <ion-content class="card-background-page">
-      <br><br><br>
-      <h1 style="text-align: center; font-weight: bolder; margin-top: 20px;">Choose An Animal</h1>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" size-sm="4" *ngFor="let item of bookAnimal">
-           
-            <ion-card><ion-card-content>
+  
+
+  
+
+  <ion-content class="card-background-page">
+    <br>
+    <h1 style="text-align: center; font-weight: bolder; margin-top: 20px;">Choose An Animal</h1>
+
+    <ion-grid>
+      <ion-row>
+        <p *ngIf="">No Result>No Results</p>
+        <ion-col size="12" size-sm="4" *ngFor="let item of bookAnimal | filter: filterTerm">
+
+          <!-- <p *ngIf="item.length === 0">No Result>No Results</p> -->
+
+          <ion-card>
+            <ion-card-content>
               <!-- <img src="{{item.images}}" (click)=' getAvailableAppointments(item.pet_name)' > -->
               <img src="{{item.images}}" (click)="getDocInfo(item)">
-              
-              
-                <ion-title>{{item.pet_name}}</ion-title>
-              </ion-card-content>
-             
-            
-            
+
+
+              <ion-title>{{item.pet_name}}</ion-title>
+            </ion-card-content>
+
+
+
           </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    
-     
-    </ion-content>
-  
-      
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </ion-content>

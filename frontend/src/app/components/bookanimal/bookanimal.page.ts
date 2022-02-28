@@ -6,10 +6,12 @@ import { Router } from '@angular/router';
   selector: 'app-bookanimal',
   templateUrl: './bookanimal.page.html',
   styleUrls: ['./bookanimal.page.scss'],
+  
 })
 export class BookanimalPage implements OnInit {
   
-  
+  // items: string[] = [];
+  filterTerm!: string;
   bookAnimal:any=[];
   
 

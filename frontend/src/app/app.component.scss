@@ -6,3 +6,9 @@ ion-toolbar{
 body{
     --background: rgb(108, 170, 211);
 }
+
+ion-toolbar .sc-ion-searchbar-ios-h {
+    margin-left: -47px;
+    margin-right: -50px;
+    width: 35rem;
+}
