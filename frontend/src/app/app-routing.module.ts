@@ -51,7 +51,18 @@ const routes: Routes = [
   {
     path: 'doctor-profile/:id',
     loadChildren: () => import('./doctor-profile/doctor-profile.module').then( m => m.DoctorProfilePageModule)
-  }
+  },
+  {
+    path: 'dr-appointment',
+    loadChildren: () => import('./dr-appointment/dr-appointment.module').then( m => m.DrAppointmentPageModule)
+  },  {
+    path: 'booked-slot',
+    loadChildren: () => import('./booked-slot/booked-slot.module').then( m => m.BookedSlotPageModule)
+  },
+  {
+    path: 'dr-dashboard',
+    loadChildren: () => import('./dr-dashboard/dr-dashboard.module').then( m => m.DrDashboardPageModule)
+  },
 
   
 ];

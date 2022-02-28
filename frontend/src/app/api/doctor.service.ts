@@ -16,6 +16,11 @@ export class DoctorService {
   getDoctors(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}`);
   }
+
+  addDoctor(doctor: any): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}`, doctor);
+  }
+
   getAvailableAppointments() : Observable<any>{
     // return this.http.get<any>(`${this.baseUrl}');
     return this.http.get<any>('http://localhost:3000/api/appointments');
@@ -44,8 +49,33 @@ export class DoctorService {
 
   makeAppointment(id: any, data: any): Observable<any>{
     return this.http.put<any>(`http://localhost:3000/api/appointments/makeAppointment/${id}`, data)
+  
+}
+
+cancelDrAppointment(id:any):Observable<any>{
+  return this.http.put<any>(`http://localhost:3000/api/appointments/cancelDrAppointment/${id}`,'')
+}
+
+getBookedAppointmentsBydrId(id:any):Observable<any>{
+  return this.http.get<any>(`http://localhost:3000/api/appointments/booked/${id}`);
+}
+
+
+
+  getAppointments(){
+    return this.http.get<any>('http://localhost:3000/api/appointments/');
   }
 
+  removeAppointment(id:any):Observable<any>{
+    return this.http.put<any>(`http://localhost:3000/api/appointments/remove/${id}`,'');
+  }
+
+  newAppointment(body:any):Observable<any>{
+    return this.http.post<any>('http://localhost:3000/api/appointments', body)
+
+  }
+
+  
 
 
   

@@ -27,13 +27,115 @@ ion-content{
     bottom: 0;
     position: fixed;
     margin: auto;
- 
+    
+    
     
   }
   .p-list{
     color:hsl(0, 0%, 29%);
   }
 
- 
-  
+  .card-background-page{
+   --background: #f3f3f3;
+   
+ }
 
+ .docprofile{
+  --background: #222d3b;
+  height: relative;
+      margin-top:81px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding-bottom: 20px;
+
+ }
+
+ .doccolor{
+   --background: #222d3b;
+   font-size: 1.3em;
+   
+
+   
+ }
+
+h2{
+  --background: #63c3fe;
+}
+
+.cardcontentcolor{
+  color: #f3f3f3;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  text-align: center;
+  
+  
+  
+}
+.iconposition{
+  
+  padding-left: 145px;
+  padding-top: 15px;
+  
+  
+}
+
+.briefcase{
+  padding-bottom: 5px;
+  color:#74ecb9;
+  padding-right: 5px;
+  padding-top: 5px;
+  
+  
+  
+}
+
+.calendar{
+  padding-bottom: 2px;
+  color:#74ecb9;
+  padding-right: 5px;
+}
+
+.iconxp{
+  padding-bottom: 2px;
+  color:#74ecb9;
+  padding-right: 5px;
+
+}
+
+.appointmentsbg{
+  --background: #222d3b;
+  
+  
+}
+.bookAppointmentbtn{
+  padding-right: 50px;
+}
+
+.item{
+  border-bottom: 2px color #74ecb9;
+}
+
+.xptitle{
+  font-size: 1.2em;
+  color: #74ecb9;
+  
+}
+
+.occupationTitle{
+  font-size: 1.2em;
+  color: #74ecb9;
+  
+}
+
+.AnT{
+  font-size: 1.2em;
+  color: #74ecb9;
+  
+}
+
+
+
+ion-list{
+  background:#f3f3f3;
+}

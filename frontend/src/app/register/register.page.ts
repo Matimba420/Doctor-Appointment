@@ -19,7 +19,7 @@ export class RegisterPage implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
   
-  isClient:boolean =true;
+  role:any ='client';
   isloading:boolean=false;
 
   get Form(){
@@ -37,11 +37,15 @@ export class RegisterPage implements OnInit {
 
   onServiceSelect(e){
     let response =e.detail.value;
-    if(response=='no'){
-      this.isClient=false;
+    if(response=='doctor'){
+      this.role="doctor";
+    }else if(response=='admin'){
+      this.role="admin";
     }else{
-      this.isClient=true;
+      this.role="client"
     }
+
+  
 
     
   }
@@ -50,7 +54,7 @@ export class RegisterPage implements OnInit {
     console.log(this.loginForm.value)
     
     // this.userService.userLogin(this.loginForm.value)
-    if(this.isClient==true){
+    if(this.role=="client"){
         this.isloading=true;
         this.userService.userLogin(this.loginForm.value).subscribe({
           next:(data) =>{
@@ -71,14 +75,14 @@ export class RegisterPage implements OnInit {
           )
         
       });
-  }else{
+  }else if(this.role=="doctor"){
     // console.log('doctor login')
     this.doctorService.doctorLogin(this.loginForm.value).subscribe({
       next:(data) =>{
         this.isloading=false;
         localStorage.setItem("doctorAccess", JSON.stringify(data));
         console.log(data)
-        this.router.navigateByUrl('/doctor-profile',{replaceUrl:true});
+        this.router.navigateByUrl('/dr-dashboard',{replaceUrl:true});
       },
       
       error: (e) => (
@@ -92,10 +96,12 @@ export class RegisterPage implements OnInit {
       )
   });
     
+  }else{
+    alert("should be implemented for admin");
   }
     
 
-}
+} 
 
   ngOnInit() {
     

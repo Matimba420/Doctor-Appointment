@@ -1,22 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Profile</ion-title>
-    <ion-button size="small" slot="end" (click)="logOut()">Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
-  <div *ngFor="let data of userDetails" class="profile-content">
+  <div *ngFor="let item of drList">
 
     <ion-card class="text-center" style="color: white;">
       <ion-card-header>
         <ion-icon name="person-sharp" size="large"></ion-icon>
-        <h1>{{data.firstname}} {{data.lastname}}</h1>
+        <h1>{{item.dr_name}}</h1>
       </ion-card-header>
       <ion-card-content>
-        <ion-icon name="mail"></ion-icon> {{data.email}} <br>
-        <ion-icon name="call"></ion-icon> {{data.cell_no}}
+        <ion-icon name="mail"></ion-icon> {{item.email}} <br>
+        <ion-icon name="call"></ion-icon> {{item.cell_no}}
       </ion-card-content>
       <ion-button color="dark">Edit</ion-button>
     </ion-card>
@@ -31,22 +30,21 @@
       <ion-card-content>
        <table>
           <tr>
-            <th>Doctor</th>
+          
             
             <th>Date</th>
-            <th>Pet</th>
             <th>Time</th>
             <th>Option</th>
           </tr>
-          <tr *ngFor="let appointment of userAppointments">
-            <td>{{appointment.dr_name}}</td>
+          <tr *ngFor="let list of  availAppointments">
+            
             
             <td>
-              {{appointment.appoint_date | date: 'mediumDate'}}
+              {{list.appoint_date | date: 'mediumDate'}}
             </td>
-            <td>{{appointment.pet_name}}</td>
-            <td>{{appointment.time_slot}}</td>
-            <td><ion-icon name="close-circle-outline" (click)="cancelAppointment(appointment.id)"></ion-icon></td>
+           
+            <td>{{list.time_slot}}</td>
+             <td><ion-icon name="close-circle-outline" (click)="removeAppointment(list.id)"></ion-icon></td> 
           </tr>
        </table>
       </ion-card-content>
@@ -56,7 +54,7 @@
   </div>
 
   <ion-fab vertical="center" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/bookanimal">
+    <ion-fab-button routerLink="/dr-appointment">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

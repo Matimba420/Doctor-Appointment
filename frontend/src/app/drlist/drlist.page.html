@@ -60,11 +60,13 @@
           <ion-card-content>
             <ion-card-title>{{list.dr_name}}</ion-card-title>
           </ion-card-content>
-          <ion-text>
-            <h3>{{list.occupation}}</h3>
+          <ion-text class="occupation">
+            <ion-card-title class="job">{{list.occupation}}</ion-card-title>
+            <ion-card-subtitle class="occupation">occupation</ion-card-subtitle>
           </ion-text>
-          <ion-text>
-            <h3>{{list.experience}} Years Of Experience</h3>
+          <ion-text class="xp">
+           <ion-card-title >{{list.experience}} Years</ion-card-title> 
+           <ion-card-subtitle class="xp">Experience</ion-card-subtitle>
           </ion-text>
       </ion-card>
       </ion-col>

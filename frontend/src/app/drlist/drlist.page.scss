@@ -14,23 +14,29 @@
 // 	--ion-background-color: #ffffff;
 // }
 
-.card-background-page {
 
-    ion-card {
+  
+
+  .doctorcard {
+      height: relative;
+      margin-top:81px;
       position: relative;
       text-align: center;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding-bottom: 20px;
     }
     
-    .card-title {
-      position: absolute;
-      top: 36%;
-      font-size: 2.0em;
+    .doctorname{
+      margin: -15px;
+      font-size: 1.8em;
       font-weight: bold;
       width: 100%;
       font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px 4px #000000;
+      color: #222d3b;
+      text-transform: uppercase;
+      text-align: center;
+      padding-left:25px;
+     
     }
   
     .card-subtitle {
@@ -44,20 +50,47 @@
     }
 
     img{
-        width: 300px;
-        height: 300px;
+        width: 362px;
+        height: 362px;
     }
     ion-card
     {
-       background-color: rgb(108, 170, 211);
+       background-color:#63c3fe;
        color: white;
     }
-    ion-searchbar
-    {
-  
-      margin-top: 2rem;
-    }
-  
-  
-    
+
+
+
+.occupation{
+  color: #222d3b;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding-bottom: 5px;
+
+}
+.xp{
+  color: #222d3b;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding-top: 5px;
+
+
+}
+
+h5{
+ text-transform: lowercase;
+ color: #f3f3f3;
+ text-align: left;
+ padding-left:10px;
+}
+
+*{
+ --background: #f3f3f3;
+}
+p{
+  font-size: 1.4em;
+}
+
+.job{
+  padding-bottom:5px;
 }

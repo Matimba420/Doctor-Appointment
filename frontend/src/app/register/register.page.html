@@ -22,7 +22,7 @@
           <ion-input type="email" formControlName="email" required></ion-input>
         </ion-item>
         <div *ngIf="Form['email'].touched && Form['email'].invalid" class="alert alert-danger">
-          <div *ngIf="Form['email'].errors && Form['email'].errors['required']">email is required.</div>
+          <div *ngIf="Form['email'].errors && Form['email'].errors['required']">Email is required.</div>
           <div *ngIf="Form['email'].errors && Form['email'].errors['email']">Please, enter valid email.</div>
         </div>
       </div>
@@ -32,8 +32,8 @@
         <ion-item>
           <ion-label position="floating">PASSWORD</ion-label>
           <ion-input type="password" formControlName="password" required></ion-input>
-        </ion-item>
-        <div *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
+        </ion-item >
+        <div class="errors" *ngIf="Form['password'].touched && Form['password'].invalid" class="alert alert-danger">
           <div *ngIf="Form['password'].errors && Form['password'].errors['required']">Password is required.</div>
           <!-- <div *ngIf="Form['password'].errors && Form['password'].errors['password']">Please, enter valid.</div> -->
         </div>
@@ -41,10 +41,12 @@
 
       <div class="form-select">
     <ion-item>
-      <ion-label position="floating">Are you a client</ion-label>
+      <ion-label class="selectuser" position="floating">Please select a role</ion-label>
       <ion-select placeholder="select" (ionChange)="onServiceSelect($event)" required>
-        <ion-select-option value="yes">YES</ion-select-option>
-        <ion-select-option value="no">NO</ion-select-option>
+        <ion-select-option value="admin">Admin</ion-select-option>
+        <ion-select-option value="cliet">Client</ion-select-option>
+        <ion-select-option value="doctor">Doctor</ion-select-option>
+        
       </ion-select>
     </ion-item>
     </div>

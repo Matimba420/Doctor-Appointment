@@ -22,7 +22,9 @@ export class DoctorProfilePage implements OnInit {
   ngOnInit() {
     // this.getDoctor();
     this.getDoctorById(this.route.snapshot.params['id']);
-    this.getAvailableAppointments(this.route.snapshot.params['id'])
+    this.getAvailableAppointments(this.route.snapshot.params['id']);
+    
+    
   }
 
   // getDoctor(){
@@ -37,7 +39,7 @@ export class DoctorProfilePage implements OnInit {
   getAvailableAppointments(id:any) {
     this.service.getAvailableAppointmentsByDrId(id).subscribe(res=>{
       this.availAppointments =res; 
-      console.log(this.availAppointments)
+       console.log(this.availAppointments)
     })
   }
 
@@ -45,9 +47,8 @@ export class DoctorProfilePage implements OnInit {
   getDoctorById(id:any){
     this.service.getDoctorById(id).subscribe(res=>{
       this.drInfo=res;
-      console.log(this.drInfo);
+      // console.log(this.drInfo);
       
-
     });
   }
 
@@ -55,9 +56,10 @@ export class DoctorProfilePage implements OnInit {
     // const id = parseInt(req.params.id);
     // const {pet_name } = req.body;
     // const {user_id } = req.body;
-    console.log(_obj)
-    console.log(this.petName.pet_name)
-    console.log(this.userDetails[0].id);
+    // console.log(_obj)
+    // console.log(this.petName.pet_name)
+    // console.log(this.userDetails[0].id);
+
     const data={
       pet_name:this.petName.pet_name ,
       user_id: this.userDetails[0].id

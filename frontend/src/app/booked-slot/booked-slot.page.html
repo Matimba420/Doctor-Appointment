@@ -1,0 +1,23 @@
+<ion-content class="card-background-page">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="4" *ngFor="let list of bookedSlot">
+        <ion-card>
+        
+          <ion-card-content>
+            <ion-card-title>{{list.firstname}} {{list.lastname}}</ion-card-title>
+          </ion-card-content>
+          <ion-text>
+            <h3>{{list.pet_name}}</h3>
+          </ion-text>
+          <ion-text>
+            <h3>{{list.appoint_date}} At {{list.time_slot}}</h3>
+          </ion-text>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
