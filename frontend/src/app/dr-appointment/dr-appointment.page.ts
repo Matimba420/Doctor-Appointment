@@ -81,7 +81,7 @@ export class DrAppointmentPage implements OnInit {
       console.log(res)
       //this.router.navigate(['/dr-dashboard']);
       localStorage.setItem('reload', JSON.stringify('true'));
-      // window.reload();
+       window.location.reload();
     })
 
   }

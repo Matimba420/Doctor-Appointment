@@ -534,6 +534,20 @@ const removeAppointment = async (req,res) =>{
     });
 }
 
+const cancelDrAppointment= async (req,res)=>{
+    const id = parseInt(req.params.id);
+
+    pool.query(queries.cancelDrAppointment,[id],(error,results)=>{
+        if(error){ 
+            console.status(404).json({error:'bad response '})
+            throw error;
+        }else{
+            mailer('ntsakokhozacc@gmail.com')
+            res.status(201).json("appointment cancelled");
+        }
+    });
+}
+
     
     
 module.exports ={
@@ -564,5 +578,5 @@ module.exports ={
     cancelAppointment,
     getClientAppointmentsById,
     newAppointment,
-    removeAppointment,
+    removeAppointment
 };
