@@ -26,8 +26,13 @@ router.get('/pets/', controller.getPets);
 router.get('/pets/name/:id',controller.getPetAndDocInfo);
 router.get('/pets/:id', controller.getPetById);
 
+
+router.get('/admin/', controller.getAdmins);
 router.post('/admin/',controller.addAdmin);
-router.get('/admin', controller.getAdmins);
+router.post('/admin/login',controller.adminLogin);
+router.get('/admin/:id',controller.getAdminById);
+router.delete('/admin/:id',controller.removeAdmin)
+router.put('/admin/:id',controller.updateAdmin)
 
 
 router.get('/appointments/', controller.getAppointments);
