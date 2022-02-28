@@ -42,7 +42,7 @@ const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experienc
 const getAppointments ="SELECT * FROM APPOINTMENT,DOCTOR,PUBLIC.USER,PETS WHERE APPOINTMENT.dr_id=DOCTOR.id and APPOINTMENT.user_id=public.USER.id and APPOINTMENT.pet_id=PETS.ID ";
 
 
-const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPOINTMENT.appoint_date,APPOINTMENT.is_available,cell_no,email,experience,is_active,picture FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
+const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPOINTMENT.appoint_date,APPOINTMENT.is_available,cell_no,email,experience,is_active,picture FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE ";
 
 // APPOINTMENT.appoint_date: "2022-02-27T22:00:00.000Z"
 // cell_no: "0123456789"

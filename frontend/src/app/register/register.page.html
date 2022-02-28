@@ -41,10 +41,12 @@
 
       <div class="form-select">
     <ion-item>
-      <ion-label class="selectuser" position="floating">Are you a client</ion-label>
+      <ion-label class="selectuser" position="floating">Please select a role</ion-label>
       <ion-select placeholder="select" (ionChange)="onServiceSelect($event)" required>
-        <ion-select-option value="yes">YES</ion-select-option>
-        <ion-select-option value="no">NO</ion-select-option>
+        <ion-select-option value="admin">Admin</ion-select-option>
+        <ion-select-option value="cliet">Client</ion-select-option>
+        <ion-select-option value="doctor">Doctor</ion-select-option>
+        
       </ion-select>
     </ion-item>
     </div>
