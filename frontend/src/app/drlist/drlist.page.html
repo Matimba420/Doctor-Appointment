@@ -1,9 +1,14 @@
 <ion-content class="card-background-page">
   <ion-grid>
     <ion-row>
-      <ion-searchbar [(ngModel)]="filterTerm"></ion-searchbar>
+      <ion-searchbar [(ngModel)]="filterTerm" ></ion-searchbar>
+
+      <div class="para" *ngIf="( drlist | filter : filterTerm) as result">
+          <p *ngIf="result.length === 0">Results not Found!!!</p>
+      </div>
 
       <ion-col size="12" size-sm="4" *ngFor="let list of drlist | filter: filterTerm">
+
         <ion-card>
           <img src="{{list.picture}}" routerLink="/doctor-profile/{{list.id}}">
           <ion-card-content>

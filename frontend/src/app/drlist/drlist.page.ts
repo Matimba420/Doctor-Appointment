@@ -52,6 +52,6 @@ export class DrlistPage implements OnInit {
   //   return true;
   // }
 
-  
+
 
 }

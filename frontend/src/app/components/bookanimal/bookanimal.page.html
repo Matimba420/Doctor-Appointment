@@ -1,18 +1,17 @@
 <ion-content [scrollEvents]="true">
   
   <ion-searchbar [(ngModel)]="filterTerm"></ion-searchbar>
-  <!-- <ion-list *ngIf="!filterTerm">
-    
-         <p>empty</p>
- </ion-list> -->
-
   
 
-  
+
 
   <ion-content class="card-background-page">
     <br>
     <h1 style="text-align: center; font-weight: bolder; margin-top: 20px;">Choose An Animal</h1>
+    
+    <div class="para" *ngIf="( bookAnimal | filter : filterTerm) as result">
+      <p *ngIf="result.length === 0">Results not Found!!!</p>
+  </div>
 
     <ion-grid>
       <ion-row>

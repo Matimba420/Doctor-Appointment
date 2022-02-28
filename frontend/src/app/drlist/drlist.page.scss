@@ -55,8 +55,10 @@
     }
     ion-card
     {
-       background-color:#63c3fe;
-       color: white;
+       background-color:#133d79;
+       
+
+       color:white;
     }
 
 
@@ -101,4 +103,12 @@ ion-searchbar
   color: black;
 
   
+}
+
+.para
+{
+  color:black;
+   display: flex; 
+   width: 100%;
+  justify-content: center; 
 }
