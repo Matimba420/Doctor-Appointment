@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit {
   onServiceSelect(e){
     let response =e.detail.value;
     if(response=='doctor'){
-      this.role="admin";
+      this.role="doctor";
     }else if(response=='admin'){
       this.role="admin";
     }else{
