@@ -21,6 +21,17 @@ const DoctorLogin = "SELECT id, firstname, lastname, cell_no, email FROM PUBLIC.
 const getDoctorPasswordByEmail="SELECT * FROM PUBLIC.DOCTOR  WHERE email=$1"
 const activateDoctor="UPDATE PUBLIC.DOCTOR SET is_active=$1 WHERE id=$2 ";
 
+const addAdmin="INSERT INTO PUBLIC.ADMIN VALUES (admin_name, admin_surname, email, password)"
+const getAdmins = "SELECT * FROM PUBLIC.ADMIN  where is_active='true'  ORDER BY id ASC";
+const getAdminById = "SELECT * FROM PUBLIC.ADMIN  WHERE id =$1 and is_active='true'"
+const checkAdminEmailExists = "SELECT * FROM PUBLIC.ADMIN  WHERE email= $1 and is_active='true'"
+const removeAdmin ="UPDATE PUBLIC.ADMIN  SET is_active='false' WHERE id=$1";
+const updateADMIN ="UPDATE PUBLIC.ADMIN  SET password=$2 WHERE ID = $3"
+
+
+
+
+
 
 const getPets="SELECT * FROM PUBLIC.PETS ORDER BY pet_name";
 const getPetById="SELECT * FROM PUBLIC.PETS WHERE id=$1 ";
@@ -31,7 +42,7 @@ const getPetAndDocInfo="select dr_name, cell_no,email, occupation,fee, experienc
 const getAppointments ="SELECT * FROM APPOINTMENT,DOCTOR,PUBLIC.USER,PETS WHERE APPOINTMENT.dr_id=DOCTOR.id and APPOINTMENT.user_id=public.USER.id and APPOINTMENT.pet_id=PETS.ID ";
 
 
-const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPOINTMENT.appoint_date,APPOINTMENT.is_available,cell_no,email,experience,is_active,picture FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE";
+const getAvailableAppointments="SELECT APPOINTMENT.id,APPOINTMENT.time_slot,APPOINTMENT.appoint_date,APPOINTMENT.is_available,cell_no,email,experience,is_active,picture FROM APPOINTMENT, DOCTOR WHERE dr_id=$1 and doctor.id=$1 and is_available=true and appoint_date>= CURRENT_DATE ";
 
 // APPOINTMENT.appoint_date: "2022-02-27T22:00:00.000Z"
 // cell_no: "0123456789"

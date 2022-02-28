@@ -336,7 +336,7 @@ const getPetAndDocInfo=(req,res)=>{
 const getAppointments=(req,res)=>{
     pool.query(queries.getAppointments,(error,results)=>{
         if(!results.rows){
-            res.send("Not found");
+            res.status.json({error:"Not found"});
         }else{
             res.status(200).json(results.rows);
         }
