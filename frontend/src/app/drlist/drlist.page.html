@@ -1,59 +1,8 @@
-<!-- <ion-content class="card-background-page">
-
-  
-
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" size-sm="4">
-        <div>
-            <ion-card *ngFor="let list of drlist">
-              <img src="{{list.picture}}"/>
-              <div class="card-title">{{list.dr_name}}</div>
-              <div class="card-subtitle">
-                <ion-chip>
-                  <ion-label color="white">{{list.occupation}}</ion-label>
-                </ion-chip>
-                <ion-chip>
-                  <ion-label color="white">{{list.experience}} years working experience</ion-label>
-                </ion-chip>
-              </div>
-            </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content> -->
-
-<!-- <ion-searchbar>
-  [(ngModel)]="filterTerm"
-  [showCancelButton]="shouldShowCancel"
-  (ionInput)="onInput($event)"
-  (ionCancel)="onCancel($event)">
-</ion-searchbar> -->
-
 <ion-content class="card-background-page">
+  <ion-grid>
+    <ion-row>
+      <ion-searchbar [(ngModel)]="filterTerm"></ion-searchbar>
 
-  <!-- <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
-  <ion-grid>
-    <ion-row>
-        <ion-list *ngIf="showResults()==true">
-          <ion-item *ngFor="let data of drlist | filter:filterTerm">
-            <ion-label>{{data.dr_name}}</ion-label>
-            <ion-label>{{data.email}}</ion-label>
-          </ion-item>
-        </ion-list>
-    </ion-row>
-  </ion-grid> -->
-  
-  
-  
-  <ion-grid>
-    <ion-row>
-      <ion-searchbar [(ngModel)]="filterTerm">
-        <!-- <p *ngIf="result.length === 0">No Result</p>   -->
-      </ion-searchbar>
-   
       <ion-col size="12" size-sm="4" *ngFor="let list of drlist | filter: filterTerm">
         <ion-card>
           <img src="{{list.picture}}" routerLink="/doctor-profile/{{list.id}}">
@@ -65,13 +14,11 @@
             <ion-card-subtitle class="occupation">occupation</ion-card-subtitle>
           </ion-text>
           <ion-text class="xp">
-           <ion-card-title >{{list.experience}} Years</ion-card-title> 
-           <ion-card-subtitle class="xp">Experience</ion-card-subtitle>
+            <ion-card-title>{{list.experience}} Years</ion-card-title>
+            <ion-card-subtitle class="xp">Experience</ion-card-subtitle>
           </ion-text>
-      </ion-card>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-
-
