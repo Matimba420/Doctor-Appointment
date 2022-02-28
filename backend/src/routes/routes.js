@@ -26,6 +26,9 @@ router.get('/pets/', controller.getPets);
 router.get('/pets/name/:id',controller.getPetAndDocInfo);
 router.get('/pets/:id', controller.getPetById);
 
+router.post('/admin/',controller.addAdmin);
+router.get('/admin', controller.getAdmins);
+
 
 router.get('/appointments/', controller.getAppointments);
 router.post('/appointments/', controller.newAppointment);
@@ -34,6 +37,7 @@ router.get('/appointments/client/:id',controller.getClientAppointmentsById);
 router.get('/appointments/avail/:id' , controller.getAvailAppointByDrId);
 router.get('/appointments/booked/:id', controller.getBookedAppointmentsBydrId);
 router.put('/appointments/makeAppointment/:id', controller.makeAppointment);
+
 
 
 router.put('/appointments/cancelAppointment/:id', controller.cancelAppointment);

@@ -290,6 +290,52 @@ const activateDoctor = async (req, res)=>{
     });
 }
 
+
+// ------------------------------------admim---------------------------------------------
+const addAdmin = async (req,res) => {
+    const {admin_name, admin_surname, cell_no, email, password} = req.body;
+    if( toString(password).length<8){
+        res.status(400).json('Your Password should be longer than 7 characters');
+    }else{
+
+        const salt=await bcrypt.genSalt(10);
+        const passwordHash = await bcrypt.hash(password, salt);
+
+        //check if email exists
+        pool.query(queries.checkClientEmailExists, [email], (error, results) => {
+            
+            if (results.rows.length){
+                res.status(409).json({error:"Email Already exists"});
+                
+            }else{
+                pool.query(queries.addAdmin, 
+                    [admin_name,admin_surname, cell_no,email, passwordHash],
+                    (error,results)=>{
+                    if(error){ 
+                        res.status(500).json({error: 'invalid input'})
+                        throw error;
+                    }else{
+                        addUserMailer(email,firstname,lastname);
+                        res.status(201).json("Admin registered successfully");
+                    }
+                });
+            }
+        });
+    
+    }
+}
+
+const getAdmins = (req, res) => {
+    pool.query(queries.getAdmins,(error, results) => {
+        if(this.error){
+            console.log("error:"+error);
+            res.status(404).send(error);
+            throw error;
+        }
+        res.status(200).json(results.rows)
+    });
+};
+
 // ------------------------------------pets----------------------------------------------
 
 const getPets = (req, res) => {
@@ -552,6 +598,9 @@ module.exports ={
     updateDoctor,
     doctorLogin,
     activateDoctor,
+
+    addAdmin,
+    getAdmins,
     
     getPets,
     getPetById,

@@ -21,12 +21,13 @@ const DoctorLogin = "SELECT id, firstname, lastname, cell_no, email FROM PUBLIC.
 const getDoctorPasswordByEmail="SELECT * FROM PUBLIC.DOCTOR  WHERE email=$1"
 const activateDoctor="UPDATE PUBLIC.DOCTOR SET is_active=$1 WHERE id=$2 ";
 
-const addAdmin="INSERT INTO PUBLIC.ADMIN VALUES (admin_name, admin_surname, email, password)"
+const addAdmin="INSERT INTO PUBLIC.ADMIN VALUES (admin_name, admin_surname, cell_no, email, password)"
 const getAdmins = "SELECT * FROM PUBLIC.ADMIN  where is_active='true'  ORDER BY id ASC";
 const getAdminById = "SELECT * FROM PUBLIC.ADMIN  WHERE id =$1 and is_active='true'"
 const checkAdminEmailExists = "SELECT * FROM PUBLIC.ADMIN  WHERE email= $1 and is_active='true'"
 const removeAdmin ="UPDATE PUBLIC.ADMIN  SET is_active='false' WHERE id=$1";
 const updateADMIN ="UPDATE PUBLIC.ADMIN  SET password=$2 WHERE ID = $3"
+const adminLogin = "SELECT id, admin_name, admin_surname, cell_no, email FROM PUBLIC.ADMIN  WHERE password=$1 AND email=$2";
 
 
 
@@ -93,6 +94,15 @@ module.exports = {
     DoctorLogin,
     getDoctorPasswordByEmail,
     activateDoctor,
+
+
+    addAdmin,
+    getAdmins,
+    getAdminById,
+    checkAdminEmailExists,
+    removeAdmin,
+    updateADMIN,
+    adminLogin,
 
 
     getPets,
