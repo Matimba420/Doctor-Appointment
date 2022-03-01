@@ -36,9 +36,9 @@ export class AuthService {
     return (authToken !== null) ? true : false;
   }
 
-  getProfile(id): Observable<any>{
+  // getProfile(id): Observable<any>{
 
-  }
+  // }
 
   doLogout() {
     let removeToken = localStorage.removeItem('token');

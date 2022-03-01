@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"
 import { Router } from '@angular/router';
 import { UserService } from '../api/user.service';
 import { DoctorService } from '../api/doctor.service';
+import { AdminService } from '../api/admin.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(public formBuilder: FormBuilder, private userService: UserService,private doctorService: DoctorService, private router: Router) { }
+  constructor(public formBuilder: FormBuilder, private userService: UserService,private doctorService: DoctorService, private adminService:AdminService,private router: Router) { }
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -97,7 +98,28 @@ export class RegisterPage implements OnInit {
   });
     
   }else{
-    alert("should be implemented for admin");
+    // alert("should be implemented for admin");
+    // ************
+    this.adminService.adminLogin(this.loginForm.value).subscribe({
+      next:(data) =>{
+        this.isloading=false;
+        localStorage.setItem("AdminAccess", JSON.stringify(data));
+        console.log(data)
+        this.router.navigateByUrl('/admin',{replaceUrl:true});
+      },
+      
+      error: (e) => (
+        console.log(e),
+         Swal.fire({  
+          confirmButtonColor: "red",
+          icon: 'error',  
+          title: e.error.error,  
+          footer: 'Please verifty your login credentials'}),
+          this.isloading=false
+      )
+  });
+  // **************
+
   }
     
 

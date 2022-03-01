@@ -54,31 +54,40 @@ export class AppComponent {
   }
 
   isLoggedInUser(){
+    // const loggedInUser = JSON.parse(localStorage.getItem('access'));
+    // if(loggedInUser ===null){
+    //   return false;
+    // }
+    // return true;
+
     const loggedInUser = JSON.parse(localStorage.getItem('access'));
-    if(loggedInUser ===null){
+    // const loggedInDoctor=JSON.parse(localStorage.getItem('doctorAccess'));
+    
+    if(loggedInUser !==null){
       return false;
     }
     return true;
-
-    // const loggedInUser = JSON.parse(localStorage.getItem('access'));
-    // const loggedInDoctor=JSON.parse(localStorage.getItem('doctorAccess'))
-    // if(loggedInUser ===null){
-    //   return false;
-    // }else if (loggedInDoctor===null){
-    //   return false;
-    // }else{
-    //   return true;
-    // }
   }
 
   isLoggedInDoctor(){
     const loggedInDoctor=JSON.parse(localStorage.getItem('doctorAccess'))
-    if(loggedInDoctor ===null){
+    if(loggedInDoctor !==null){
       return false;
     }
     return true;
-    
   }
+
+
+  isLoggedInAdmin(){
+    const loggedInAdmin=JSON.parse(localStorage.getItem('adminAccess'));
+    if(loggedInAdmin!==null){
+      return false;
+    }
+    return true;
+  }
+
+  
+  
 
 
 

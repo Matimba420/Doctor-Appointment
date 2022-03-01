@@ -32,17 +32,17 @@
     <ion-content class="menu">
       <ion-list>
         <ion-menu-toggle>
-          <ion-item [routerLink]="['/login']" *ngIf="isLoggedInUser()==false || isLoggedInDoctor()==false">
+          <ion-item [routerLink]="['/login']" *ngIf="isLoggedInUser()==false || isLoggedInDoctor()==false || isLoggedInAdmin()==false">
             <ion-icon name="log-in-outline"></ion-icon> <strong>Login</strong>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item [routerLink]="['/login']" *ngIf="isLoggedInUser()==true || isLoggedInDoctor()==true" (click)="logout()">
+          <ion-item [routerLink]="['/login']" *ngIf="isLoggedInUser()==true || isLoggedInDoctor()==true || isLoggedInAdmin()==true" (click)="logout()">
             <ion-icon name="log-in-outline"></ion-icon> <strong>Logout</strong>
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item [routerLink]="['/register']" *ngIf="isLoggedInUser()==false || isLoggedInDoctor()==false">
+          <ion-item [routerLink]="['/register']" *ngIf="isLoggedInUser()==false || isLoggedInDoctor()==false || isLoggedInAdmin()==false">
             <ion-icon name="person-add-outline"></ion-icon> <strong>Sign Up</strong>
           </ion-item>
         </ion-menu-toggle>
