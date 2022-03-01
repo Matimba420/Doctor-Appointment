@@ -32,7 +32,7 @@
     <ion-content class="menu">
       <ion-list>
         <ion-menu-toggle>
-          <ion-item [routerLink]="['/login']" *ngIf="isLoggedInUser()==false || isLoggedInDoctor()==false || isLoggedInAdmin()==false">
+          <ion-item [routerLink]="['/login']" *ngIf="isLoggedInUser()==false && isLoggedInDoctor()==false && isLoggedInAdmin()==false">
             <ion-icon name="log-in-outline"></ion-icon> <strong>Login</strong>
           </ion-item>
         </ion-menu-toggle>

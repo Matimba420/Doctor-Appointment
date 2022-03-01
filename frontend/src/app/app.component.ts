@@ -64,26 +64,26 @@ export class AppComponent {
     // const loggedInDoctor=JSON.parse(localStorage.getItem('doctorAccess'));
     
     if(loggedInUser !==null){
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
   isLoggedInDoctor(){
     const loggedInDoctor=JSON.parse(localStorage.getItem('doctorAccess'))
     if(loggedInDoctor !==null){
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
 
   isLoggedInAdmin(){
     const loggedInAdmin=JSON.parse(localStorage.getItem('adminAccess'));
     if(loggedInAdmin!==null){
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
   
