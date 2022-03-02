@@ -103,7 +103,7 @@ export class RegisterPage implements OnInit {
     this.adminService.adminLogin(this.loginForm.value).subscribe({
       next:(data) =>{
         this.isloading=false;
-        localStorage.setItem("AdminAccess", JSON.stringify(data));
+        localStorage.setItem("adminAccess", JSON.stringify(data));
         console.log(data)
         this.router.navigateByUrl('/admin',{replaceUrl:true});
       },

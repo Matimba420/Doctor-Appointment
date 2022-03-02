@@ -54,15 +54,8 @@ export class AppComponent {
   }
 
   isLoggedInUser(){
-    // const loggedInUser = JSON.parse(localStorage.getItem('access'));
-    // if(loggedInUser ===null){
-    //   return false;
-    // }
-    // return true;
 
     const loggedInUser = JSON.parse(localStorage.getItem('access'));
-    // const loggedInDoctor=JSON.parse(localStorage.getItem('doctorAccess'));
-    
     if(loggedInUser !==null){
       return true;
     }
@@ -81,6 +74,8 @@ export class AppComponent {
   isLoggedInAdmin(){
     const loggedInAdmin=JSON.parse(localStorage.getItem('adminAccess'));
     if(loggedInAdmin!==null){
+      console.log(loggedInAdmin);
+      
       return true;
     }
     return false;
