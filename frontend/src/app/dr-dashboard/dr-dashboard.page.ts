@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class DrDashboardPage implements OnInit {
   count = 1;
+  doctor=localStorage.getItem('doctorAccess')
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute,) {}
 
@@ -19,6 +20,9 @@ export class DrDashboardPage implements OnInit {
   availAppointments:any=[]
   drID:any;
   ngOnInit() {
+    if(this.doctor==null){
+      this.router.navigateByUrl('/login',{replaceUrl:true});
+    }
 
     this.getDoctorById();
     // console.log("dro " ,this.availAppointments);

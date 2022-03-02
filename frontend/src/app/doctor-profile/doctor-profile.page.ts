@@ -15,12 +15,18 @@ export class DoctorProfilePage implements OnInit {
   availAppointments:any=[]
   userDetails:any=JSON.parse(localStorage.getItem('access'));
   petName:any=JSON.parse(localStorage.getItem('pet_name'));
-  drId=this.route.snapshot.params['id']
+  drId=this.route.snapshot.params['id'];
+  client = localStorage.getItem('access');
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute,) { }
 
   ngOnInit() {
     // this.getDoctor();
+    
+
+    if(this.client==null){
+      this.router.navigateByUrl('/login',{replaceUrl:true});
+    }
     this.getDoctorById(this.route.snapshot.params['id']);
     this.getAvailableAppointments(this.route.snapshot.params['id']);
     

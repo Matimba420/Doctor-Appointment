@@ -15,11 +15,16 @@ export class DrlistPage implements OnInit {
   drlist:any=[];
   show: boolean = true;
   petInfo=JSON.parse(localStorage.getItem('pet_name'));
+  client = localStorage.getItem('access');
   
 
   constructor(private service: DoctorService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    if(this.client==null){
+      this.router.navigateByUrl('/login',{replaceUrl:true});
+    }
+
     this.getPetAndDocInfo();
     console.log(this.petInfo.pet_name);
     

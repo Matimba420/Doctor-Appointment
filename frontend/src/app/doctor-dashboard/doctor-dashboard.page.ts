@@ -10,6 +10,7 @@ export class DoctorDashboardPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

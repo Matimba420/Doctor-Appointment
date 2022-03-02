@@ -21,6 +21,7 @@ export class AdminPage implements OnInit {
   doctors:any=[];
   appointments:any=[];
   counter=1;
+  admin = localStorage.getItem('adminAccess');
 
   clientForm: boolean = false;
   doctorForm: boolean = false;
@@ -55,6 +56,9 @@ export class AdminPage implements OnInit {
 
 
   ngOnInit() {
+    if(this.admin==null){
+      this.router.navigateByUrl('/login',{replaceUrl:true});
+    }
     this.getClients();
     this.getDoctors();
     this.getAppointments();

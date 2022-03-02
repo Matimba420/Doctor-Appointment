@@ -13,6 +13,7 @@ export class BookanimalPage implements OnInit {
   // items: string[] = [];
   filterTerm!: string;
   bookAnimal:any=[];
+  client = localStorage.getItem('access')
   
 
 
@@ -20,6 +21,9 @@ export class BookanimalPage implements OnInit {
   constructor(private service:PetsService, private router:Router) { }
 
    ngOnInit() {
+    if(this.client==null){
+      this.router.navigateByUrl('/login',{replaceUrl:true});
+    }
 
    this.getPets();
 

@@ -47,7 +47,12 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item [routerLink]="['/profile']" *ngIf="isLoggedInUser()==true || isLoggedInUser()==true">
+          <ion-item [routerLink]="['/profile']" *ngIf="isLoggedInUser()==true">
+            <ion-icon name="person-outline"></ion-icon> <strong>Profile</strong>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/dr-dashboard']" *ngIf="isLoggedInDoctor()==true">
             <ion-icon name="person-outline"></ion-icon> <strong>Profile</strong>
           </ion-item>
         </ion-menu-toggle>
